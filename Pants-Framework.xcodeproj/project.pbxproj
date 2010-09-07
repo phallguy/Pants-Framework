@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
+		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
+		DA7C87121235ED47004FD53B /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C87101235ED47004FD53B /* PFDrawTools.h */; };
+		DA7C87131235ED47004FD53B /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C87111235ED47004FD53B /* PFDrawTools.m */; };
+		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
+		DA7C88491235FD35004FD53B /* PFTouchDetectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */; };
+		DADEBCB612360B420055DF8F /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEBCB512360B420055DF8F /* PFCommon.h */; };
 		DAFB368A1235A90F0008E7DB /* UIView+ShowThySelf.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */; };
 		DAFB368B1235A90F0008E7DB /* UIView+ShowThySelf.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36891235A90F0008E7DB /* UIView+ShowThySelf.m */; };
 /* End PBXBuildFile section */
@@ -17,6 +24,13 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
+		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
+		DA7C87101235ED47004FD53B /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFDrawTools.h; sourceTree = "<group>"; };
+		DA7C87111235ED47004FD53B /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFDrawTools.m; sourceTree = "<group>"; };
+		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
+		DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTouchDetectorControl.m; sourceTree = "<group>"; };
+		DADEBCB512360B420055DF8F /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
 		DAFB367D1235A8AD0008E7DB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DAFB367E1235A8AD0008E7DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ShowThySelf.h"; sourceTree = "<group>"; };
@@ -65,7 +79,10 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DADEBCB512360B420055DF8F /* PFCommon.h */,
 				DAFB36871235A90F0008E7DB /* Views */,
+				DA7C87101235ED47004FD53B /* PFDrawTools.h */,
+				DA7C87111235ED47004FD53B /* PFDrawTools.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -85,6 +102,10 @@
 			children = (
 				DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */,
 				DAFB36891235A90F0008E7DB /* UIView+ShowThySelf.m */,
+				DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */,
+				DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */,
+				DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */,
+				DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -99,6 +120,10 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */,
 				DAFB368A1235A90F0008E7DB /* UIView+ShowThySelf.h in Headers */,
+				DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */,
+				DA7C87121235ED47004FD53B /* PFDrawTools.h in Headers */,
+				DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */,
+				DADEBCB612360B420055DF8F /* PFCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +178,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFB368B1235A90F0008E7DB /* UIView+ShowThySelf.m in Sources */,
+				DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */,
+				DA7C87131235ED47004FD53B /* PFDrawTools.m in Sources */,
+				DA7C88491235FD35004FD53B /* PFTouchDetectorControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,24 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol PFShowThySelfCallbackDelegate;
+
+
 @interface UIView (ShowThySelf)
 
+-(void) popupWithCornerRadius: (CGFloat) radius 
+					 animated: (BOOL) animated 
+					 delegate: (id<PFShowThySelfCallbackDelegate>) callbackDelegate
+					  context: (const void*) context;
 -(void) popup: (BOOL) animated;
 -(void) cancelPopup: (BOOL) animated;
+
+@end
+
+
+@protocol PFShowThySelfCallbackDelegate
+@optional
+-(void) viewDidTouchOutsidePopup: (UIView*) popupView context: (const void*) context;
+-(void) viewDidDismissPopup: (UIView*) popupView context: (const void*) context;
 
 @end

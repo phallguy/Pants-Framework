@@ -5,13 +5,17 @@
 
 
 #import "UIView+ShowThySelf.h"
+#import "PFPopupBorderWithShadowView.h"
+#import "PFTouchDetectorControl.h"
+#import	<QuartzCore/QuartzCore.h>
 
 
 @implementation UIView (ShowThySelf)
 
 -(void) dismiss: (BOOL) animated
 {
-	UIView * touchScreen = self.superview;
+	PFPopupBorderWithShadowView * hostView = (PFPopupBorderWithShadowView*) self.superview;
+	PFTouchDetectorControl * touchScreen = (PFTouchDetectorControl*) hostView.superview;
 
 	if( animated )
 	{
@@ -21,7 +25,7 @@
 		[UIView setAnimationDidStopSelector: @selector( closeAnimationPhase1Finished:finished:context: )];
 		[UIView setAnimationDuration: .10];
 		
-		self.transform = CGAffineTransformMakeScale( 1.2, 1.2 );
+		hostView.transform = CGAffineTransformScale( hostView.hostTransform, 1.1, 1.1 );
 		
 		[UIView commitAnimations];
 	}
@@ -29,33 +33,56 @@
 	{
 		[touchScreen removeFromSuperview];
 		[self removeFromSuperview];
-		[touchScreen release];
+		
+		if( touchScreen.delegate && [touchScreen.delegate respondsToSelector: @selector( viewDidDismissPopup:context: ) ] )
+		{
+			[touchScreen.delegate viewDidDismissPopup: self context: touchScreen.context];
+		}
+	
+		
+		[hostView release];
+		[touchScreen release];		
 	}
 }
 
 
--(void) touchScreenPressed
+-(void) touchScreenPressed: (id) sender
 {
-    [self dismiss: YES];
+ 	PFTouchDetectorControl * touchScreen = (PFTouchDetectorControl*)sender;
+	
+	if( touchScreen.delegate && [touchScreen.delegate respondsToSelector: @selector(viewDidTouchOutsidePopup:context:)] )
+	{
+		[touchScreen.delegate viewDidTouchOutsidePopup: self context: touchScreen.context];
+	}
+	else
+	{
+		[self dismiss: YES];
+	}
 }
 
 -(void) popupAnimationFinished: (NSString*) animationID finished: (NSNumber*) finished context: (void*) context
 {
+	PFPopupBorderWithShadowView * hostView = (PFPopupBorderWithShadowView*) self.superview;
+
 	[UIView beginAnimations: @"popupShowingDialogPopBack" context: nil];
-	self.transform = CGAffineTransformIdentity;
+	
+	hostView.transform = hostView.hostTransform;
 	
 	[UIView commitAnimations];
 }
 
 -(void) closeAnimationPhase1Finished: (NSString*) animationID finished: (NSNumber*) finished context: (void*) context
 {
+	PFPopupBorderWithShadowView * hostView = (PFPopupBorderWithShadowView*) self.superview;
+    
+	
 	[UIView beginAnimations: @"popdownDialog" context: nil];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector( closeAnimationFinished:finished:context: )];
 	[UIView setAnimationCurve: UIViewAnimationCurveEaseIn];
 	[UIView setAnimationDuration: .10];
 	
-	self.transform = CGAffineTransformMakeScale( .01, .01 );
+	hostView.transform = CGAffineTransformMakeScale( .01, .01 );
 	
 	[UIView commitAnimations];
 }
@@ -66,27 +93,60 @@
 }
 
 -(void) popup: (BOOL) animated
+{
+	[self popupWithCornerRadius: 0 
+					   animated: animated 
+					   delegate: nil
+						context: NULL];
+}
+
+-(void) popupWithCornerRadius: (CGFloat) radius 
+					 animated: (BOOL) animated 
+					 delegate: (id<PFShowThySelfCallbackDelegate>) callbackDelegate
+					  context: (const void*) context
 {	
+    
 	UIWindow * window = [[UIApplication sharedApplication] keyWindow];
 	if( ! window )
 		window = [[[UIApplication sharedApplication] windows] objectAtIndex: 0];
 	
 	
-	UIControl * touchScreen = [[UIControl alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-	
-    [touchScreen addTarget: self 
-                    action: @selector(touchScreenPressed) 
-          forControlEvents: UIControlEventTouchUpInside];
-	
-	[touchScreen addSubview: self];
+	PFTouchDetectorControl * touchScreen = [[PFTouchDetectorControl alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+	touchScreen.delegate = callbackDelegate;
+	touchScreen.context = context;
     
-    self.center = touchScreen.center;
+    [touchScreen addTarget: self 
+                    action: @selector(touchScreenPressed:) 
+          forControlEvents: UIControlEventTouchUpInside];
+    
+    
+    CGAffineTransform transform = self.transform;
+    self.transform = CGAffineTransformIdentity;
+	
+	PFPopupBorderWithShadowView * hostView = [[PFPopupBorderWithShadowView alloc] initWithFrame: self.frame];
+	hostView.borderWidth = 12;
+	hostView.borderColor = self.backgroundColor;
+    hostView.hostTransform = transform;
+	
+	if( radius > 0 )
+	{
+		self.layer.cornerRadius = radius;
+		self.layer.masksToBounds = YES;
+	}
+	
+	[hostView addSubview: self];
+	[touchScreen addSubview: hostView];
+    
+	hostView.center = touchScreen.center;
+    self.center = CGPointMake( CGRectGetWidth( hostView.frame ) / 2, CGRectGetHeight( hostView.frame ) / 2 );
+
+	
 		
 	[window addSubview: touchScreen];
     
 	if( animated )
 	{
-		self.transform = CGAffineTransformMakeScale( 0.01,  0.01 );
+		hostView.transform = CGAffineTransformMakeScale( 0.01,  0.01 );
 		touchScreen.backgroundColor = [UIColor clearColor];
 
 		[UIView beginAnimations: @"popupShowingDialog" context: nil];
@@ -95,7 +155,7 @@
 		[UIView setAnimationCurve: UIViewAnimationCurveEaseIn];
 		[UIView setAnimationDidStopSelector: @selector( popupAnimationFinished:finished:context: )];
 		
-		self.transform = CGAffineTransformMakeScale( 1.2, 1.2 );
+		hostView.transform = CGAffineTransformMakeScale( 1.2, 1.2 );
 		
 		[UIView commitAnimations];
 	}
