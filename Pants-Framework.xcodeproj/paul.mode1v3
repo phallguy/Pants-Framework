@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,14 +271,13 @@
 								<string>32C88DFF0371C24200C91783</string>
 								<string>034768DFFF38A50411DB9C8B</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>DAD8157112360382003C4316</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
-									<integer>16</integer>
+									<integer>4</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -306,7 +303,7 @@
 							<real>273</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>950 197 1380 911 0 0 2560 1578 </string>
+						<string>360 401 1380 911 0 0 2560 1578 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -317,12 +314,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>UIView+ShowThySelf.m</string>
+								<string>PFLocationTools.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>UIView+ShowThySelf.m</string>
+										<string>PFLocationTools.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAD8157212360382003C4316</string>
+										<string>DAAB70CF12361318007A7A17</string>
 										<key>history</key>
 										<array>
 											<string>DAFB36901235A9320008E7DB</string>
@@ -348,7 +347,12 @@
 											<string>DA7C888C12360088004FD53B</string>
 											<string>DA7C888D12360088004FD53B</string>
 											<string>DA7C888E12360088004FD53B</string>
-											<string>DA7C88AA1236016B004FD53B</string>
+											<string>DAAB70C612361318007A7A17</string>
+											<string>DAAB70C712361318007A7A17</string>
+											<string>DAAB70C912361318007A7A17</string>
+											<string>DAAB70CB12361318007A7A17</string>
+											<string>DAAB70CD12361318007A7A17</string>
+											<string>DAAB70CE12361318007A7A17</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -362,7 +366,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1063, 865}}</string>
 								<key>RubberWindowFrame</key>
-								<string>950 197 1380 911 0 0 2560 1578 </string>
+								<string>360 401 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -382,7 +386,7 @@
 								<key>Frame</key>
 								<string>{{0, 870}, {1063, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>950 197 1380 911 0 0 2560 1578 </string>
+								<string>360 401 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -406,9 +410,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DAD8157312360382003C4316</string>
+				<string>DAAB70B712361298007A7A17</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DAD8157412360382003C4316</string>
+				<string>DAAB70B812361298007A7A17</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -550,7 +554,7 @@
 		<string>/Users/paul/Projects/Apps-In-Your-Pants/Pants-Framework/Pants-Framework.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>950 197 1380 911 0 0 2560 1578 </string>
+	<string>360 401 1380 911 0 0 2560 1578 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -627,7 +631,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DAFB366E1235A87A0008E7DB</string>
-				<string>DAD8157512360382003C4316</string>
+				<string>DAAB70B912361298007A7A17</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
