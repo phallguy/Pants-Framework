@@ -276,7 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
+									<integer>15</integer>
+									<integer>9</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -303,7 +304,7 @@
 							<real>273</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>360 401 1380 911 0 0 2560 1578 </string>
+						<string>839 146 1380 911 0 0 2560 1578 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -321,7 +322,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PFLocationTools.m</string>
+								<string>PFTouchDetectorControl.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,30 +330,25 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PFLocationTools.m</string>
+										<string>PFTouchDetectorControl.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAAB70CF12361318007A7A17</string>
+										<string>DACE42781236BFA40016B31F</string>
 										<key>history</key>
 										<array>
 											<string>DAFB36901235A9320008E7DB</string>
 											<string>DAFB36911235A9320008E7DB</string>
 											<string>DA5483861235C85300D5BD60</string>
 											<string>DA7C871B1235EF8C004FD53B</string>
-											<string>DA7C87531235F12C004FD53B</string>
 											<string>DA7C887B1235FFAB004FD53B</string>
-											<string>DA7C887C1235FFAB004FD53B</string>
 											<string>DA7C887F1235FFAB004FD53B</string>
 											<string>DA7C888C12360088004FD53B</string>
 											<string>DA7C888D12360088004FD53B</string>
-											<string>DA7C888E12360088004FD53B</string>
-											<string>DAAB70C612361318007A7A17</string>
-											<string>DAAB70C712361318007A7A17</string>
-											<string>DAAB70C912361318007A7A17</string>
-											<string>DAAB70CB12361318007A7A17</string>
 											<string>DAAB70CD12361318007A7A17</string>
-											<string>DAAB70CE12361318007A7A17</string>
+											<string>DACE42231236BCB80016B31F</string>
+											<string>DACE42241236BCB80016B31F</string>
+											<string>DACE42261236BCB80016B31F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -366,7 +362,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1063, 865}}</string>
 								<key>RubberWindowFrame</key>
-								<string>360 401 1380 911 0 0 2560 1578 </string>
+								<string>839 146 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -386,7 +382,7 @@
 								<key>Frame</key>
 								<string>{{0, 870}, {1063, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>360 401 1380 911 0 0 2560 1578 </string>
+								<string>839 146 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -410,9 +406,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DAAB70B712361298007A7A17</string>
+				<string>DACE42791236BFA40016B31F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DAAB70B812361298007A7A17</string>
+				<string>DACE427A1236BFA40016B31F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -554,7 +550,7 @@
 		<string>/Users/paul/Projects/Apps-In-Your-Pants/Pants-Framework/Pants-Framework.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>360 401 1380 911 0 0 2560 1578 </string>
+	<string>839 146 1380 911 0 0 2560 1578 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -631,7 +627,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DAFB366E1235A87A0008E7DB</string>
-				<string>DAAB70B912361298007A7A17</string>
+				<string>DACE427B1236BFA40016B31F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

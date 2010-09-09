@@ -74,7 +74,8 @@
 -(void) closeAnimationPhase1Finished: (NSString*) animationID finished: (NSNumber*) finished context: (void*) context
 {
 	PFPopupBorderWithShadowView * hostView = (PFPopupBorderWithShadowView*) self.superview;
-    
+	PFTouchDetectorControl * touchScreen = (PFTouchDetectorControl*) hostView.superview;
+
 	
 	[UIView beginAnimations: @"popdownDialog" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -83,6 +84,7 @@
 	[UIView setAnimationDuration: .10];
 	
 	hostView.transform = CGAffineTransformMakeScale( .01, .01 );
+	touchScreen.alpha = 0;
 	
 	[UIView commitAnimations];
 }
@@ -147,7 +149,7 @@
 	if( animated )
 	{
 		hostView.transform = CGAffineTransformMakeScale( 0.01,  0.01 );
-		touchScreen.backgroundColor = [UIColor clearColor];
+		touchScreen.alpha = 0;
 
 		[UIView beginAnimations: @"popupShowingDialog" context: nil];
 		[UIView setAnimationDuration: .10];
@@ -156,6 +158,7 @@
 		[UIView setAnimationDidStopSelector: @selector( popupAnimationFinished:finished:context: )];
 		
 		hostView.transform = CGAffineTransformMakeScale( 1.2, 1.2 );
+		touchScreen.alpha = 1;
 		
 		[UIView commitAnimations];
 	}
