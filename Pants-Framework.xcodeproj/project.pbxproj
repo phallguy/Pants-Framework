@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA399EEE12429AA6008D4E97 /* PFLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DA399EEC12429AA6008D4E97 /* PFLabel.h */; };
+		DA399EEF12429AA6008D4E97 /* PFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA399EED12429AA6008D4E97 /* PFLabel.m */; };
 		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
@@ -20,6 +22,8 @@
 		DADEBCB612360B420055DF8F /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEBCB512360B420055DF8F /* PFCommon.h */; };
 		DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3A5A51236B490009C125E /* PFDrawTools.h */; };
 		DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3A5A61236B490009C125E /* PFDrawTools.m */; };
+		DAF990FD1242C0F5000DC691 /* PFGlassButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF990FB1242C0F5000DC691 /* PFGlassButton.h */; };
+		DAF990FE1242C0F5000DC691 /* PFGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF990FC1242C0F5000DC691 /* PFGlassButton.m */; };
 		DAFB368A1235A90F0008E7DB /* UIView+ShowThySelf.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */; };
 		DAFB368B1235A90F0008E7DB /* UIView+ShowThySelf.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36891235A90F0008E7DB /* UIView+ShowThySelf.m */; };
 /* End PBXBuildFile section */
@@ -28,6 +32,8 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA399EEC12429AA6008D4E97 /* PFLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLabel.h; sourceTree = SOURCE_ROOT; };
+		DA399EED12429AA6008D4E97 /* PFLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFLabel.m; sourceTree = SOURCE_ROOT; };
 		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
@@ -39,6 +45,8 @@
 		DADEBCB512360B420055DF8F /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
 		DAE3A5A51236B490009C125E /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawTools.h; path = Classes/PFDrawTools.h; sourceTree = "<group>"; };
 		DAE3A5A61236B490009C125E /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawTools.m; path = Classes/PFDrawTools.m; sourceTree = "<group>"; };
+		DAF990FB1242C0F5000DC691 /* PFGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassButton.h; sourceTree = SOURCE_ROOT; };
+		DAF990FC1242C0F5000DC691 /* PFGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassButton.m; sourceTree = SOURCE_ROOT; };
 		DAFB367D1235A8AD0008E7DB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DAFB367E1235A8AD0008E7DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ShowThySelf.h"; sourceTree = "<group>"; };
@@ -112,6 +120,10 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAF990FB1242C0F5000DC691 /* PFGlassButton.h */,
+				DAF990FC1242C0F5000DC691 /* PFGlassButton.m */,
+				DA399EEC12429AA6008D4E97 /* PFLabel.h */,
+				DA399EED12429AA6008D4E97 /* PFLabel.m */,
 				DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */,
 				DAFB36891235A90F0008E7DB /* UIView+ShowThySelf.m */,
 				DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */,
@@ -138,6 +150,8 @@
 				DAAB70BE123612BD007A7A17 /* PFLocationTools.h in Headers */,
 				DAAB70C0123612BD007A7A17 /* PFUtility.h in Headers */,
 				DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */,
+				DA399EEE12429AA6008D4E97 /* PFLabel.h in Headers */,
+				DAF990FD1242C0F5000DC691 /* PFGlassButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +211,8 @@
 				DAAB70BF123612BD007A7A17 /* PFLocationTools.m in Sources */,
 				DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */,
 				DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */,
+				DA399EEF12429AA6008D4E97 /* PFLabel.m in Sources */,
+				DAF990FE1242C0F5000DC691 /* PFGlassButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -88,4 +88,56 @@
 	return path;
 }
 
++(CGRect) calculateGlassRect: (CGRect) rect shadowDepth: (CGFloat) shadowDepth
+{
+	return CGRectMake( CGRectGetMinX( rect ) + 1.5, 
+                       CGRectGetMinY( rect ) + 1.5, 
+                       CGRectGetWidth( rect ) - shadowDepth, 
+                       CGRectGetHeight( rect ) - shadowDepth );     
+}
+
++(CGRect) drawGlassInContext: (CGContextRef) g 
+                   forRect: (CGRect) rect 
+                     color: (UIColor *) color
+          withCornerRadius: (CGFloat) cornerRadius 
+               borderWidth: (CGFloat) borderWidth 
+               shadowDepth: (CGFloat) shadowDepth
+
+{
+	CGRect r = [PFDrawTools calculateGlassRect: rect shadowDepth: shadowDepth];
+	CGPathRef path = [PFDrawTools createPathForRect: r withCornerRadius: cornerRadius];
+		
+	CGContextSaveGState( g );
+	
+	CGContextAddRect( g, rect );
+	CGContextAddPath( g, path );
+	CGContextEOClip( g );
+	
+	CGContextAddPath( g, path );
+	CGContextSetShadowWithColor( g, CGSizeMake( ( shadowDepth / 3 ) - 1.5, ( shadowDepth / 3 ) - 1.5 ), shadowDepth,
+								[[UIColor colorWithRed: 0 green: 0 blue: 0 alpha: .65] CGColor]);
+	CGContextFillPath( g );
+	
+	CGContextRestoreGState( g );
+	
+	[[color colorWithAlphaComponent: .5] set];
+	CGContextAddPath( g, path );
+	CGContextFillPath( g );
+	
+	[color set];
+	
+	CGContextAddPath( g, path );
+	CGContextStrokePath( g );
+	
+	CGPathRelease( path );
+	
+	CGPathRef innerPath = [PFDrawTools createPathForRect: CGRectInset( r, borderWidth / 2.25, borderWidth / 2.25 ) withCornerRadius: cornerRadius / 1.5];
+	CGContextAddPath( g, innerPath );
+	CGContextFillPath( g );
+	
+	CGPathRelease( innerPath );
+    
+    return r;
+}
+
 @end

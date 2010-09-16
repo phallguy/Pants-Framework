@@ -14,5 +14,12 @@
 }
 
 +(CGPathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
++(CGRect) drawGlassInContext: (CGContextRef) g 
+                   forRect: (CGRect) rect 
+                     color: (UIColor *) color
+          withCornerRadius: (CGFloat) cornerRadius 
+               borderWidth: (CGFloat) borderWidth 
+               shadowDepth: (CGFloat) shadowDepth;
++(CGRect) calculateGlassRect: (CGRect) rect shadowDepth: (CGFloat) shadowDepth;
 
 @end
