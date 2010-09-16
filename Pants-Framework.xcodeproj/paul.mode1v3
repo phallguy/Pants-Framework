@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -276,7 +278,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>15</integer>
 									<integer>9</integer>
 									<integer>1</integer>
 									<integer>0</integer>
@@ -304,7 +305,7 @@
 							<real>273</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>839 146 1380 911 0 0 2560 1578 </string>
+						<string>184 374 1380 911 0 0 2560 1578 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -315,8 +316,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -334,7 +333,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DACE42781236BFA40016B31F</string>
+										<string>DAF483991242D1F900709C30</string>
 										<key>history</key>
 										<array>
 											<string>DAFB36901235A9320008E7DB</string>
@@ -348,7 +347,7 @@
 											<string>DAAB70CD12361318007A7A17</string>
 											<string>DACE42231236BCB80016B31F</string>
 											<string>DACE42241236BCB80016B31F</string>
-											<string>DACE42261236BCB80016B31F</string>
+											<string>DACE42781236BFA40016B31F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -362,7 +361,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1063, 865}}</string>
 								<key>RubberWindowFrame</key>
-								<string>839 146 1380 911 0 0 2560 1578 </string>
+								<string>184 374 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -382,7 +381,7 @@
 								<key>Frame</key>
 								<string>{{0, 870}, {1063, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>839 146 1380 911 0 0 2560 1578 </string>
+								<string>184 374 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -406,9 +405,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DACE42791236BFA40016B31F</string>
+				<string>DAF483951242D1F900709C30</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DACE427A1236BFA40016B31F</string>
+				<string>DAF483961242D1F900709C30</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -550,7 +549,7 @@
 		<string>/Users/paul/Projects/Apps-In-Your-Pants/Pants-Framework/Pants-Framework.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>839 146 1380 911 0 0 2560 1578 </string>
+	<string>184 374 1380 911 0 0 2560 1578 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -627,7 +626,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DAFB366E1235A87A0008E7DB</string>
-				<string>DACE427B1236BFA40016B31F</string>
+				<string>DAF483971242D1F900709C30</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
