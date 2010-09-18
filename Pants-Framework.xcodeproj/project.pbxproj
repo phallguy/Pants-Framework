@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
+		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
+		DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */; };
+		DA35876A1244788100DCA7FB /* GDataXMLElement+PFLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */; };
 		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
@@ -17,6 +21,8 @@
 		DAAB70BF123612BD007A7A17 /* PFLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BB123612BD007A7A17 /* PFLocationTools.m */; };
 		DAAB70C0123612BD007A7A17 /* PFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BC123612BD007A7A17 /* PFUtility.h */; };
 		DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFUtility.m */; };
+		DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */; };
+		DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */; };
 		DADEBCB612360B420055DF8F /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEBCB512360B420055DF8F /* PFCommon.h */; };
 		DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3A5A51236B490009C125E /* PFDrawTools.h */; };
 		DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3A5A61236B490009C125E /* PFDrawTools.m */; };
@@ -32,6 +38,10 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
+		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
+		DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXMLElement+PFLocation.h"; path = "Classes/GDataXMLElement+PFLocation.h"; sourceTree = "<group>"; };
+		DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXMLElement+PFLocation.m"; path = "Classes/GDataXMLElement+PFLocation.m"; sourceTree = "<group>"; };
 		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
@@ -40,6 +50,8 @@
 		DAAB70BB123612BD007A7A17 /* PFLocationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLocationTools.m; path = Classes/PFLocationTools.m; sourceTree = "<group>"; };
 		DAAB70BC123612BD007A7A17 /* PFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUtility.h; path = Classes/PFUtility.h; sourceTree = "<group>"; };
 		DAAB70BD123612BD007A7A17 /* PFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUtility.m; path = Classes/PFUtility.m; sourceTree = "<group>"; };
+		DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
+		DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		DADEBCB512360B420055DF8F /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
 		DAE3A5A51236B490009C125E /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawTools.h; path = Classes/PFDrawTools.h; sourceTree = "<group>"; };
 		DAE3A5A61236B490009C125E /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawTools.m; path = Classes/PFDrawTools.m; sourceTree = "<group>"; };
@@ -95,6 +107,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */,
+				DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */,
+				DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */,
+				DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */,
+				DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */,
+				DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */,
 				DAE3A5A51236B490009C125E /* PFDrawTools.h */,
 				DAE3A5A61236B490009C125E /* PFDrawTools.m */,
 				DADEBCB512360B420055DF8F /* PFCommon.h */,
@@ -152,6 +170,9 @@
 				DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */,
 				DAF4838E1242D1F000709C30 /* PFGlassButton.h in Headers */,
 				DAF483901242D1F000709C30 /* PFLabel.h in Headers */,
+				DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */,
+				DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */,
+				DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +234,9 @@
 				DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */,
 				DAF4838F1242D1F000709C30 /* PFGlassButton.m in Sources */,
 				DAF483911242D1F000709C30 /* PFLabel.m in Sources */,
+				DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */,
+				DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */,
+				DA35876A1244788100DCA7FB /* GDataXMLElement+PFLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +256,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
 			};
@@ -246,6 +271,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
 			};
@@ -259,7 +285,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
 			};
@@ -272,7 +297,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
 			};

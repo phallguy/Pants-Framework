@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -278,9 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
-									<integer>1</integer>
-									<integer>0</integer>
+									<integer>30</integer>
+									<integer>29</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -305,7 +302,7 @@
 							<real>273</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>184 374 1380 911 0 0 2560 1578 </string>
+						<string>801 172 1380 911 0 0 2560 1578 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -316,12 +313,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PFTouchDetectorControl.m</string>
+								<string>GDataXMLNode.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PFTouchDetectorControl.m</string>
+										<string>GDataXMLNode.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAF483991242D1F900709C30</string>
+										<string>DA3736CF1244621E00F57DBA</string>
 										<key>history</key>
 										<array>
 											<string>DAFB36901235A9320008E7DB</string>
@@ -347,7 +346,10 @@
 											<string>DAAB70CD12361318007A7A17</string>
 											<string>DACE42231236BCB80016B31F</string>
 											<string>DACE42241236BCB80016B31F</string>
-											<string>DACE42781236BFA40016B31F</string>
+											<string>DA9174301243BD92005B8EB3</string>
+											<string>DA3736CC1244621E00F57DBA</string>
+											<string>DA3736CD1244621E00F57DBA</string>
+											<string>DA3736CE1244621E00F57DBA</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -359,14 +361,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1063, 865}}</string>
+								<string>{{0, 0}, {1063, 606}}</string>
 								<key>RubberWindowFrame</key>
-								<string>184 374 1380 911 0 0 2560 1578 </string>
+								<string>801 172 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>865pt</string>
+							<string>606pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -379,14 +381,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 870}, {1063, 0}}</string>
+								<string>{{0, 611}, {1063, 260}}</string>
 								<key>RubberWindowFrame</key>
-								<string>184 374 1380 911 0 0 2560 1578 </string>
+								<string>801 172 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>260pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -405,9 +407,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DAF483951242D1F900709C30</string>
+				<string>DA3736D01244621E00F57DBA</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DAF483961242D1F900709C30</string>
+				<string>DA3736D11244621E00F57DBA</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -549,7 +551,7 @@
 		<string>/Users/paul/Projects/Apps-In-Your-Pants/Pants-Framework/Pants-Framework.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>184 374 1380 911 0 0 2560 1578 </string>
+	<string>801 172 1380 911 0 0 2560 1578 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -577,16 +579,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {500, 218}}</string>
+								<string>{{0, 0}, {1174, 187}}</string>
 								<key>RubberWindowFrame</key>
-								<string>907 801 500 500 0 0 2560 1578 </string>
+								<string>-1241 566 1174 904 -1200 0 1200 1600 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>218pt</string>
+							<string>187pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -601,18 +605,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 223}, {500, 236}}</string>
+								<string>{{0, 192}, {1174, 671}}</string>
 								<key>RubberWindowFrame</key>
-								<string>907 801 500 500 0 0 2560 1578 </string>
+								<string>-1241 566 1174 904 -1200 0 1200 1600 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
 							<key>Proportion</key>
-							<string>236pt</string>
+							<string>671pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>459pt</string>
+					<string>863pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -626,7 +630,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DAFB366E1235A87A0008E7DB</string>
-				<string>DAF483971242D1F900709C30</string>
+				<string>DA3736C81244616700F57DBA</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -635,7 +639,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>907 801 500 500 0 0 2560 1578 </string>
+			<string>-1241 566 1174 904 -1200 0 1200 1600 </string>
 			<key>WindowToolGUID</key>
 			<string>DAFB366E1235A87A0008E7DB</string>
 			<key>WindowToolIsVisible</key>
