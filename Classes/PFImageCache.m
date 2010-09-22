@@ -75,38 +75,38 @@
 		return [baseName stringByAppendingString: @"~iphone"];
 }
 
-- (UIImage*) findMostSpecificImageForName: (NSString *) name inFolder: (NSString *) baseFolder
+- (NSString*) findMostSpecificImageForName: (NSString *) name
 {
-	PFCachedImage * img;
     NSString * ext = [name pathExtension];
-	NSString * baseName = [baseFolder stringByAppendingPathComponent: [name stringByDeletingPathExtension]];
+	NSString * baseName = [rootPath stringByAppendingPathComponent: [name stringByDeletingPathExtension]];
 	NSString * deviceBaseName = [self deviceSpecificNameFromName: baseName];
 	NSString * imageName;
+    NSFileManager * fm = [NSFileManager defaultManager];
 	
 	// Try device specific, resolution specific first
 	if( scaleFactor != nil )
 	{
 		imageName = [[deviceBaseName stringByAppendingString: scaleFactor] stringByAppendingPathExtension: ext];
-		img = [PFCachedImage cachedImageWithPath: imageName];		
-		if( img != nil ) return img;
+        if( [fm fileExistsAtPath: imageName] )
+            return imageName;
 	}
 	
 	// Try device specific
 	imageName = [deviceBaseName stringByAppendingPathExtension: ext];
-	img = [PFCachedImage cachedImageWithPath: imageName];				
-	if( img != nil ) return img;
-	
+    if( [fm fileExistsAtPath: imageName] )
+        return imageName;
+    
 	// Try resolution specific
 	if( scaleFactor != nil )
 	{
 		imageName = [[baseName stringByAppendingString: scaleFactor] stringByAppendingPathExtension: ext];
-		img = [PFCachedImage cachedImageWithPath: imageName];		
-		if( img != nil ) return img;
+        if( [fm fileExistsAtPath: imageName] )
+            return imageName;
 	}
 	
-	// Try raw
 	imageName = [baseName stringByAppendingPathExtension: ext];
-	return [PFCachedImage cachedImageWithPath: imageName];
+    
+	return imageName;
 }
 
 -(void) clampCapacity
@@ -153,15 +153,14 @@
         if( result )
             return result;
                 
-        result = [self findMostSpecificImageForName: imageName inFolder: rootPath];
+        
+        result = [PFCachedImage cachedImageWithPath: [self findMostSpecificImageForName: imageName]];
         
         if( result != nil )
         {
             [cachedImages setObject: result forKey: imageName];
-            [self clampCapacity];            
-
-        }
-        
+            [self clampCapacity];
+        }        
         
         return  result;
     }
@@ -169,7 +168,28 @@
 
 -(UIImage*) imageNamed: (NSString *) imageName forSize: (CGSize) size
 {
-    NSString * cacheName = [NSString stringWithFormat: @"%@_%fx%f%@", [imageName stringByDeletingPathExtension], size.width, size.height, [imageName pathExtension]];
+    
+    NSString * resolved = [self findMostSpecificImageForName: imageName];
+    NSString * resolvedName = [[resolved pathComponents] lastObject];
+    
+    if( scaleFactor != nil )
+    {
+        NSRange range = [resolvedName rangeOfString: scaleFactor];
+        if( range.location == NSNotFound )
+        {
+            resolvedName = [NSString stringWithFormat: @"%@%@.%@",
+                        [resolvedName stringByDeletingPathExtension],
+                        scaleFactor,
+                        [resolvedName pathExtension]];
+        }
+    }
+    
+    NSString * cacheName = [NSString stringWithFormat: @"%@/img_at_%fx%f_for_%@", 
+                                cachePath,
+                                size.width,
+                                size.height,
+                                resolvedName
+                            ];
     
     @synchronized( self )
     {
@@ -177,23 +197,45 @@
         if( result )
             return result;
         
+        // Make sure our cache folder actually exists
         BOOL isDirectory;
+
         if( ! [[NSFileManager defaultManager] fileExistsAtPath: cachePath isDirectory: &isDirectory] || ! isDirectory )
         {
-            [[NSFileManager defaultManager] createDirectoryAtPath: cachePath withIntermediateDirectories: YES attributes: nil error: NULL];
+            [[NSFileManager defaultManager] createDirectoryAtPath: cachePath 
+                                      withIntermediateDirectories: YES 
+                                                       attributes: nil 
+                                                            error: NULL];
         }
         
-        // See if we've sized it and saved that before
-        result = [self findMostSpecificImageForName: cacheName inFolder: cachePath];
-        if( result != nil )
-        {
-            [cachedImages setObject: result forKey: imageName];
-            [self clampCapacity];            
-            return result;
+        if( [[NSFileManager defaultManager] fileExistsAtPath: cacheName] )
+        {   
+            // Only use the cached image if the original has not been modified since the cache was 
+            // created.
+            NSDate * originalModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: resolved error: NULL] objectForKey: NSFileModificationDate];
+            NSDate * cacheModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: cacheName error: NULL] objectForKey: NSFileModificationDate];
+            
+            if( [originalModified compare: cacheModified] == NSOrderedAscending )
+            {
+                // See if we've sized it and saved that before
+                result = [PFCachedImage cachedImageWithPath: cacheName];
+                
+                if( result != nil )
+                {
+                    [cachedImages setObject: result forKey: imageName];
+                    [self clampCapacity];            
+                    return result;
+                }
+            }
         }
-        
+
+        // Adjust dimensions to automatically scale to the screen
+        CGFloat scale = [[UIScreen mainScreen] scale];
+        size = CGSizeMake( size.width * scale, size.height * scale );
+
+               
         // Resize the image and cache it
-        UIImage * original = [self imageNamed: imageName];
+        UIImage * original = [UIImage imageWithContentsOfFile: resolved];
         result = [original resizedImage: size interpolationQuality: kCGInterpolationHigh];
 
         NSData * data;
@@ -203,7 +245,13 @@
         else
             data = UIImageJPEGRepresentation( result, 100 );
         
-        [data writeToFile: [cachePath stringByAppendingPathComponent: cacheName] atomically: NO];
+        [data writeToFile: cacheName atomically: NO];
+        
+        result = [PFCachedImage cachedImageWithPath: cacheName];
+        
+        
+        [cachedImages setObject: result forKey: cacheName];
+        [self clampCapacity];
         
         return result;
     }
