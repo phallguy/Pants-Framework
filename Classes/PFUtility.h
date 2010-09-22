@@ -17,3 +17,9 @@
 +(NSString*) createUuid;
 
 @end
+
+@interface NSString (PFUtility)
+
+-(NSString*) md5;
+
+@end

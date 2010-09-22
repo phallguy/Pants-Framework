@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA345310124972100051A018 /* PFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DA34530E124972100051A018 /* PFImageCache.h */; };
+		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
 		DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */; };
@@ -23,6 +25,10 @@
 		DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFUtility.m */; };
 		DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */; };
 		DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */; };
+		DADB63A61249790800B681CC /* PFCachedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63A41249790800B681CC /* PFCachedImage.h */; };
+		DADB63A71249790800B681CC /* PFCachedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63A51249790800B681CC /* PFCachedImage.m */; };
+		DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63D31249963400B681CC /* UIImage+Resize.h */; };
+		DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63D41249963400B681CC /* UIImage+Resize.m */; };
 		DADEBCB612360B420055DF8F /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEBCB512360B420055DF8F /* PFCommon.h */; };
 		DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3A5A51236B490009C125E /* PFDrawTools.h */; };
 		DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3A5A61236B490009C125E /* PFDrawTools.m */; };
@@ -38,6 +44,8 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA34530E124972100051A018 /* PFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFImageCache.h; path = Classes/PFImageCache.h; sourceTree = "<group>"; };
+		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
 		DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXMLElement+PFLocation.h"; path = "Classes/GDataXMLElement+PFLocation.h"; sourceTree = "<group>"; };
@@ -52,6 +60,10 @@
 		DAAB70BD123612BD007A7A17 /* PFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUtility.m; path = Classes/PFUtility.m; sourceTree = "<group>"; };
 		DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
+		DADB63A41249790800B681CC /* PFCachedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCachedImage.h; path = Classes/PFCachedImage.h; sourceTree = "<group>"; };
+		DADB63A51249790800B681CC /* PFCachedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCachedImage.m; path = Classes/PFCachedImage.m; sourceTree = "<group>"; };
+		DADB63D31249963400B681CC /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
+		DADB63D41249963400B681CC /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize.m"; sourceTree = "<group>"; };
 		DADEBCB512360B420055DF8F /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
 		DAE3A5A51236B490009C125E /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawTools.h; path = Classes/PFDrawTools.h; sourceTree = "<group>"; };
 		DAE3A5A61236B490009C125E /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawTools.m; path = Classes/PFDrawTools.m; sourceTree = "<group>"; };
@@ -107,6 +119,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DADB63D31249963400B681CC /* UIImage+Resize.h */,
+				DADB63D41249963400B681CC /* UIImage+Resize.m */,
+				DADB63A41249790800B681CC /* PFCachedImage.h */,
+				DADB63A51249790800B681CC /* PFCachedImage.m */,
+				DA34530E124972100051A018 /* PFImageCache.h */,
+				DA34530F124972100051A018 /* PFImageCache.m */,
 				DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */,
 				DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */,
 				DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */,
@@ -173,6 +191,9 @@
 				DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */,
 				DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */,
 				DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */,
+				DA345310124972100051A018 /* PFImageCache.h in Headers */,
+				DADB63A61249790800B681CC /* PFCachedImage.h in Headers */,
+				DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +258,9 @@
 				DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */,
 				DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */,
 				DA35876A1244788100DCA7FB /* GDataXMLElement+PFLocation.m in Sources */,
+				DA345311124972100051A018 /* PFImageCache.m in Sources */,
+				DADB63A71249790800B681CC /* PFCachedImage.m in Sources */,
+				DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
