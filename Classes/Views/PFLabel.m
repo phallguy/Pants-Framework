@@ -41,7 +41,6 @@
     return self;
 }
 
-
 -(UIColor*) shadowColor{ return nil; }
 -(CGFloat) shadowBlur{ return shadowBlur; }
 -(void) setShadowBlur: (CGFloat) newShadowBlur
