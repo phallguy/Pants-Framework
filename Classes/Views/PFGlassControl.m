@@ -83,7 +83,7 @@
 	shadowDepth = 8;    
 }
 
--(UIImage*) photo{ return nil; }
+-(UIImage*) photoOfSize: (CGSize) size { return nil; }
 
 
 #pragma mark -
@@ -100,7 +100,7 @@
 {
 	CGContextRef g = UIGraphicsGetCurrentContext();
 	
-	CGContextSetShouldAntialias( g, YES );
+	//CGContextSetShouldAntialias( g, YES );
     
     CGRect r = [PFDrawTools drawGlassInContext: g 
                                    forRect: rect 
@@ -108,18 +108,22 @@
                           withCornerRadius: cornerRadius 
                                borderWidth: borderWidth 
                                shadowDepth: shadowDepth];
+    
     CGRect photoRect = CGRectInset( r, self.borderWidth, self.borderWidth );
 	CGPathRef photoPath = [PFDrawTools createPathForRect: photoRect	withCornerRadius: self.cornerRadius / 2];
     
 	CGContextAddPath( g, photoPath );
 	CGContextClip( g );
     
-    UIImage * photo = self.photo;
+    UIImage * photo = [self photoOfSize: photoRect.size];
     
     if( photo == nil )
         photo = [UIImage imageNamed: @"MissingPhoto.png"];
     
+    NSLog( @"photo scale: %f", photo.scale );
+    
 	[photo drawInRect: photoRect];
+    //[photo drawAtPoint: photoRect.origin];
 	
 	
 	[[UIColor colorWithRed: .5 green: .5 blue: .5 alpha: 1] set];

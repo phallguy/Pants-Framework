@@ -20,7 +20,7 @@
 
 -(void) initCommon
 {
-    cornerRadius = 8;
+    cornerRadius = 12;
     shadowBlur = 15;
 }
 

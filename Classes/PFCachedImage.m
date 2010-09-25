@@ -59,11 +59,13 @@
 
 -(oneway void) release
 {
+    int count = self.retainCount;
+    
     [super release];
 
     // If we're down to only one retain count - held by the PFImageCache - then we can release
     // the real image
-    if( self.retainCount == 1 )
+    if( count == 2 )
         [self trim];
     
 }
@@ -72,7 +74,9 @@
 -(UIImage *) getRealImage
 {
     if( realImage == nil )
+    {
         realImage = [[UIImage alloc] initWithContentsOfFile: path];
+    }
 
     timestamp = time( NULL );
 

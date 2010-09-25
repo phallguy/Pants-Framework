@@ -24,6 +24,6 @@
 
 -(CGRect) drawGlassRect: (CGRect) rect;
 -(void) initializeDefaultGlassState;
--(UIImage*) photo;
+-(UIImage*) photoOfSize: (CGSize) size;
 
 @end
