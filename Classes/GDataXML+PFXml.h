@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "GDataXMLNode.h"
+
+
 
 @interface GDataXMLNode (PFXml)
 
@@ -26,5 +29,11 @@
 
 
 -(GDataXMLElement*) firstElementForName: (NSString *) name;
+-(CLLocationCoordinate2D) coordinateFromElementName: (NSString*) name;
+-(CLLocationCoordinate2D) coordinateFromElement;
 
+@end
+
+@interface NSString (PFXml)
+-(GDataXMLElement*) xml;
 @end

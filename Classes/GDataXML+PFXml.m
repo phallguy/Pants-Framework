@@ -7,6 +7,7 @@
 //
 
 #import "GDataXML+PFXml.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation GDataXMLNode (PFXml)
 
@@ -68,6 +69,31 @@
     return [[self firstElementForName: name] stringValue];
 }
 
+-(CLLocationCoordinate2D) coordinateFromElement
+{
+    return CLLocationCoordinate2DMake( [self doubleValueOfAttributeNamed: @"lat"], [self doubleValueOfAttributeNamed: @"long"] );
+}
 
+-(CLLocationCoordinate2D) coordinateFromElementName: (NSString*) name
+{
+    GDataXMLElement * element = [self firstElementForName: name];
+    
+    if( element == nil )
+        return CLLocationCoordinate2DMake( 0, 0 );
+    
+    return CLLocationCoordinate2DMake( [element doubleValueOfAttributeNamed: @"lat"], [element doubleValueOfAttributeNamed: @"long"] );
+}
+
+
+@end
+
+
+@implementation NSString (PFXml)
+
+-(GDataXMLElement*) xml
+{
+    GDataXMLDocument * doc = [[[GDataXMLDocument alloc] initWithXMLString: self options: 0 error: NULL] autorelease];
+    return doc.rootElement;
+}
 
 @end

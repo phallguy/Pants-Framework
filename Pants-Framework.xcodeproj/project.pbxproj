@@ -15,8 +15,6 @@
 		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
-		DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */; };
-		DA35876A1244788100DCA7FB /* GDataXMLElement+PFLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */; };
 		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
@@ -55,8 +53,6 @@
 		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
-		DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXMLElement+PFLocation.h"; path = "Classes/GDataXMLElement+PFLocation.h"; sourceTree = "<group>"; };
-		DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXMLElement+PFLocation.m"; path = "Classes/GDataXMLElement+PFLocation.m"; sourceTree = "<group>"; };
 		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
@@ -137,8 +133,6 @@
 				DADB63A51249790800B681CC /* PFCachedImage.m */,
 				DA34530E124972100051A018 /* PFImageCache.h */,
 				DA34530F124972100051A018 /* PFImageCache.m */,
-				DA3587671244788100DCA7FB /* GDataXMLElement+PFLocation.h */,
-				DA3587681244788100DCA7FB /* GDataXMLElement+PFLocation.m */,
 				DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */,
 				DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */,
 				DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */,
@@ -206,7 +200,6 @@
 				DAF483901242D1F000709C30 /* PFLabel.h in Headers */,
 				DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */,
 				DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */,
-				DA3587691244788100DCA7FB /* GDataXMLElement+PFLocation.h in Headers */,
 				DA345310124972100051A018 /* PFImageCache.h in Headers */,
 				DADB63A61249790800B681CC /* PFCachedImage.h in Headers */,
 				DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */,
@@ -275,7 +268,6 @@
 				DAF483911242D1F000709C30 /* PFLabel.m in Sources */,
 				DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */,
 				DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */,
-				DA35876A1244788100DCA7FB /* GDataXMLElement+PFLocation.m in Sources */,
 				DA345311124972100051A018 /* PFImageCache.m in Sources */,
 				DADB63A71249790800B681CC /* PFCachedImage.m in Sources */,
 				DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */,
