@@ -19,6 +19,8 @@
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
 		DA7C88491235FD35004FD53B /* PFTouchDetectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */; };
+		DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8B950212545AF300EA75D1 /* PFPageControl.h */; };
+		DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8B950312545AF300EA75D1 /* PFPageControl.m */; };
 		DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A89CF124B180D005E4323 /* PFGlassView.h */; };
 		DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A89D0124B180D005E4323 /* PFGlassView.m */; };
 		DA9A89E2124B19CE005E4323 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9A89E1124B19CE005E4323 /* UIKit.framework */; };
@@ -57,6 +59,8 @@
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
 		DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTouchDetectorControl.m; sourceTree = "<group>"; };
+		DA8B950212545AF300EA75D1 /* PFPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPageControl.h; sourceTree = "<group>"; };
+		DA8B950312545AF300EA75D1 /* PFPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPageControl.m; sourceTree = "<group>"; };
 		DA9A89CF124B180D005E4323 /* PFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassView.h; sourceTree = "<group>"; };
 		DA9A89D0124B180D005E4323 /* PFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassView.m; sourceTree = "<group>"; };
 		DA9A89E1124B19CE005E4323 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -162,6 +166,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B950212545AF300EA75D1 /* PFPageControl.h */,
+				DA8B950312545AF300EA75D1 /* PFPageControl.m */,
 				DA0B435F124B1B180084D2E6 /* PFGlassControl.h */,
 				DA0B4360124B1B180084D2E6 /* PFGlassControl.m */,
 				DA9A89CF124B180D005E4323 /* PFGlassView.h */,
@@ -205,6 +211,7 @@
 				DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */,
 				DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */,
 				DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */,
+				DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +280,7 @@
 				DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */,
 				DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */,
 				DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */,
+				DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
