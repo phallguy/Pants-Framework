@@ -108,6 +108,14 @@
        customImages || customHighlitedImages )
    {
        NSArray * dots = self.subviews;
+       
+       // If Apple ever does change how the segments are rendered then gracefully degrade
+       // to the default Apple behavior.
+       NSAssert( dots.count == self.numberOfPages, @"Hmmm, Apple changed how page controls are stuctured: expected %d but got %d. File a report at http://github.com/appsinyourpants/Pants-Framework/issues", self.numberOfPages, dots.count );
+       
+       if( dots.count != self.numberOfPages )
+           return;
+       
        for( int ix = 0; ix < dots.count; ix++ )
        {
            UIControlState state = ix == self.currentPage ? UIControlStateHighlighted : UIControlStateNormal;
