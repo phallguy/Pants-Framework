@@ -11,6 +11,8 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0B435F124B1B180084D2E6 /* PFGlassControl.h */; };
 		DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0B4360124B1B180084D2E6 /* PFGlassControl.m */; };
+		DA147A9912558315009F6E1C /* PFContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA147A9712558315009F6E1C /* PFContainerView.h */; };
+		DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA147A9812558315009F6E1C /* PFContainerView.m */; };
 		DA345310124972100051A018 /* PFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DA34530E124972100051A018 /* PFImageCache.h */; };
 		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
@@ -51,6 +53,8 @@
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0B435F124B1B180084D2E6 /* PFGlassControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassControl.h; sourceTree = "<group>"; };
 		DA0B4360124B1B180084D2E6 /* PFGlassControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassControl.m; sourceTree = "<group>"; };
+		DA147A9712558315009F6E1C /* PFContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFContainerView.h; sourceTree = "<group>"; };
+		DA147A9812558315009F6E1C /* PFContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFContainerView.m; sourceTree = "<group>"; };
 		DA34530E124972100051A018 /* PFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFImageCache.h; path = Classes/PFImageCache.h; sourceTree = "<group>"; };
 		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA147A9712558315009F6E1C /* PFContainerView.h */,
+				DA147A9812558315009F6E1C /* PFContainerView.m */,
 				DA8B950212545AF300EA75D1 /* PFPageControl.h */,
 				DA8B950312545AF300EA75D1 /* PFPageControl.m */,
 				DA0B435F124B1B180084D2E6 /* PFGlassControl.h */,
@@ -212,6 +218,7 @@
 				DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */,
 				DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */,
 				DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */,
+				DA147A9912558315009F6E1C /* PFContainerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +288,7 @@
 				DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */,
 				DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */,
 				DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */,
+				DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
