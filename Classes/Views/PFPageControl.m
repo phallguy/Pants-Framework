@@ -89,6 +89,19 @@
     [self overridePageImages];
 }
 
+-(void) setNeedsLayout
+{
+    [super setNeedsLayout];
+    [self overridePageImages];
+}
+
+// Required if current page is set in code rather than the view itself
+-(void) setCurrentPage: (NSInteger) newPage
+{
+    [super setCurrentPage: newPage];
+    [self overridePageImages];
+}
+
 #pragma mark -
 #pragma mark Events
 

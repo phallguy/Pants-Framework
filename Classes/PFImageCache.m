@@ -41,7 +41,16 @@
         cachedImages = [[NSMutableDictionary alloc] init];
         maxCapacity = capacity;
         
-        cachePath = [[[[NSSearchPathForDirectoriesInDomains( NSCachesDirectory, NSUserDomainMask,  YES ) objectAtIndex: 0] 
+        
+        NSSearchPathDirectory dir = 
+#if DEBUG
+        NSDocumentDirectory;
+#else
+        NSCachesDirectory;
+#endif
+        
+        
+        cachePath = [[[[NSSearchPathForDirectoriesInDomains( dir, NSUserDomainMask,  YES ) objectAtIndex: 0] 
                      stringByAppendingPathComponent: @"ImageCache" ] 
                      stringByAppendingPathComponent: [rootPath md5] ] retain];
         
@@ -127,6 +136,13 @@
         while( key = [e nextObject] )
         {
             PFCachedImage * img = [cachedImages objectForKey: key];
+            if( (NSNull *)img == [NSNull null] )
+            {
+                if( oldestKey == nil )
+                    oldestKey = key;
+                continue;
+            }
+            
             if( oldest == nil || img.timestamp < oldest.timestamp )
             {
                 oldest = img;
@@ -170,6 +186,9 @@
 
 -(UIImage*) imageNamed: (NSString *) imageName forSize: (CGSize) size
 {
+    if( size.width <= 0 || size.height <= 0 )
+        return nil;
+    
     @synchronized( self )
     {
         NSString * resolved = [self findMostSpecificImageForName: imageName];
@@ -196,6 +215,9 @@
                                 ];
     
         UIImage * result = [cachedImages objectForKey: cacheName];
+        if( ((NSNull *)result) == [NSNull null] )
+            return nil;
+        
         if( result )
             return result;
         
@@ -239,6 +261,12 @@
         // Resize the image and cache it
         UIImage * original = [UIImage imageWithContentsOfFile: resolved];
         
+        if( original == nil )
+        {
+            [cachedImages setObject: [NSNull null] forKey: cacheName];
+            return nil;
+        }
+        
         if( original.size.width * original.scale == size.width && original.size.height * original.scale == size.height )
         {
             [[NSFileManager defaultManager] copyItemAtPath: resolved toPath: cacheName error: NULL];
@@ -246,13 +274,16 @@
         else
         {
             result = [original resizedImage: size interpolationQuality: kCGInterpolationHigh];
-
+            NSAssert( result.CGImage, @"Couldn't resize image" );
+            
             NSData * data;
             
             if( [[imageName pathExtension] compare: @"png"] == NSOrderedSame )
                 data = UIImagePNGRepresentation( result );
             else
                 data = UIImageJPEGRepresentation( result, 100 );
+            
+            NSAssert( data, @"Couldn't save image" );
             
             [data writeToFile: cacheName atomically: NO];
         }
