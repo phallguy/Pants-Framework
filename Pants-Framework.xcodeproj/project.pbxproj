@@ -32,6 +32,8 @@
 		DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFUtility.m */; };
 		DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */; };
 		DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */; };
+		DAC5768E1257AB0700DA3734 /* PFSpringLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */; };
+		DAC5768F1257AB0700DA3734 /* PFSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */; };
 		DADB63A61249790800B681CC /* PFCachedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63A41249790800B681CC /* PFCachedImage.h */; };
 		DADB63A71249790800B681CC /* PFCachedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63A51249790800B681CC /* PFCachedImage.m */; };
 		DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63D31249963400B681CC /* UIImage+Resize.h */; };
@@ -74,6 +76,8 @@
 		DAAB70BD123612BD007A7A17 /* PFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUtility.m; path = Classes/PFUtility.m; sourceTree = "<group>"; };
 		DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
+		DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSpringLayout.h; path = Classes/PFSpringLayout.h; sourceTree = "<group>"; };
+		DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSpringLayout.m; path = Classes/PFSpringLayout.m; sourceTree = "<group>"; };
 		DADB63A41249790800B681CC /* PFCachedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCachedImage.h; path = Classes/PFCachedImage.h; sourceTree = "<group>"; };
 		DADB63A51249790800B681CC /* PFCachedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCachedImage.m; path = Classes/PFCachedImage.m; sourceTree = "<group>"; };
 		DADB63D31249963400B681CC /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */,
+				DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */,
 				DADB63D31249963400B681CC /* UIImage+Resize.h */,
 				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DADB63A41249790800B681CC /* PFCachedImage.h */,
@@ -219,6 +225,7 @@
 				DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */,
 				DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */,
 				DA147A9912558315009F6E1C /* PFContainerView.h in Headers */,
+				DAC5768E1257AB0700DA3734 /* PFSpringLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +296,7 @@
 				DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */,
 				DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */,
 				DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */,
+				DAC5768F1257AB0700DA3734 /* PFSpringLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
