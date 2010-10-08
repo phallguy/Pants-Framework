@@ -266,7 +266,12 @@
             return nil;
         }
         
-        if( original.size.width * original.scale == size.width && original.size.height * original.scale == size.height )
+        CGFloat originalScale = 1.0;
+        if( [original respondsToSelector: @selector(scale)] )
+            originalScale = original.scale;
+        
+        
+        if( original.size.width * originalScale == size.width && original.size.height * originalScale == size.height )
         {
             [[NSFileManager defaultManager] copyItemAtPath: resolved toPath: cacheName error: NULL];
         }

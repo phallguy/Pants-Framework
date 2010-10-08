@@ -71,7 +71,10 @@
 
 -(CLLocationCoordinate2D) coordinateFromElement
 {
-    return CLLocationCoordinate2DMake( [self doubleValueOfAttributeNamed: @"lat"], [self doubleValueOfAttributeNamed: @"long"] );
+
+    CLLocationCoordinate2D coord = { [self doubleValueOfAttributeNamed: @"lat"], [self doubleValueOfAttributeNamed: @"long"] };
+
+    return coord;
 }
 
 -(CLLocationCoordinate2D) coordinateFromElementName: (NSString*) name
@@ -81,7 +84,9 @@
     if( element == nil )
         return CLLocationCoordinate2DMake( 0, 0 );
     
-    return CLLocationCoordinate2DMake( [element doubleValueOfAttributeNamed: @"lat"], [element doubleValueOfAttributeNamed: @"long"] );
+    CLLocationCoordinate2D coord = { [element doubleValueOfAttributeNamed: @"lat"], [element doubleValueOfAttributeNamed: @"long"] };
+    
+    return coord;
 }
 
 

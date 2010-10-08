@@ -6,7 +6,7 @@
 // Fix LLVM 2.0 compilation for simulator in xcode
 #include "TargetConditionals.h"
 
-#if TARGET_IPHONE_SIMULATOR
+#if TARGET_IPHONE_SIMULATOR && ! __IPHONE_OS_VERSION_MIN_REQUIRED
 #define    __IPHONE_OS_VERSION_MIN_REQUIRED  030103
 #endif
 

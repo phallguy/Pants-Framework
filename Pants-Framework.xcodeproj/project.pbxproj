@@ -32,6 +32,10 @@
 		DAAB70C1123612BD007A7A17 /* PFCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFCommon.m */; };
 		DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */; };
 		DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */; };
+		DAB96A53125F04A6007F6AA5 /* UIColor+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB96A51125F04A6007F6AA5 /* UIColor+PFExtensions.h */; };
+		DAB96A54125F04A6007F6AA5 /* UIColor+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */; };
+		DABFE264125EF3FB00F93C13 /* PFShapeView.h in Headers */ = {isa = PBXBuildFile; fileRef = DABFE262125EF3FB00F93C13 /* PFShapeView.h */; };
+		DABFE265125EF3FB00F93C13 /* PFShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DABFE263125EF3FB00F93C13 /* PFShapeView.m */; };
 		DACE0732125E8EFB00173EF0 /* PFSpringLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */; };
 		DACE0733125E8EFB00173EF0 /* PFSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */; };
 		DACE073A125E8F3B00173EF0 /* NSString+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */; };
@@ -77,6 +81,10 @@
 		DAAB70BD123612BD007A7A17 /* PFCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommon.m; path = Classes/PFCommon.m; sourceTree = "<group>"; };
 		DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
+		DAB96A51125F04A6007F6AA5 /* UIColor+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PFExtensions.h"; path = "Classes/UIColor+PFExtensions.h"; sourceTree = "<group>"; };
+		DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PFExtensions.m"; path = "Classes/UIColor+PFExtensions.m"; sourceTree = "<group>"; };
+		DABFE262125EF3FB00F93C13 /* PFShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFShapeView.h; sourceTree = "<group>"; };
+		DABFE263125EF3FB00F93C13 /* PFShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFShapeView.m; sourceTree = "<group>"; };
 		DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSpringLayout.h; sourceTree = "<group>"; };
 		DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFSpringLayout.m; sourceTree = "<group>"; };
 		DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PFExtensions.h"; path = "Classes/NSString+PFExtensions.h"; sourceTree = "<group>"; };
@@ -141,6 +149,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAB96A51125F04A6007F6AA5 /* UIColor+PFExtensions.h */,
+				DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */,
 				DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */,
 				DACE0739125E8F3B00173EF0 /* NSString+PFExtensions.m */,
 				DADB63D31249963400B681CC /* UIImage+Resize.h */,
@@ -177,6 +187,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DABFE262125EF3FB00F93C13 /* PFShapeView.h */,
+				DABFE263125EF3FB00F93C13 /* PFShapeView.m */,
 				DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */,
 				DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */,
 				DA147A9712558315009F6E1C /* PFContainerView.h */,
@@ -229,6 +241,8 @@
 				DA147A9912558315009F6E1C /* PFContainerView.h in Headers */,
 				DACE0732125E8EFB00173EF0 /* PFSpringLayout.h in Headers */,
 				DACE073A125E8F3B00173EF0 /* NSString+PFExtensions.h in Headers */,
+				DABFE264125EF3FB00F93C13 /* PFShapeView.h in Headers */,
+				DAB96A53125F04A6007F6AA5 /* UIColor+PFExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +315,8 @@
 				DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */,
 				DACE0733125E8EFB00173EF0 /* PFSpringLayout.m in Sources */,
 				DACE073B125E8F3B00173EF0 /* NSString+PFExtensions.m in Sources */,
+				DABFE265125EF3FB00F93C13 /* PFShapeView.m in Sources */,
+				DAB96A54125F04A6007F6AA5 /* UIColor+PFExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +337,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
@@ -337,7 +353,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
@@ -350,7 +366,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
@@ -365,7 +381,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
