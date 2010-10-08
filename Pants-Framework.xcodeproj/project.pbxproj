@@ -129,7 +129,6 @@
 		0867D691FE84028FC02AAC07 /* Pants-Framework */ = {
 			isa = PBXGroup;
 			children = (
-				DA9A89E1124B19CE005E4323 /* UIKit.framework */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -141,6 +140,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA9A89E1124B19CE005E4323 /* UIKit.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
