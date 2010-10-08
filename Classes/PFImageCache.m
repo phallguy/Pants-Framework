@@ -8,7 +8,6 @@
 
 #import "PFImageCache.h"
 #import "PFCachedImage.h"
-#import "PFUtility.h"
 #import "UIImage+Resize.h"
 
 @interface PFImageCache ()
@@ -318,6 +317,14 @@
                 [cachedImages removeObjectForKey: key];
         }       
         
+    }
+}
+
+-(void) clear
+{
+    @synchronized( self )
+    {
+        [cachedImages removeAllObjects];
     }
 }
 

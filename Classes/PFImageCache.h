@@ -26,5 +26,6 @@
 -(UIImage*) imageNamed: (NSString*) imageName forSize: (CGSize) size;
 
 -(void) trim;
+-(void) clear;
 
 @end

@@ -28,17 +28,18 @@
 		DA9A89E2124B19CE005E4323 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9A89E1124B19CE005E4323 /* UIKit.framework */; };
 		DAAB70BE123612BD007A7A17 /* PFLocationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BA123612BD007A7A17 /* PFLocationTools.h */; };
 		DAAB70BF123612BD007A7A17 /* PFLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BB123612BD007A7A17 /* PFLocationTools.m */; };
-		DAAB70C0123612BD007A7A17 /* PFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BC123612BD007A7A17 /* PFUtility.h */; };
-		DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFUtility.m */; };
+		DAAB70C0123612BD007A7A17 /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BC123612BD007A7A17 /* PFCommon.h */; };
+		DAAB70C1123612BD007A7A17 /* PFCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BD123612BD007A7A17 /* PFCommon.m */; };
 		DAAC0C3112445F7600ED8F47 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */; };
 		DAAC0C3212445F7600ED8F47 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */; };
-		DAC5768E1257AB0700DA3734 /* PFSpringLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */; };
-		DAC5768F1257AB0700DA3734 /* PFSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */; };
+		DACE0732125E8EFB00173EF0 /* PFSpringLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */; };
+		DACE0733125E8EFB00173EF0 /* PFSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */; };
+		DACE073A125E8F3B00173EF0 /* NSString+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */; };
+		DACE073B125E8F3B00173EF0 /* NSString+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE0739125E8F3B00173EF0 /* NSString+PFExtensions.m */; };
 		DADB63A61249790800B681CC /* PFCachedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63A41249790800B681CC /* PFCachedImage.h */; };
 		DADB63A71249790800B681CC /* PFCachedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63A51249790800B681CC /* PFCachedImage.m */; };
 		DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63D31249963400B681CC /* UIImage+Resize.h */; };
 		DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63D41249963400B681CC /* UIImage+Resize.m */; };
-		DADEBCB612360B420055DF8F /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEBCB512360B420055DF8F /* PFCommon.h */; };
 		DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3A5A51236B490009C125E /* PFDrawTools.h */; };
 		DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3A5A61236B490009C125E /* PFDrawTools.m */; };
 		DAF4838E1242D1F000709C30 /* PFGlassButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF4838A1242D1F000709C30 /* PFGlassButton.h */; };
@@ -72,17 +73,18 @@
 		DA9A89E1124B19CE005E4323 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DAAB70BA123612BD007A7A17 /* PFLocationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLocationTools.h; path = Classes/PFLocationTools.h; sourceTree = "<group>"; };
 		DAAB70BB123612BD007A7A17 /* PFLocationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLocationTools.m; path = Classes/PFLocationTools.m; sourceTree = "<group>"; };
-		DAAB70BC123612BD007A7A17 /* PFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUtility.h; path = Classes/PFUtility.h; sourceTree = "<group>"; };
-		DAAB70BD123612BD007A7A17 /* PFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUtility.m; path = Classes/PFUtility.m; sourceTree = "<group>"; };
+		DAAB70BC123612BD007A7A17 /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
+		DAAB70BD123612BD007A7A17 /* PFCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommon.m; path = Classes/PFCommon.m; sourceTree = "<group>"; };
 		DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
-		DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSpringLayout.h; path = Classes/PFSpringLayout.h; sourceTree = "<group>"; };
-		DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSpringLayout.m; path = Classes/PFSpringLayout.m; sourceTree = "<group>"; };
+		DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSpringLayout.h; sourceTree = "<group>"; };
+		DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFSpringLayout.m; sourceTree = "<group>"; };
+		DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PFExtensions.h"; path = "Classes/NSString+PFExtensions.h"; sourceTree = "<group>"; };
+		DACE0739125E8F3B00173EF0 /* NSString+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PFExtensions.m"; path = "Classes/NSString+PFExtensions.m"; sourceTree = "<group>"; };
 		DADB63A41249790800B681CC /* PFCachedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCachedImage.h; path = Classes/PFCachedImage.h; sourceTree = "<group>"; };
 		DADB63A51249790800B681CC /* PFCachedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCachedImage.m; path = Classes/PFCachedImage.m; sourceTree = "<group>"; };
 		DADB63D31249963400B681CC /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
 		DADB63D41249963400B681CC /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize.m"; sourceTree = "<group>"; };
-		DADEBCB512360B420055DF8F /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
 		DAE3A5A51236B490009C125E /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawTools.h; path = Classes/PFDrawTools.h; sourceTree = "<group>"; };
 		DAE3A5A61236B490009C125E /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawTools.m; path = Classes/PFDrawTools.m; sourceTree = "<group>"; };
 		DAF4838A1242D1F000709C30 /* PFGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassButton.h; sourceTree = "<group>"; };
@@ -139,8 +141,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DAC5768C1257AB0700DA3734 /* PFSpringLayout.h */,
-				DAC5768D1257AB0700DA3734 /* PFSpringLayout.m */,
+				DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */,
+				DACE0739125E8F3B00173EF0 /* NSString+PFExtensions.m */,
 				DADB63D31249963400B681CC /* UIImage+Resize.h */,
 				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DADB63A41249790800B681CC /* PFCachedImage.h */,
@@ -153,11 +155,10 @@
 				DAAC0C3012445F7600ED8F47 /* GDataXMLNode.m */,
 				DAE3A5A51236B490009C125E /* PFDrawTools.h */,
 				DAE3A5A61236B490009C125E /* PFDrawTools.m */,
-				DADEBCB512360B420055DF8F /* PFCommon.h */,
 				DAAB70BA123612BD007A7A17 /* PFLocationTools.h */,
 				DAAB70BB123612BD007A7A17 /* PFLocationTools.m */,
-				DAAB70BC123612BD007A7A17 /* PFUtility.h */,
-				DAAB70BD123612BD007A7A17 /* PFUtility.m */,
+				DAAB70BC123612BD007A7A17 /* PFCommon.h */,
+				DAAB70BD123612BD007A7A17 /* PFCommon.m */,
 				DAFB36871235A90F0008E7DB /* Views */,
 			);
 			name = Classes;
@@ -176,6 +177,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */,
+				DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */,
 				DA147A9712558315009F6E1C /* PFContainerView.h */,
 				DA147A9812558315009F6E1C /* PFContainerView.m */,
 				DA8B950212545AF300EA75D1 /* PFPageControl.h */,
@@ -210,9 +213,8 @@
 				DAFB368A1235A90F0008E7DB /* UIView+ShowThySelf.h in Headers */,
 				DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */,
 				DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */,
-				DADEBCB612360B420055DF8F /* PFCommon.h in Headers */,
 				DAAB70BE123612BD007A7A17 /* PFLocationTools.h in Headers */,
-				DAAB70C0123612BD007A7A17 /* PFUtility.h in Headers */,
+				DAAB70C0123612BD007A7A17 /* PFCommon.h in Headers */,
 				DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */,
 				DAF4838E1242D1F000709C30 /* PFGlassButton.h in Headers */,
 				DAF483901242D1F000709C30 /* PFLabel.h in Headers */,
@@ -225,7 +227,8 @@
 				DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */,
 				DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */,
 				DA147A9912558315009F6E1C /* PFContainerView.h in Headers */,
-				DAC5768E1257AB0700DA3734 /* PFSpringLayout.h in Headers */,
+				DACE0732125E8EFB00173EF0 /* PFSpringLayout.h in Headers */,
+				DACE073A125E8F3B00173EF0 /* NSString+PFExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +286,7 @@
 				DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */,
 				DA7C88491235FD35004FD53B /* PFTouchDetectorControl.m in Sources */,
 				DAAB70BF123612BD007A7A17 /* PFLocationTools.m in Sources */,
-				DAAB70C1123612BD007A7A17 /* PFUtility.m in Sources */,
+				DAAB70C1123612BD007A7A17 /* PFCommon.m in Sources */,
 				DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */,
 				DAF4838F1242D1F000709C30 /* PFGlassButton.m in Sources */,
 				DAF483911242D1F000709C30 /* PFLabel.m in Sources */,
@@ -296,7 +299,8 @@
 				DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */,
 				DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */,
 				DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */,
-				DAC5768F1257AB0700DA3734 /* PFSpringLayout.m in Sources */,
+				DACE0733125E8EFB00173EF0 /* PFSpringLayout.m in Sources */,
+				DACE073B125E8F3B00173EF0 /* NSString+PFExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +321,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
@@ -332,6 +337,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pants_Framework_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = Pants_Framework;
@@ -344,9 +350,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
@@ -358,9 +365,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme>
+   <BuildAction
+      buildConfiguration = "Debug">
+      <BuildableProductReferences>
+         <BuildableProductReference
+            BuildableProductIdentifier = "libPants_Framework.a">
+         </BuildableProductReference>
+      </BuildableProductReferences>
+   </BuildAction>
+   <TestAction
+      failureAction = "0">
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      loadSymbolsForSpecifiedModules = "NO"
+      displayScaleIsEnabled = "NO"
+      displayScale = "1.00">
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+</Scheme>

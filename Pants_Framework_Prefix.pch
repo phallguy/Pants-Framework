@@ -2,6 +2,17 @@
 // Prefix header for all source files of the 'CocoaTouchStaticLibrary' target in the 'CocoaTouchStaticLibrary' project.
 //
 
+
+// Fix LLVM 2.0 compilation for simulator in xcode
+#include "TargetConditionals.h"
+
+#if TARGET_IPHONE_SIMULATOR
+#define    __IPHONE_OS_VERSION_MIN_REQUIRED  030103
+#endif
+
+#import <Availability.h>
+
+
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
