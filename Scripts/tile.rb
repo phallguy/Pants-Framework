@@ -9,7 +9,8 @@ options = {
   :output => nil,
   :screenSize => [320,480],
   :minscale => 0,
-  :quiet => false
+  :quiet => false,
+  :quality => 70
 }
 
 o = OptionParser.new do |opts|
@@ -21,7 +22,8 @@ o = OptionParser.new do |opts|
   opts.on( '-l', '--levles NUMBER', Integer, 'The number of detail levels to generate. Each level is scaled to 50% of the previous level.' ) do |v|
     options[:levles] = v
   end
-  opts.on( '-q', '--[no-]quiet') { |v| options[:quiet] = v }
+  opts.on( 'q', '--quality QUALITY', Integer, 'The JPG quality for the output tiles.' ) { |v| options[:quality] = v }
+  opts.on( '-v', '--[no-]verbose') { |v| options[:quiet] = !v }
   opts.on( '-s', '--screen-size WIDTH, HEIGHT', Array, 'Dimensions of the target screen. Defaults to 320x480') { |v| options[:screenSize] = v.map{ |x| x.to_i } }
   
   opts.on_tail( '-h', '--help', "Shows this text." ) do 
@@ -66,7 +68,7 @@ scales.each do |scale|
     FileUtils.cp options[:image], tmpFile
   end
     
-  system "convert -crop #{tileSize[0]}x#{tileSize[1]} '#{tmpFile}' -quality 70 '#{scaleDir}/#{File.basename options[:output]}'"
+  system "convert -crop #{tileSize[0]}x#{tileSize[1]} '#{tmpFile}' -quality #{options[:quality]} '#{scaleDir}/#{File.basename options[:output]}'"
   File.delete tmpFile
 end
 
