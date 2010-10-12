@@ -322,17 +322,26 @@
         NSEnumerator * e = cachedImages.keyEnumerator;
         id key;
         
+        NSMutableArray * deadKeys = [[NSMutableArray alloc] init];
+        
         while( key = [e nextObject] )
         {
             PFCachedImage * img = [cachedImages objectForKey: key];
             
-            [img trim];
+            if( ((NSNull*)img) == [NSNull null] )
+                [deadKeys addObject: key];
+            else
+            {
+                [img trim];
             
-             // Hasn't been used in the last 2 minutes, so probabbly don't need it soon
-            if( now - img.timestamp > 120 )
-                [cachedImages removeObjectForKey: key];
+                 // Hasn't been used in the last 2 minutes, so probabbly don't need it soon
+                if( now - img.timestamp > 120 )
+                    [deadKeys addObject: key];
+            }
         }       
         
+        for( key in deadKeys )
+            [cachedImages removeObjectForKey: key];
     }
 }
 
