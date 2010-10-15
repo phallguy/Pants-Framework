@@ -121,56 +121,61 @@
 
 -(void) clampCapacity
 {
-    // Naive approach that continues to remove the oldest image until the capacity
-    // is reduced to less than max capactiy. Should be OK since we should only ever 
-    // add one to the image cache and exceed maxCapacity by one.
-    while( cachedImages.count > maxCapacity )
+    @synchronized( self )
     {
-        PFCachedImage * oldest = nil;
-        id oldestKey;
-        
-        NSEnumerator * e = cachedImages.keyEnumerator;
-        id key;
-        
-        while( key = [e nextObject] )
+    
+        // Naive approach that continues to remove the oldest image until the capacity
+        // is reduced to less than max capactiy. Should be OK since we should only ever 
+        // add one to the image cache and exceed maxCapacity by one.
+        while( cachedImages.count > maxCapacity )
         {
-            PFCachedImage * img = [cachedImages objectForKey: key];
-            if( (NSNull *)img == [NSNull null] )
+            PFCachedImage * oldest = nil;
+            id oldestKey;
+            
+            NSEnumerator * e = cachedImages.keyEnumerator;
+            id key;
+            
+            while( key = [e nextObject] )
             {
-                if( oldestKey == nil )
+                PFCachedImage * img = [cachedImages objectForKey: key];
+                if( (NSNull *)img == [NSNull null] )
+                {
+                    if( oldestKey == nil )
+                        oldestKey = key;
+                    continue;
+                }
+                
+                if( oldest == nil || img.timestamp < oldest.timestamp )
+                {
+                    oldest = img;
                     oldestKey = key;
-                continue;
+                }
             }
             
-            if( oldest == nil || img.timestamp < oldest.timestamp )
+            if( oldestKey )
             {
-                oldest = img;
-                oldestKey = key;
+                [cachedImages removeObjectForKey: oldestKey];
             }
-        }
-        
-        if( oldestKey )
-        {
-            [cachedImages removeObjectForKey: oldestKey];
-        }
-        else
-        {
-            break;
+            else
+            {
+                break;
+            }
         }
     }
 }
 
 -(UIImage*) imageNamed: (NSString *) imageName
 {
-    UIImage * result = [cachedImages objectForKey: imageName];
-    if( ! result )
-    {    
-        @synchronized(self)
+    // Have to synchronize the entire method because the returned image
+    // needs to be retained in the autorelease pool before it is returned
+    // otherwise a trim of the image cache may release the image before
+    // it is returned and retained by the caller.
+    
+    @synchronized(self)
+    {   
+        UIImage * result = [cachedImages objectForKey: imageName];
+        if( ! result )
         {
-            result = [cachedImages objectForKey: imageName];
-            if( result )
-                return result;
-                    
             result = [PFCachedImage cachedImageWithPath: [self findMostSpecificImageForName: imageName]];
             
             if( result != nil )
@@ -178,12 +183,10 @@
                 [cachedImages setObject: result forKey: imageName];
                 [self clampCapacity];
             }        
-            
-            return  result;
         }
+        
+        return [[result retain] autorelease];
     }
-    
-    return  result;
 }
 
 -(UIImage*) imageNamed: (NSString *) imageName forSize: (CGSize) size
@@ -214,109 +217,110 @@
                                 resolvedName
                             ];
 
-    UIImage * result = [cachedImages objectForKey: cacheName];
-
-    if( ((NSNull *)result) == [NSNull null] )
-        return nil;
     
-    if( result )
-        return result;
-    
-    // Make sure our cache folder actually exists
-    BOOL isDirectory;
-
-    if( ! [[NSFileManager defaultManager] fileExistsAtPath: cachePath isDirectory: &isDirectory] || ! isDirectory )
+    // Have to synchronize the entire method because the returned image
+    // needs to be retained in the autorelease pool before it is returned
+    // otherwise a trim of the image cache may release the image before
+    // it is returned and retained by the caller.
+    @synchronized( self )
     {
-        [[NSFileManager defaultManager] createDirectoryAtPath: cachePath 
-                                  withIntermediateDirectories: YES 
-                                                   attributes: nil 
-                                                        error: NULL];
-    }
-    
-    if( [[NSFileManager defaultManager] fileExistsAtPath: cacheName] )
-    {   
-        // Only use the cached image if the original has not been modified since the cache was 
-        // created.
-        NSDate * originalModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: resolved error: NULL] objectForKey: NSFileModificationDate];
-        NSDate * cacheModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: cacheName error: NULL] objectForKey: NSFileModificationDate];
+        UIImage * result = [cachedImages objectForKey: cacheName];
+
+        if( ((NSNull *)result) == [NSNull null] )
+            return nil;
         
-        if( [originalModified compare: cacheModified] == NSOrderedAscending )
+        if( result )
+            return [[result retain] autorelease];
+        
+        // Make sure our cache folder actually exists
+        BOOL isDirectory;
+
+        if( ! [[NSFileManager defaultManager] fileExistsAtPath: cachePath isDirectory: &isDirectory] || ! isDirectory )
         {
-            // See if we've sized it and saved that before
-            result = [PFCachedImage cachedImageWithPath: cacheName];
+            [[NSFileManager defaultManager] createDirectoryAtPath: cachePath 
+                                      withIntermediateDirectories: YES 
+                                                       attributes: nil 
+                                                            error: NULL];
+        }
+        
+        if( [[NSFileManager defaultManager] fileExistsAtPath: cacheName] )
+        {   
+            // Only use the cached image if the original has not been modified since the cache was 
+            // created.
+            NSDate * originalModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: resolved error: NULL] objectForKey: NSFileModificationDate];
+            NSDate * cacheModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: cacheName error: NULL] objectForKey: NSFileModificationDate];
             
-            if( result != nil )
+            if( [originalModified compare: cacheModified] == NSOrderedAscending )
             {
-                @synchronized( self )
+                // See if we've sized it and saved that before
+                result = [PFCachedImage cachedImageWithPath: cacheName];
+                
+                if( result != nil )
                 {
                     [cachedImages setObject: result forKey: imageName];
                     [self clampCapacity];            
+
+                    return [[result retain] autorelease];
                 }
-                return result;
             }
         }
-    }
 
-    // Adjust dimensions to automatically scale to the screen
-    CGFloat scale = [[UIScreen mainScreen] scale];
-    size = CGSizeMake( size.width * scale, size.height * scale );
+        // Adjust dimensions to automatically scale to the screen
+        CGFloat scale = [[UIScreen mainScreen] scale];
+        size = CGSizeMake( size.width * scale, size.height * scale );
 
-           
-    // Resize the image and cache it
-    UIImage * original = [UIImage imageWithContentsOfFile: resolved];
-    
-    if( original == nil )
-    {
-        @synchronized( self )
+               
+        // Resize the image and cache it
+        UIImage * original = [UIImage imageWithContentsOfFile: resolved];
+        
+        if( original == nil )
         {
             [cachedImages setObject: [NSNull null] forKey: cacheName];
+            return nil;
         }
-        return nil;
-    }
-    
-    CGFloat originalScale = 1.0;
-    if( [original respondsToSelector: @selector(scale)] )
-        originalScale = original.scale;
-    
-    
-    if( original.size.width * originalScale == size.width && original.size.height * originalScale == size.height )
-    {
-        [[NSFileManager defaultManager] copyItemAtPath: resolved toPath: cacheName error: NULL];
-    }
-    else
-    {
-        result = [original resizedImage: size interpolationQuality: kCGInterpolationHigh];
-        NSAssert( result.CGImage, @"Couldn't resize image" );
         
-        NSData * data;
+        CGFloat originalScale = 1.0;
+        if( [original respondsToSelector: @selector(scale)] )
+            originalScale = original.scale;
         
-        if( [[imageName pathExtension] compare: @"png"] == NSOrderedSame )
-            data = UIImagePNGRepresentation( result );
+        
+        if( original.size.width * originalScale == size.width && original.size.height * originalScale == size.height )
+        {
+            [[NSFileManager defaultManager] copyItemAtPath: resolved toPath: cacheName error: NULL];
+        }
         else
-            data = UIImageJPEGRepresentation( result, 100 );
+        {
+            result = [original resizedImage: size interpolationQuality: kCGInterpolationHigh];
+            NSAssert( result.CGImage, @"Couldn't resize image" );
+            
+            NSData * data;
+            
+            if( [[imageName pathExtension] compare: @"png"] == NSOrderedSame )
+                data = UIImagePNGRepresentation( result );
+            else
+                data = UIImageJPEGRepresentation( result, 100 );
+            
+            NSAssert( data, @"Couldn't save image" );
+            
+            [data writeToFile: cacheName atomically: NO];
+        }
         
-        NSAssert( data, @"Couldn't save image" );
+        result = [PFCachedImage cachedImageWithPath: cacheName];
         
-        [data writeToFile: cacheName atomically: NO];
-    }
-    
-    result = [PFCachedImage cachedImageWithPath: cacheName];
-    
-    
-    @synchronized( self )
-    {
+        
         [cachedImages setObject: result forKey: cacheName];
         [self clampCapacity];
-    }
     
-    return result;
-    
+        return [[result retain] autorelease];
+    }    
 }
 
 -(void) trim
 {
     @synchronized(self)
     {
+        NSLog( @"**** PFImageCache trimming"  );
+        
         time_t now = time( NULL );
         
         NSEnumerator * e = cachedImages.keyEnumerator;
@@ -341,7 +345,9 @@
         }       
         
         for( key in deadKeys )
+        {
             [cachedImages removeObjectForKey: key];
+        }
     }
 }
 

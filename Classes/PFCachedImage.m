@@ -57,19 +57,6 @@
     return self;
 }
 
--(oneway void) release
-{
-    int count = self.retainCount;
-    
-    [super release];
-
-    // If we're down to only one retain count - held by the PFImageCache - then we can release
-    // the real image
-    if( count == 2 )
-        [self trim];
-    
-}
-
 
 -(UIImage *) getRealImage
 {
@@ -115,7 +102,7 @@
 
 -(void) trim
 {
-    SafeRelease( realImage );
+    SafeRelease( realImage );    
 }
 
 
