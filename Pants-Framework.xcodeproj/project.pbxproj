@@ -23,6 +23,10 @@
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
 		DA7C88491235FD35004FD53B /* PFTouchDetectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */; };
+		DA8368DF1269AFBF003D48A7 /* PFCalloutLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8368DB1269AFBF003D48A7 /* PFCalloutLayer.h */; };
+		DA8368E01269AFBF003D48A7 /* PFCalloutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8368DC1269AFBF003D48A7 /* PFCalloutLayer.m */; };
+		DA8368E11269AFBF003D48A7 /* PFCalloutView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8368DD1269AFBF003D48A7 /* PFCalloutView.h */; };
+		DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */; };
 		DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8B950212545AF300EA75D1 /* PFPageControl.h */; };
 		DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8B950312545AF300EA75D1 /* PFPageControl.m */; };
 		DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A89CF124B180D005E4323 /* PFGlassView.h */; };
@@ -74,6 +78,10 @@
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
 		DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTouchDetectorControl.m; sourceTree = "<group>"; };
+		DA8368DB1269AFBF003D48A7 /* PFCalloutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCalloutLayer.h; sourceTree = "<group>"; };
+		DA8368DC1269AFBF003D48A7 /* PFCalloutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCalloutLayer.m; sourceTree = "<group>"; };
+		DA8368DD1269AFBF003D48A7 /* PFCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCalloutView.h; sourceTree = "<group>"; };
+		DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCalloutView.m; sourceTree = "<group>"; };
 		DA8B950212545AF300EA75D1 /* PFPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPageControl.h; sourceTree = "<group>"; };
 		DA8B950312545AF300EA75D1 /* PFPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPageControl.m; sourceTree = "<group>"; };
 		DA9A89CF124B180D005E4323 /* PFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassView.h; sourceTree = "<group>"; };
@@ -193,6 +201,10 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA8368DB1269AFBF003D48A7 /* PFCalloutLayer.h */,
+				DA8368DC1269AFBF003D48A7 /* PFCalloutLayer.m */,
+				DA8368DD1269AFBF003D48A7 /* PFCalloutView.h */,
+				DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */,
 				DABFE262125EF3FB00F93C13 /* PFShapeView.h */,
 				DABFE263125EF3FB00F93C13 /* PFShapeView.m */,
 				DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */,
@@ -250,6 +262,8 @@
 				DABFE264125EF3FB00F93C13 /* PFShapeView.h in Headers */,
 				DAB96A53125F04A6007F6AA5 /* UIColor+PFExtensions.h in Headers */,
 				DA0EC6BA1269A2C1004D5924 /* CALayer+PFExtensions.h in Headers */,
+				DA8368DF1269AFBF003D48A7 /* PFCalloutLayer.h in Headers */,
+				DA8368E11269AFBF003D48A7 /* PFCalloutView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +339,8 @@
 				DABFE265125EF3FB00F93C13 /* PFShapeView.m in Sources */,
 				DAB96A54125F04A6007F6AA5 /* UIColor+PFExtensions.m in Sources */,
 				DA0EC6BB1269A2C1004D5924 /* CALayer+PFExtensions.m in Sources */,
+				DA8368E01269AFBF003D48A7 /* PFCalloutLayer.m in Sources */,
+				DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
