@@ -13,7 +13,7 @@
 
 }
 
-+(CGPathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
++(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
 +(CGRect) drawGlassInContext: (CGContextRef) g 
                    forRect: (CGRect) rect 
                      color: (UIColor *) color

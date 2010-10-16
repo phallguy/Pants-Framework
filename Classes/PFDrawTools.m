@@ -12,7 +12,7 @@
 @implementation PFDrawTools
 
 
-+(CGPathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
++(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
 {
 	CGMutablePathRef path = CGPathCreateMutable();
 	
