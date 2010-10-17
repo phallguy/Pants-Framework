@@ -9,7 +9,21 @@
 #import "CALayer+PFExtensions.h"
 
 
-#define kBounceFirstPhaseFraction 0.05
+#define kBounceFirstPhaseFraction 0.15
+#define kMaxTension 0.9
+
+@interface PFAnimationCompletionDelegateDispatch : NSObject
+{
+@private
+    SEL action;
+    id target;
+}
+
+-(id) initWithTarget: (id) target action: (SEL) action;
++(id) dispatchWithTarget: (id) target action: (SEL) action;
+@end
+
+
 
 @implementation CALayer (PFExtensions)
 
@@ -43,6 +57,9 @@
     [timings addObject: easeOut];
     [times addObject: [NSNumber numberWithFloat: kBounceFirstPhaseFraction]];
 
+    if( tension > kMaxTension )
+        tension = kMaxTension;
+    
     int iterations = 0;
     while( bounce >= 0.01 )
     {
@@ -80,6 +97,75 @@
     animation.keyTimes = times;
     
     [self addAnimation: animation forKey: @"popBounce"];
+}
+
+-(void) bounceOutWithMaximumScale: (CGFloat) maxScale 
+                         duration: (CFTimeInterval) duration 
+                 completionTarget: (id) completionTarget 
+                 completionAction: (SEL) completionAction
+{
+    
+    CAKeyframeAnimation * animation = [CAKeyframeAnimation animationWithKeyPath: @"transform.scale"];
+    
+    animation.values = [NSArray arrayWithObjects:
+                        [NSNumber numberWithFloat: 1.0],
+                        [NSNumber numberWithFloat: 1.3],
+                        [NSNumber numberWithFloat: 0],
+                        nil];
+    
+    animation.timingFunctions = [NSArray arrayWithObjects:
+                                 [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut],
+                                 [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut],
+                                 [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn],
+                                 nil
+                                 ];
+    
+    animation.keyTimes = [NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat: 0.0],
+                          [NSNumber numberWithFloat: 0.6],
+                          [NSNumber numberWithFloat: 1],
+                          nil];
+    
+    animation.duration = duration;
+    
+    if( completionTarget && completionAction )
+        animation.delegate = [PFAnimationCompletionDelegateDispatch dispatchWithTarget: completionTarget action: completionAction];
+    
+    [self addAnimation: animation forKey: @"bounceOutWithMaximumScale"];
+    
+    CABasicAnimation * fade = [CABasicAnimation animationWithKeyPath: @"opacity"];
+    fade.fromValue = [NSNumber numberWithFloat: 1];
+    fade.toValue = [NSNumber numberWithFloat: 0];
+    fade.duration = duration;
+    
+    [self addAnimation: fade forKey: @"bounceOutWthMaximumScale_fade"];
+    
+}
+
+@end
+
+
+@implementation PFAnimationCompletionDelegateDispatch
+
+-(id) initWithTarget: (id) newTarget action: (SEL) newAction
+{
+    if( self = [super init] )
+    {
+        target = newTarget;
+        action = newAction;
+    }
+    
+    return self;
+}
+
+-(void) animationDidStop: (CAAnimation *) theAnimation finished: (BOOL) flag
+{
+    [target performSelector: action];
+}
+
++(id) dispatchWithTarget: (id) target action: (SEL) action
+{
+    return [[[PFAnimationCompletionDelegateDispatch alloc] initWithTarget: target action: action] autorelease];
 }
 
 @end

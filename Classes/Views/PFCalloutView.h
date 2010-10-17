@@ -16,10 +16,14 @@
 
 @private
     PFCalloutLayer * calloutLayer;
+
+    BOOL closeOnTap;
 }
+
+@property( nonatomic, assign ) BOOL closeOnTap;
 
 -(void) pointAt: (CGPoint) point orientation: (PFCalloutOrientation) orientation;
 -(void) pointAtView: (UIView *) targetView orientation: (PFCalloutOrientation) orientation;
 -(void) bounceIn;
-
+-(void) bounceOutAndRemove: (BOOL) remove;
 @end

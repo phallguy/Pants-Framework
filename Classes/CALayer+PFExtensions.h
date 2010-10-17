@@ -16,4 +16,9 @@
                           tension: (CGFloat) tension 
                          duration: (CFTimeInterval) duration;
 
+-(void) bounceOutWithMaximumScale: (CGFloat) maxScale
+                         duration: (CFTimeInterval) duration
+                 completionTarget: (id) completionTarget
+                 completionAction: (SEL) completionAction;
+
 @end

@@ -15,8 +15,12 @@
 
 @implementation PFCalloutView
 
+@synthesize  closeOnTap;
+
 -(void) dealloc 
 {
+    SafeRelease( calloutLayer );
+    
     [super dealloc];
 }
 
@@ -27,11 +31,13 @@
     if( self = [super initWithFrame: frame] ) 
     {
         //self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
-                
+        
         calloutLayer = [[PFCalloutLayer alloc] init];
         [self.layer addSublayer: calloutLayer];
         [self setNeedsLayout];
         [self layoutIfNeeded];
+        
+        [self addTarget: self action: @selector(tapped) forControlEvents: UIControlEventTouchUpInside];
         
         
         UILabel * label = [[UILabel alloc] initWithFrame: frame];
@@ -203,18 +209,27 @@
     [self pointAt: point orientation: orientation inView: parentView];
 }
 
-
-
 -(void) bounceIn
 {
-    [self.layer popBounceWithMinimumScale: 0 maximumScale: 1.1 tension: .65 duration: 1];
+    [self.layer popBounceWithMinimumScale: 0 maximumScale: 1.1 tension: .5 duration: .5];
 }
 
--(BOOL) beginTrackingWithTouch: (UITouch *) touch withEvent: (UIEvent *) event
+-(void) bounceOutAndRemove: (BOOL) remove
 {
-    [self bounceIn];
-    
-    return [super beginTrackingWithTouch: touch withEvent: event];
+    [self.layer bounceOutWithMaximumScale: 1.5 
+                                 duration: .25
+                         completionTarget: remove ? self : nil 
+                         completionAction: remove ? @selector(removeFromSuperview) : nil];
 }
 
+-(void) tapped
+{
+    if( closeOnTap )
+        [self bounceOutAndRemove: YES];
+}
+
+-(void) sendActionsForControlEvents: (UIControlEvents) events
+{
+    [super sendActionsForControlEvents: events];
+}
 @end
