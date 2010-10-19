@@ -63,6 +63,8 @@
         
         detailLabel.font = [UIFont systemFontOfSize: 14];
         detailLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent: .8];
+        detailLabel.shadowOffset = CGSizeMake( 0, -1.5 );
+        detailLabel.shadowColor = [[UIColor blackColor] colorWithAlphaComponent: .5];
         detailLabel.backgroundColor = [UIColor clearColor];
         detailLabel.userInteractionEnabled = NO;
         detailLabel.lineBreakMode = UILineBreakModeWordWrap;

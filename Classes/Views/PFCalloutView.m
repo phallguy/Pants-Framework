@@ -33,7 +33,7 @@
 {
     if( self = [super initWithFrame: frame] ) 
     {
-        //        self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
+        //self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
         
         calloutLayer = [[PFCalloutLayer alloc] init];
         [self.layer addSublayer: calloutLayer];
@@ -128,19 +128,19 @@
     
     
     // Try to fit above
-    if( CGRectGetMinY( rect ) - selfSize.height > 0 )
+    if( CGRectGetMinY( rect ) - selfSize.height - kPFCalloutPointerSize > 0 )
         return PFCalloutOrientationAbove;
     
     // Try to fit below
-    if( CGRectGetMaxY( rect ) + selfSize.height < size.height )
+    if( CGRectGetMaxY( rect ) + selfSize.height + kPFCalloutPointerSize < size.height )
         return PFCalloutOrientationBelow;
     
     // Try to fit right
-    if( CGRectGetMaxX( rect ) + selfSize.width < size.width )
+    if( CGRectGetMaxX( rect ) + selfSize.width + kPFCalloutPointerSize < size.width )
         return PFCalloutOrientationRight;
     
     // Try to fit left
-    if( CGRectGetMinX( rect ) - selfSize.width > 0 )
+    if( CGRectGetMinX( rect ) - selfSize.width - kPFCalloutPointerSize > 0 )
         return PFCalloutOrientationLeft;
 
     return PFCalloutOrientationNone;
@@ -156,14 +156,15 @@
     
     self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
     [self sizeToFit];
-    //    [self updateCalloutLayerBounds];
+    [self updateCalloutLayerBounds];
     
     // resolve auto orientation    
     if( orientation == PFCalloutOrientationAuto )
-        orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x, point.y, 1, 1 ) inParentOfSize: self.superview.bounds.size ];
+        orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x - offset.width, point.y - offset.width, offset.width * 2, offset.height * 2 ) inParentOfSize: self.superview.bounds.size ];
     
     
     CGPoint anchor;
+    calloutLayer.orientation = orientation;
 
     if( orientation == PFCalloutOrientationNone )
     {
@@ -257,7 +258,7 @@
 {
     [self.layer removeAllAnimations];
     
-    [self.layer popSpringWithMinimumScale: 0 maximumScale: 1.1 tension: .5 duration: .5];
+    [self.layer popSpringWithMinimumScale: 0 maximumScale: 1.05 tension: .55 duration: .45];
     
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath: @"transform.translation"];
     animation.fromValue = [NSValue valueWithCGPoint: CGPointMake( calloutLayer.pointerLocation.x - CGRectGetWidth( self.bounds ) / 2, 

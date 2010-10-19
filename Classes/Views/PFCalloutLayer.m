@@ -11,7 +11,6 @@
 
 @interface PFCalloutLayer()
 
--(PFCalloutOrientation) calculateOrientationInRect: (CGRect) rect forPoint: (CGPoint) point;
 
 @end
 
@@ -30,7 +29,7 @@
 {
     if( self = [super init] )
     {
-        baseColor = [[[UIColor blackColor] colorWithAlphaComponent: .75] retain];
+        baseColor = [[[UIColor blackColor] colorWithAlphaComponent: .65] retain];
         
         self.masksToBounds = NO;
         self.needsDisplayOnBoundsChange = YES;
@@ -63,14 +62,11 @@
     [self setNeedsDisplay];
 }
 
-
-
--(CGPoint) pointerLocation { return pointerLocation; }
--(void) setPointerLocation: (CGPoint) point
+-(void) setOrientation: (PFCalloutOrientation) newOrientation
 {
-    if( CGPointEqualToPoint( pointerLocation, point ) )
+    if( orientation == newOrientation )
         return;
-
+    
     CGRect newBounds = self.bounds;
     CGPoint center = self.position;
     
@@ -93,12 +89,7 @@
             center.x -= kPFCalloutPointerSize / 2;
             break;
     }
-    
-    // TODO adjust point to fit within corner radius and indicator size.
-    
-    orientation = [self calculateOrientationInRect: self.bounds forPoint: point];
-    
-    
+    orientation = newOrientation;
     switch( orientation )
     {
         case PFCalloutOrientationAbove:
@@ -120,11 +111,20 @@
     }
     
     
-    pointerLocation = point;
     self.bounds = newBounds;
     self.position = center;
     
     [self setNeedsDisplay];
+}
+
+
+-(CGPoint) pointerLocation { return pointerLocation; }
+-(void) setPointerLocation: (CGPoint) point
+{
+    if( CGPointEqualToPoint( pointerLocation, point ) )
+        return;
+
+    pointerLocation = point;
 }
 
 
@@ -137,21 +137,19 @@
     self.bounds = rect;
     self.position = CGPointMake( CGRectGetWidth( rect ) / 2 - kPFCalloutShadowSize / 2, CGRectGetHeight( rect ) / 2 );
     
-    if( originalOrientation != PFCalloutOrientationAuto && originalOrientation != PFCalloutOrientationNone )
+    CGPoint point = pointerLocation;
+    switch( originalOrientation )
     {
-        CGPoint point = pointerLocation;
-        switch( originalOrientation )
-        {
-            case PFCalloutOrientationAbove:
-                point.y = CGRectGetHeight( rect );
-                break;
-            case PFCalloutOrientationLeft: 
-                point.x = CGRectGetWidth( rect );
-                break;
-        }
-        
-        self.pointerLocation = point;
-    }    
+        case PFCalloutOrientationAbove:
+            point.y = CGRectGetHeight( rect );
+            break;
+        case PFCalloutOrientationLeft: 
+            point.x = CGRectGetWidth( rect );
+            break;
+    }
+
+    self.pointerLocation = point;
+    self.orientation = originalOrientation;
 }
 
 #pragma mark -
@@ -167,29 +165,6 @@
     return insetBounds;
 }
 
--(PFCalloutOrientation) calculateOrientationInRect: (CGRect) rect forPoint: (CGPoint) point
-{
-    rect = [self insetCalloutRect: rect];    
-    
-    if( point.y >= CGRectGetMaxY( rect ) )
-    {
-        return PFCalloutOrientationAbove;
-    }
-    else if( point.y <= CGRectGetMinY( rect ) )
-    {
-        return PFCalloutOrientationBelow;
-    }    
-    else if( point.x <= CGRectGetMinX( rect ) )
-    {
-        return PFCalloutOrientationRight;
-    }
-    else if( point.x >= CGRectGetMaxX( rect ) )
-    {
-        return PFCalloutOrientationLeft;
-    }
-    
-    return PFCalloutOrientationNone;
-}
 
 -(CGRect) insetRectForOrientation: (CGRect) rect orientation: (PFCalloutOrientation) insetOrientation pointerSize: (CGFloat) pointerSize
 {
@@ -356,7 +331,7 @@
     
     // Secondary rectangle creates a light highlight around the entire area
     path = [self createPathInRect: rect cornerRadius: kPFCalloutCornerRadius - 0.5 pointerSize: kPFCalloutPointerSize - 0.5 inset: 1.5];
-    CGContextSetFillColorWithColor( g, [[baseColor colorWithAlphaComponent: 0.1] CGColor] );
+    CGContextSetFillColorWithColor( g, [[baseColor colorWithAlphaComponent: 0.3] CGColor] );
     CGContextAddPath( g, path );
     CGContextFillPath( g );
     CGPathRelease( path );
