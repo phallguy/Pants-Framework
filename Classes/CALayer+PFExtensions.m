@@ -28,7 +28,7 @@
 @implementation CALayer (PFExtensions)
 
 
--(void) popBounceWithMinimumScale: (CGFloat) minScale  
+-(void) popSpringWithMinimumScale: (CGFloat) minScale  
                      maximumScale: (CGFloat) maxScale 
                           tension: (CGFloat) tension 
                          duration: (CFTimeInterval) duration
@@ -99,13 +99,16 @@
     [self addAnimation: animation forKey: @"popBounce"];
 }
 
--(void) bounceOutWithMaximumScale: (CGFloat) maxScale 
+-(void) springOutWithMaximumScale: (CGFloat) maxScale 
                          duration: (CFTimeInterval) duration 
                  completionTarget: (id) completionTarget 
                  completionAction: (SEL) completionAction
 {
     
     CAKeyframeAnimation * animation = [CAKeyframeAnimation animationWithKeyPath: @"transform.scale"];
+    animation.duration = duration;
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
     
     animation.values = [NSArray arrayWithObjects:
                         [NSNumber numberWithFloat: 1.0],
@@ -126,7 +129,6 @@
                           [NSNumber numberWithFloat: 1],
                           nil];
     
-    animation.duration = duration;
     
     if( completionTarget && completionAction )
         animation.delegate = [PFAnimationCompletionDelegateDispatch dispatchWithTarget: completionTarget action: completionAction];
@@ -137,6 +139,8 @@
     fade.fromValue = [NSNumber numberWithFloat: 1];
     fade.toValue = [NSNumber numberWithFloat: 0];
     fade.duration = duration;
+    fade.fillMode = kCAFillModeForwards;
+    fade.removedOnCompletion = NO;
     
     [self addAnimation: fade forKey: @"bounceOutWthMaximumScale_fade"];
     

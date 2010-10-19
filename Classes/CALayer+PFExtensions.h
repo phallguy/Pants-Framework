@@ -11,12 +11,12 @@
 
 @interface CALayer (PFExtensions)
 
--(void) popBounceWithMinimumScale: (CGFloat) minScale  
+-(void) popSpringWithMinimumScale: (CGFloat) minScale  
                      maximumScale: (CGFloat) maxScale 
                           tension: (CGFloat) tension 
                          duration: (CFTimeInterval) duration;
 
--(void) bounceOutWithMaximumScale: (CGFloat) maxScale
+-(void) springOutWithMaximumScale: (CGFloat) maxScale
                          duration: (CFTimeInterval) duration
                  completionTarget: (id) completionTarget
                  completionAction: (SEL) completionAction;

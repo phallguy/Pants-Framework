@@ -32,6 +32,8 @@
 		DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A89CF124B180D005E4323 /* PFGlassView.h */; };
 		DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A89D0124B180D005E4323 /* PFGlassView.m */; };
 		DA9A89E2124B19CE005E4323 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9A89E1124B19CE005E4323 /* UIKit.framework */; };
+		DAAB5F71126D04F700365DC2 /* PFCellContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */; };
+		DAAB5F72126D04F700365DC2 /* PFCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB5F70126D04F700365DC2 /* PFCellContentView.m */; };
 		DAAB70BE123612BD007A7A17 /* PFLocationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BA123612BD007A7A17 /* PFLocationTools.h */; };
 		DAAB70BF123612BD007A7A17 /* PFLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB70BB123612BD007A7A17 /* PFLocationTools.m */; };
 		DAAB70C0123612BD007A7A17 /* PFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BC123612BD007A7A17 /* PFCommon.h */; };
@@ -87,6 +89,8 @@
 		DA9A89CF124B180D005E4323 /* PFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassView.h; sourceTree = "<group>"; };
 		DA9A89D0124B180D005E4323 /* PFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassView.m; sourceTree = "<group>"; };
 		DA9A89E1124B19CE005E4323 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCellContentView.h; sourceTree = "<group>"; };
+		DAAB5F70126D04F700365DC2 /* PFCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCellContentView.m; sourceTree = "<group>"; };
 		DAAB70BA123612BD007A7A17 /* PFLocationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLocationTools.h; path = Classes/PFLocationTools.h; sourceTree = "<group>"; };
 		DAAB70BB123612BD007A7A17 /* PFLocationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLocationTools.m; path = Classes/PFLocationTools.m; sourceTree = "<group>"; };
 		DAAB70BC123612BD007A7A17 /* PFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommon.h; path = Classes/PFCommon.h; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */,
+				DAAB5F70126D04F700365DC2 /* PFCellContentView.m */,
 				DA8368DB1269AFBF003D48A7 /* PFCalloutLayer.h */,
 				DA8368DC1269AFBF003D48A7 /* PFCalloutLayer.m */,
 				DA8368DD1269AFBF003D48A7 /* PFCalloutView.h */,
@@ -264,6 +270,7 @@
 				DA0EC6BA1269A2C1004D5924 /* CALayer+PFExtensions.h in Headers */,
 				DA8368DF1269AFBF003D48A7 /* PFCalloutLayer.h in Headers */,
 				DA8368E11269AFBF003D48A7 /* PFCalloutView.h in Headers */,
+				DAAB5F71126D04F700365DC2 /* PFCellContentView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +348,7 @@
 				DA0EC6BB1269A2C1004D5924 /* CALayer+PFExtensions.m in Sources */,
 				DA8368E01269AFBF003D48A7 /* PFCalloutLayer.m in Sources */,
 				DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */,
+				DAAB5F72126D04F700365DC2 /* PFCellContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

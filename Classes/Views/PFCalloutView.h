@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PFCalloutLayer.h"
-
+#import "PFCellContentView.h"
 
 
 @interface PFCalloutView : UIControl 
@@ -18,12 +18,20 @@
     PFCalloutLayer * calloutLayer;
 
     BOOL closeOnTap;
+    
+    
+    PFCellContentView * contentView;
 }
 
 @property( nonatomic, assign ) BOOL closeOnTap;
 
+
+@property( nonatomic, retain ) UIView * contentView;
+@property( nonatomic, readonly ) PFCellContentView * cellContentView;
+          
+
 -(void) pointAt: (CGPoint) point orientation: (PFCalloutOrientation) orientation;
 -(void) pointAtView: (UIView *) targetView orientation: (PFCalloutOrientation) orientation;
--(void) bounceIn;
--(void) bounceOutAndRemove: (BOOL) remove;
+-(void) springIn;
+-(void) springOutAndRemove: (BOOL) remove;
 @end

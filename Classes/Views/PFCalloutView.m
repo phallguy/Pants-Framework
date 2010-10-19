@@ -8,6 +8,7 @@
 
 #import "PFCalloutView.h"
 #import "PFCalloutLayer.h"
+#import "PFCellContentView.h"
 #import "PFDrawTools.h"
 #import "CALayer+PFExtensions.h"
 #import <QuartzCore/QuartzCore.h>
@@ -20,6 +21,8 @@
 -(void) dealloc 
 {
     SafeRelease( calloutLayer );
+    SafeRelease( contentView );
+    
     
     [super dealloc];
 }
@@ -38,19 +41,12 @@
         [self layoutIfNeeded];
         
         [self addTarget: self action: @selector(tapped) forControlEvents: UIControlEventTouchUpInside];
+
         
-        
-        UILabel * label = [[UILabel alloc] initWithFrame: frame];
-        label.text = @"Dropped Pin";
-        label.textColor = [UIColor whiteColor];
-        label.font = [UIFont boldSystemFontOfSize: 17];
-        label.center = CGPointMake( CGRectGetWidth( frame ) / 2 , 10 );
-        label.textAlignment = UITextAlignmentCenter;
-        label.backgroundColor = [UIColor clearColor];
-        label.shadowOffset = CGSizeMake( 0, -1 );
-        label.shadowColor = [[UIColor blackColor] colorWithAlphaComponent: .5];
-        
-        [self addSubview: label];
+        frame.origin = CGPointZero;
+        frame = CGRectInset( frame, kPFCalloutContentInset, kPFCalloutContentInset );
+        contentView = [[PFCellContentView alloc] initWithFrame: frame];
+        [self addSubview: contentView];
     }
     return self;
 }
@@ -61,18 +57,62 @@
 -(BOOL) isOpaque { return NO; }
 -(BOOL) clearsContextBeforeDrawing { return YES; }
 
+-(UIView *) contentView { return contentView; }
+-(void) setContentView: (UIView *) newContentView
+{
+    if( newContentView == contentView )
+        return;
+    
+    [contentView removeFromSuperview];
+    [contentView release];
+    contentView = nil;
+    
+    if( newContentView != nil )
+    {
+        contentView = [newContentView retain];
+        [self addSubview: newContentView];
+        [self setNeedsLayout];
+    }
+}
+
+-(PFCellContentView *) cellContentView
+{
+    if( [contentView isKindOfClass: [PFCellContentView class]] )
+        return contentView;
+    return nil;
+}
+
 
 #pragma mark -
 #pragma mark Events
+
+-(CGSize) sizeThatFits: (CGSize) size
+{
+    CGSize contentSize = size;
+    contentSize.width -= ( kPFCalloutContentInset * 2 ) + kPFCalloutShadowSize;
+    contentSize.height -= ( kPFCalloutContentInset * 2 ) + kPFCalloutShadowSize;
+    contentSize.height = MAX( kPFCalloutMinimumContentHeight, contentSize.height );
+    
+    CGSize fitsize = [contentView sizeThatFits: contentSize];
+    if( fitsize.height < kPFCalloutMinimumContentHeight )
+        fitsize.height = kPFCalloutMinimumContentHeight;
+    
+    fitsize.width = MIN( size.width, fitsize.width + kPFCalloutContentInset * 2 );
+    fitsize.height = MIN( size.height, fitsize.height + kPFCalloutContentInset * 2 );
+    
+    return fitsize;
+}
 
 -(void) layoutSubviews
 {
     [super layoutSubviews];
     
-    
     CGPoint pointer = calloutLayer.pointerLocation;
     calloutLayer.pointerLocation = calloutLayer.position;
     CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+    
+    contentView.frame = CGRectInset( bounds, kPFCalloutContentInset, kPFCalloutContentInset );
+    
     bounds.size.height += kPFCalloutShadowSize;
     bounds.size.width += kPFCalloutShadowSize;
     
@@ -88,23 +128,23 @@
 
 -(PFCalloutOrientation) resolveOrientationForTargetRect: (CGRect) rect inParentOfSize: (CGSize) size
 {
-    CGFloat selfWidth = CGRectGetWidth( self.bounds );
-    CGFloat selfHeight = CGRectGetHeight( self.bounds );
+    CGSize selfSize = [self sizeThatFits: size];
+    
     
     // Try to fit above
-    if( CGRectGetMinY( rect ) - selfHeight > 0 )
+    if( CGRectGetMinY( rect ) - selfSize.height > 0 )
         return PFCalloutOrientationAbove;
     
     // Try to fit below
-    if( CGRectGetMaxY( rect ) + selfHeight < size.height )
+    if( CGRectGetMaxY( rect ) + selfSize.height < size.height )
         return PFCalloutOrientationBelow;
     
     // Try to fit right
-    if( CGRectGetMaxX( rect ) + selfWidth < size.width )
+    if( CGRectGetMaxX( rect ) + selfSize.width < size.width )
         return PFCalloutOrientationRight;
     
     // Try to fit left
-    if( CGRectGetMinX( rect ) - selfWidth > 0 )
+    if( CGRectGetMinX( rect ) - selfSize.width > 0 )
         return PFCalloutOrientationLeft;
 
     return PFCalloutOrientationNone;
@@ -121,6 +161,9 @@
     // resolve auto orientation    
     if( orientation == PFCalloutOrientationAuto )
         orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x, point.y, 1, 1 ) inParentOfSize: self.superview.bounds.size ];
+    
+    self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
+    [self sizeToFit];
     
     CGPoint anchor;
 
@@ -209,23 +252,44 @@
     [self pointAt: point orientation: orientation inView: parentView];
 }
 
--(void) bounceIn
+-(void) springIn
 {
-    [self.layer popBounceWithMinimumScale: 0 maximumScale: 1.1 tension: .5 duration: .5];
+    [self.layer removeAllAnimations];
+    
+    [self.layer popSpringWithMinimumScale: 0 maximumScale: 1.1 tension: .5 duration: .5];
+    
+    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath: @"transform.translation"];
+    animation.fromValue = [NSValue valueWithCGPoint: CGPointMake( calloutLayer.pointerLocation.x - CGRectGetWidth( self.bounds ) / 2, 
+                                                                  calloutLayer.pointerLocation.y - CGRectGetHeight( self.bounds ) / 2 )];
+    animation.toValue = [NSValue valueWithCGPoint: CGPointZero];
+    animation.duration = 0.075;
+    
+    [self.layer addAnimation: animation forKey: @"springIn_translate"];
+                           
 }
 
--(void) bounceOutAndRemove: (BOOL) remove
+-(void) springOutAndRemove: (BOOL) remove
 {
-    [self.layer bounceOutWithMaximumScale: 1.5 
+    [self.layer springOutWithMaximumScale: 1.5 
                                  duration: .25
                          completionTarget: remove ? self : nil 
                          completionAction: remove ? @selector(removeFromSuperview) : nil];
+    
+    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath: @"transform.translation"];
+    animation.fromValue = [NSValue valueWithCGPoint: CGPointZero];
+    animation.toValue = [NSValue valueWithCGPoint: CGPointMake( calloutLayer.pointerLocation.x - CGRectGetWidth( self.bounds ) / 2, 
+                                                                 calloutLayer.pointerLocation.y - CGRectGetHeight( self.bounds ) / 2 )];
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.duration = .40;
+    
+    [self.layer addAnimation: animation forKey: @"springOut_translate"];
 }
 
 -(void) tapped
 {
     if( closeOnTap )
-        [self bounceOutAndRemove: YES];
+        [self springOutAndRemove: YES];
 }
 
 -(void) sendActionsForControlEvents: (UIControlEvents) events

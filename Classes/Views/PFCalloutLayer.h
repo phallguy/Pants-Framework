@@ -12,6 +12,8 @@
 #define kPFCalloutCornerRadius   4.0
 #define kPFCalloutPointerSize    12.0
 #define kPFCalloutShadowSize     10.0
+#define kPFCalloutContentInset   8.0
+#define kPFCalloutMinimumContentHeight  20.0
 
 typedef enum 
 {
