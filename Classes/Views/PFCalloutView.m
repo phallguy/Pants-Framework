@@ -16,7 +16,7 @@
 
 @implementation PFCalloutView
 
-@synthesize  closeOnTap;
+@synthesize  closeOnTap, context;
 
 -(void) dealloc 
 {
@@ -33,12 +33,12 @@
 {
     if( self = [super initWithFrame: frame] ) 
     {
-        //self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
+        //        self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
         
         calloutLayer = [[PFCalloutLayer alloc] init];
         [self.layer addSublayer: calloutLayer];
         [self setNeedsLayout];
-        [self layoutIfNeeded];
+
         
         [self addTarget: self action: @selector(tapped) forControlEvents: UIControlEventTouchUpInside];
 
@@ -97,30 +97,26 @@
     if( fitsize.height < kPFCalloutMinimumContentHeight )
         fitsize.height = kPFCalloutMinimumContentHeight;
     
-    fitsize.width = MIN( size.width, fitsize.width + kPFCalloutContentInset * 2 );
-    fitsize.height = MIN( size.height, fitsize.height + kPFCalloutContentInset * 2 );
+    fitsize.width = MIN( size.width, ceil( fitsize.width + ( kPFCalloutContentInset * 2 ) ) );
+    fitsize.height = MIN( size.height, ceil( fitsize.height + ( kPFCalloutContentInset * 2 ) ) );
     
     return fitsize;
+}
+
+-(void) updateCalloutLayerBounds
+{
+    CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+    
+    [calloutLayer setBodyBounds: bounds];
 }
 
 -(void) layoutSubviews
 {
     [super layoutSubviews];
     
-    CGPoint pointer = calloutLayer.pointerLocation;
-    calloutLayer.pointerLocation = calloutLayer.position;
     CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
-    
     contentView.frame = CGRectInset( bounds, kPFCalloutContentInset, kPFCalloutContentInset );
-    
-    bounds.size.height += kPFCalloutShadowSize;
-    bounds.size.width += kPFCalloutShadowSize;
-    
-    calloutLayer.bounds = bounds;
-    calloutLayer.position = CGPointMake( CGRectGetWidth( self.bounds ) / 2, 
-                                         CGRectGetHeight( self.bounds ) / 2 + kPFCalloutShadowSize / 2 );
- 
-    calloutLayer.pointerLocation = pointer;
+    [self updateCalloutLayerBounds];
 }
 
 #pragma mark -
@@ -152,18 +148,20 @@
 
 
 
--(void) pointAt: (CGPoint) point orientation: (PFCalloutOrientation) orientation inView: (UIView *) parentView
+-(void) pointAt: (CGPoint) point offset: (CGSize) offset orientation: (PFCalloutOrientation) orientation inView: (UIView *) parentView
 {
     
     if( parentView == nil )
         parentView = self.superview;
     
+    self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
+    [self sizeToFit];
+    //    [self updateCalloutLayerBounds];
+    
     // resolve auto orientation    
     if( orientation == PFCalloutOrientationAuto )
         orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x, point.y, 1, 1 ) inParentOfSize: self.superview.bounds.size ];
     
-    self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
-    [self sizeToFit];
     
     CGPoint anchor;
 
@@ -188,15 +186,18 @@
         
         if( orientation == PFCalloutOrientationAbove )
         {
-            anchor.y = point.y - CGRectGetHeight( self.bounds ) - kPFCalloutPointerSize;
+            anchor.y = point.y - CGRectGetHeight( self.bounds ) - kPFCalloutPointerSize - offset.height;
             calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x, CGRectGetHeight( self.bounds ) );
         }
         else
         {
-            anchor.y = point.y + kPFCalloutPointerSize;
+            anchor.y = point.y + kPFCalloutPointerSize + offset.height;
             calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x, 0 );
         }
 
+        
+        
+        
         self.center = CGPointMake( anchor.x + CGRectGetWidth( self.bounds ) / 2 + kPFCalloutShadowSize / 2, 
                                   anchor.y + CGRectGetHeight( self.bounds ) / 2 );
     }
@@ -205,13 +206,13 @@
         anchor.y = point.y;
         if( orientation == PFCalloutOrientationLeft )
         {
-            anchor.x = point.x - CGRectGetWidth( self.bounds ) - kPFCalloutPointerSize;
+            anchor.x = point.x - CGRectGetWidth( self.bounds ) - kPFCalloutPointerSize - offset.width;
             calloutLayer.pointerLocation = CGPointMake( CGRectGetWidth( self.bounds ) + kPFCalloutShadowSize / 2, 
                                                         point.y - anchor.y + CGRectGetHeight( self.bounds ) / 2 );
         }
         else
         {
-            anchor.x = point.x + kPFCalloutPointerSize;
+            anchor.x = point.x + kPFCalloutPointerSize + offset.width;
             calloutLayer.pointerLocation = CGPointMake( 0, point.y - anchor.y + CGRectGetHeight( self.bounds ) / 2 );
         }
 
@@ -220,9 +221,9 @@
     
 }
 
--(void) pointAt: (CGPoint) point orientation: (PFCalloutOrientation) orientation
+-(void) pointAt: (CGPoint) point offset: (CGSize) size orientation: (PFCalloutOrientation) orientation
 {
-    [self pointAt: point orientation: orientation inView: nil];
+    [self pointAt: point offset: size orientation: orientation inView: nil];
 }
 
 -(void) pointAtView: (UIView *) targetView orientation: (PFCalloutOrientation) orientation
@@ -249,7 +250,7 @@
             break;
     }
     
-    [self pointAt: point orientation: orientation inView: parentView];
+    [self pointAt: point offset: CGSizeZero orientation: orientation inView: parentView];
 }
 
 -(void) springIn

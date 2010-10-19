@@ -29,6 +29,7 @@
     if( self = [super initWithFrame:frame] ) 
     {
         self.backgroundColor = [UIColor clearColor];
+        //self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent: .25];
     }
     return self;
 }
@@ -115,7 +116,7 @@
     CGSize accessorySize = CGSizeZero;
     
     
-    if( imageView != nil )
+    if( imageView != nil && ! imageView.hidden )
     {
         imageSize = [imageView sizeThatFits: size];
         fitsize.width += imageSize.width;
@@ -123,20 +124,20 @@
         
         size.width -= imageSize.width;
         
-        if( accessoryView )
+        if( accessoryView && ! accessoryView.hidden )
         {
             size.width -= kPFCellContentInnerPadding;
             fitsize.width += kPFCellContentInnerPadding;
         }
         
-        if( textLabel || detailLabel )
+        if( ( textLabel && ! textLabel.hidden ) || ( detailLabel && ! detailLabel.hidden ) )
         {
             size.width -= kPFCellContentInnerPadding;
             fitsize.width += kPFCellContentInnerPadding;
         }
     }
     
-    if( accessoryView != nil )
+    if( accessoryView != nil && ! accessoryView.hidden )
     {
         accessorySize = [accessoryView sizeThatFits: size];
         fitsize.width += accessorySize.width;
@@ -144,7 +145,7 @@
         
         size.width -= accessorySize.width;
         
-        if( textLabel || detailLabel )
+        if( ( textLabel && ! textLabel.hidden ) || ( detailLabel && ! detailLabel.hidden ) )
         {
             size.width -= kPFCellContentInnerPadding;
             fitsize.width += kPFCellContentInnerPadding;
@@ -154,14 +155,14 @@
     CGSize textSize = CGSizeZero;
    
     
-    if( textLabel != nil )
+    if( textLabel != nil && ! textLabel.hidden )
     {        
         textSize = [textLabel sizeThatFits: size];
 
         size.height -= textSize.height;
     }
     
-    if( detailLabel != nil )
+    if( detailLabel != nil && ! detailLabel.hidden )
     {
         CGSize s = [detailLabel sizeThatFits: size];
         
@@ -190,7 +191,7 @@
     
     CGRect textRect = self.bounds;
     
-    if( imageView != nil )
+    if( imageView != nil && ! imageView.hidden )
     {
         
         CGSize size = [imageView sizeThatFits: self.bounds.size];
@@ -200,14 +201,14 @@
         textRect.size.width -= CGRectGetWidth( imageView.bounds );
 
         
-        if( textLabel || detailLabel )
+        if( ( textLabel && ! textLabel.hidden ) || ( detailLabel && ! detailLabel.hidden ) )
         {
             textRect.origin.x += kPFCellContentInnerPadding;
             textRect.size.width -= kPFCellContentInnerPadding;
         }
     }
     
-    if( accessoryView != nil )
+    if( accessoryView != nil && ! accessoryView.hidden )
     {
         textRect.size.width -= CGRectGetWidth( accessoryView.bounds );
         CGRect frame = accessoryView.frame;
@@ -217,7 +218,7 @@
         
         accessoryView.frame = frame;
 
-        if( textLabel || detailLabel )
+        if( ( textLabel && ! textLabel.hidden ) || ( detailLabel && ! detailLabel.hidden ) )
         {
             textRect.size.width -= kPFCellContentInnerPadding;
         }
@@ -225,7 +226,8 @@
     
     CGRect frame = textRect;
     
-    frame.size.height = [textLabel sizeThatFits: textRect.size].height;
+    if( detailLabel && ! detailLabel.hidden )
+        frame.size.height = [textLabel sizeThatFits: textRect.size].height;
     frame.origin.y = textRect.origin.y;
     textLabel.frame = frame;
     

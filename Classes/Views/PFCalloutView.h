@@ -21,6 +21,7 @@
     
     
     PFCellContentView * contentView;
+    const void * context;
 }
 
 @property( nonatomic, assign ) BOOL closeOnTap;
@@ -28,9 +29,10 @@
 
 @property( nonatomic, retain ) UIView * contentView;
 @property( nonatomic, readonly ) PFCellContentView * cellContentView;
+@property( nonatomic, assign ) const void * context;
           
 
--(void) pointAt: (CGPoint) point orientation: (PFCalloutOrientation) orientation;
+-(void) pointAt: (CGPoint) point offset: (CGSize) size orientation: (PFCalloutOrientation) orientation;
 -(void) pointAtView: (UIView *) targetView orientation: (PFCalloutOrientation) orientation;
 -(void) springIn;
 -(void) springOutAndRemove: (BOOL) remove;

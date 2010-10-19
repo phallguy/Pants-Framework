@@ -37,5 +37,8 @@ typedef enum
 
 @property( nonatomic, retain ) UIColor * baseColor;
 @property( nonatomic, assign ) CGPoint pointerLocation;
+@property( nonatomic, readonly) PFCalloutOrientation orientation;
+
+-(void) setBodyBounds: (CGRect) rect;
 
 @end

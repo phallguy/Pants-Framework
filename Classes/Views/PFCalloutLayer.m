@@ -17,6 +17,8 @@
 
 @implementation PFCalloutLayer
 
+@synthesize  orientation;
+
 -(void) dealloc
 {
     SafeRelease( baseColor );
@@ -125,6 +127,32 @@
     [self setNeedsDisplay];
 }
 
+
+-(void) setBodyBounds: (CGRect) rect
+{
+    PFCalloutOrientation originalOrientation = orientation;
+    orientation = PFCalloutOrientationNone;
+    rect.size.width += kPFCalloutShadowSize;
+    rect.size.height += kPFCalloutShadowSize;
+    self.bounds = rect;
+    self.position = CGPointMake( CGRectGetWidth( rect ) / 2 - kPFCalloutShadowSize / 2, CGRectGetHeight( rect ) / 2 );
+    
+    if( originalOrientation != PFCalloutOrientationAuto && originalOrientation != PFCalloutOrientationNone )
+    {
+        CGPoint point = pointerLocation;
+        switch( originalOrientation )
+        {
+            case PFCalloutOrientationAbove:
+                point.y = CGRectGetHeight( rect );
+                break;
+            case PFCalloutOrientationLeft: 
+                point.x = CGRectGetWidth( rect );
+                break;
+        }
+        
+        self.pointerLocation = point;
+    }    
+}
 
 #pragma mark -
 #pragma mark Drawing
