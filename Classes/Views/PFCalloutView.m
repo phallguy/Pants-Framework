@@ -270,8 +270,21 @@
                            
 }
 
--(void) springOutAndRemove: (BOOL) remove
+-(void) springOutDelay: (id) remove
 {
+    [self springOutAndRemove: remove == nil afterDelay: 0];
+}
+
+-(void) springOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget: self];
+    
+    if( delay )
+    {
+        [self performSelector: @selector(springOutDelay:) withObject: remove ? @"" : nil afterDelay: delay];
+        return;
+    }
+    
     [self.layer springOutWithMaximumScale: 1.5 
                                  duration: .25
                          completionTarget: remove ? self : nil 
@@ -291,7 +304,7 @@
 -(void) tapped
 {
     if( closeOnTap )
-        [self springOutAndRemove: YES];
+        [self springOutAndRemove: YES afterDelay: 0];
 }
 
 -(void) sendActionsForControlEvents: (UIControlEvents) events

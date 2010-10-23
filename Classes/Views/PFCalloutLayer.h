@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#define kPFCalloutCornerRadius   4.0
+#define kPFCalloutCornerRadius   6.0
 #define kPFCalloutPointerSize    12.0
 #define kPFCalloutShadowSize     10.0
 #define kPFCalloutContentInset   8.0

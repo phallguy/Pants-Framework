@@ -29,7 +29,7 @@
 {
     if( self = [super init] )
     {
-        baseColor = [[[UIColor blackColor] colorWithAlphaComponent: .65] retain];
+        baseColor = [[[UIColor blackColor] colorWithAlphaComponent: .75] retain];
         
         self.masksToBounds = NO;
         self.needsDisplayOnBoundsChange = YES;
@@ -331,7 +331,7 @@
     
     // Secondary rectangle creates a light highlight around the entire area
     path = [self createPathInRect: rect cornerRadius: kPFCalloutCornerRadius - 0.5 pointerSize: kPFCalloutPointerSize - 0.5 inset: 1.5];
-    CGContextSetFillColorWithColor( g, [[baseColor colorWithAlphaComponent: 0.3] CGColor] );
+    CGContextSetFillColorWithColor( g, [[baseColor colorWithAlphaComponent: 0.1] CGColor] );
     CGContextAddPath( g, path );
     CGContextFillPath( g );
     CGPathRelease( path );

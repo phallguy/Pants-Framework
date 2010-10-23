@@ -49,6 +49,39 @@
     return date;
 }
 
+-(NSDate *) isoDateValueOfAttributeNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfAttributeNamed: name];
+    if( val == nil )
+        return nil;
+    
+    return [NSDate dateFromIsoString: val];
+}
+
+-(UIColor *) colorValueOfAttributeNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfAttributeNamed: name];
+    if( val == nil )
+        return nil;
+    
+    return [UIColor colorFromRgbHex: val];
+}
+
+-(BOOL) boolValueOfAttributeNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfElementNamed: name];
+    if( ! val )
+        return NO;
+    
+    if( [val caseInsensitiveCompare: @"YES" ] == NSOrderedSame ||
+           [val caseInsensitiveCompare: @"Y" ] == NSOrderedSame ||
+           [val caseInsensitiveCompare: @"TRUE" ] == NSOrderedSame ||
+           [val caseInsensitiveCompare: @"T" ] == NSOrderedSame ||
+           [val caseInsensitiveCompare: @"1" ] == NSOrderedSame )
+        return YES;
+    
+    return NO;
+}
 
 
 -(GDataXMLElement *) firstElementForName: (NSString *) name
@@ -90,6 +123,20 @@
 }
 
 
+-(void) setAttributeWithName: (NSString *) name toValue: (NSString *) value
+{
+    GDataXMLNode * attr = [self attributeForName: name];
+    if( attr == nil )
+    {
+        attr = [GDataXMLNode attributeWithName: name stringValue: value];
+        [self addAttribute: attr];
+    }
+    else
+    {
+        [attr setStringValue: value];
+    }
+}
+
 @end
 
 
@@ -99,6 +146,92 @@
 {
     GDataXMLDocument * doc = [[[GDataXMLDocument alloc] initWithXMLString: self options: 0 error: NULL] autorelease];
     return doc.rootElement;
+}
+
+@end
+
+
+@implementation NSDate (PFXml)
+
+-(NSString *) isoStringValue
+{
+    NSDateFormatter * f = [[NSDateFormatter alloc] init];
+    f.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+    NSString * result = [f stringFromDate: self];    
+    [f release];
+    
+    return result;
+}
+
++(NSDate *) dateFromIsoString: (NSString *) value
+{
+    NSDateFormatter * f = [[NSDateFormatter alloc] init];
+    f.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+    NSDate * date = [f dateFromString: value];
+    [f release];
+    return date;
+}
+
+@end
+
+
+@implementation UIColor (PFXml)
+
+-(NSString *) rgbHexValue
+{
+    CGColorRef color = [self CGColor];
+    const CGFloat * components = CGColorGetComponents( color );
+    int count = CGColorGetNumberOfComponents( color );
+    
+    if( count == 1 )
+    {
+        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
+                round( components[ 0 ] * 255 ), 
+                round( components[ 0 ] * 255 ), 
+                round( components[ 0 ] * 255 )];
+    }
+    else if ( count == 3 || ( count == 4 && components[3] == 1 ) )
+    {
+        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
+                round( components[ 0 ] * 255 ), 
+                round( components[ 1 ] * 255 ), 
+                round( components[ 2 ] * 255 )];    }
+    else
+    {
+        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
+                round( components[ 0 ] * 255 ), 
+                round( components[ 1 ] * 255 ), 
+                round( components[ 2 ] * 255 ),
+                round( components[ 3 ] * 255 )
+                ];
+    }
+    
+    return @"#000000";
+}
+
++(UIColor *) colorFromRgbHex: (NSString *) value
+{
+    if( ! value )
+        return [UIColor blackColor];
+    
+    if( [value hasPrefix: @"#"] )
+        value = [value substringFromIndex: 1];
+    
+    NSScanner * scanner = [NSScanner scannerWithString: value];
+    scanner.caseSensitive = NO;
+    
+    uint rgb;
+    if( ! [scanner scanHexInt: &rgb] )
+        return [UIColor blackColor];
+    
+    
+    if( [value length] == 6 )
+        rgb |= 0xFF000000;
+    
+    return [UIColor colorWithRed: ( rgb & 0xFF ) / 255.0 
+                           green: ( ( rgb >> 8 ) & 0xFF ) / 255.0 
+                            blue: ( ( rgb >> 16 ) & 0xFF ) / 255.0 
+                           alpha: ( ( rgb >> 24 ) & 0xFF ) / 255.0];
 }
 
 @end

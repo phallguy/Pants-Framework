@@ -35,5 +35,7 @@
 -(void) pointAt: (CGPoint) point offset: (CGSize) size orientation: (PFCalloutOrientation) orientation;
 -(void) pointAtView: (UIView *) targetView orientation: (PFCalloutOrientation) orientation;
 -(void) springIn;
--(void) springOutAndRemove: (BOOL) remove;
+-(void) springOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay;
+
+
 @end
