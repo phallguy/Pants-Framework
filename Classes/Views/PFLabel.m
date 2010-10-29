@@ -74,4 +74,15 @@
     return result;
 }
 
+-(void) alignToTopWithMaxHeight: (CGFloat) maxHeight
+                                
+{
+    CGSize size = CGSizeMake( CGRectGetWidth( self.bounds ), INT_MAX );
+    CGSize realSize = [self.text sizeWithFont: self.font constrainedToSize: size lineBreakMode: self.lineBreakMode];
+    
+    CGRect newFrame = self.frame;
+    newFrame.size.height = MIN( realSize.height, maxHeight );
+    self.frame = newFrame;
+}
+
 @end

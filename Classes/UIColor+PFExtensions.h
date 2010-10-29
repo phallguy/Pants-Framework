@@ -12,5 +12,6 @@
 @interface UIColor (PFExtensions)
 
 +(UIColor *) random;
+-(UIColor *) lighten: (CGFloat) amount;
 
 @end

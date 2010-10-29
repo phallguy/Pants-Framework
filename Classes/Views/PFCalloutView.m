@@ -199,8 +199,8 @@
         
         
         
-        self.center = CGPointMake( anchor.x + CGRectGetWidth( self.bounds ) / 2 + kPFCalloutShadowSize / 2, 
-                                  anchor.y + CGRectGetHeight( self.bounds ) / 2 );
+        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 + kPFCalloutShadowSize / 2 ), 
+                                   ceil( anchor.y + CGRectGetHeight( self.bounds ) / 2 ) );
     }
     else
     {
@@ -217,7 +217,7 @@
             calloutLayer.pointerLocation = CGPointMake( 0, point.y - anchor.y + CGRectGetHeight( self.bounds ) / 2 );
         }
 
-        self.center = CGPointMake( anchor.x + CGRectGetWidth( self.bounds ) / 2, anchor.y );
+        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 ), ceil( anchor.y ) );
     }
     
 }

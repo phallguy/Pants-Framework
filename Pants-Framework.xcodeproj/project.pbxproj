@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0A4DA11277F10D004C1F26 /* PFProgressView.h */; };
+		DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A4DA21277F10D004C1F26 /* PFProgressView.m */; };
 		DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0B435F124B1B180084D2E6 /* PFGlassControl.h */; };
 		DA0B4362124B1B180084D2E6 /* PFGlassControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0B4360124B1B180084D2E6 /* PFGlassControl.m */; };
 		DA0EC6BA1269A2C1004D5924 /* CALayer+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0EC6B81269A2C1004D5924 /* CALayer+PFExtensions.h */; };
@@ -66,6 +68,8 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0A4DA11277F10D004C1F26 /* PFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProgressView.h; sourceTree = "<group>"; };
+		DA0A4DA21277F10D004C1F26 /* PFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFProgressView.m; sourceTree = "<group>"; };
 		DA0B435F124B1B180084D2E6 /* PFGlassControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassControl.h; sourceTree = "<group>"; };
 		DA0B4360124B1B180084D2E6 /* PFGlassControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassControl.m; sourceTree = "<group>"; };
 		DA0EC6B81269A2C1004D5924 /* CALayer+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+PFExtensions.h"; path = "Classes/CALayer+PFExtensions.h"; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA0A4DA11277F10D004C1F26 /* PFProgressView.h */,
+				DA0A4DA21277F10D004C1F26 /* PFProgressView.m */,
 				DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */,
 				DAAB5F70126D04F700365DC2 /* PFCellContentView.m */,
 				DA8368DB1269AFBF003D48A7 /* PFCalloutLayer.h */,
@@ -271,6 +277,7 @@
 				DA8368DF1269AFBF003D48A7 /* PFCalloutLayer.h in Headers */,
 				DA8368E11269AFBF003D48A7 /* PFCalloutView.h in Headers */,
 				DAAB5F71126D04F700365DC2 /* PFCellContentView.h in Headers */,
+				DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +356,7 @@
 				DA8368E01269AFBF003D48A7 /* PFCalloutLayer.m in Sources */,
 				DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */,
 				DAAB5F72126D04F700365DC2 /* PFCellContentView.m in Sources */,
+				DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

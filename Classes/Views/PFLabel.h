@@ -18,5 +18,6 @@
 }
 
 @property( nonatomic, assign ) CGFloat shadowBlur;
+-(void) alignToTopWithMaxHeight: (CGFloat) maxHeight;
 
 @end

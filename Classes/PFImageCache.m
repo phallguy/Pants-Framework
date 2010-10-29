@@ -224,6 +224,8 @@
     // it is returned and retained by the caller.
     @synchronized( self )
     {
+        NSLog( @"Locating cached image for %@ size %@ resolved to %@ and cacheName: %@", imageName, NSStringFromCGSize( size ), resolved, cacheName );
+        
         UIImage * result = [cachedImages objectForKey: cacheName];
 
         if( ((NSNull *)result) == [NSNull null] )
@@ -245,6 +247,8 @@
         
         if( [[NSFileManager defaultManager] fileExistsAtPath: cacheName] )
         {   
+            NSLog( @"\tCached image %@ for size %@ found, checking original date.", cacheName, NSStringFromCGSize( size ) );
+            
             // Only use the cached image if the original has not been modified since the cache was 
             // created.
             NSDate * originalModified = [[[NSFileManager defaultManager] attributesOfItemAtPath: resolved error: NULL] objectForKey: NSFileModificationDate];
@@ -252,6 +256,8 @@
             
             if( [originalModified compare: cacheModified] == NSOrderedAscending )
             {
+                NSLog( @"\tCached image is newer, using." );
+
                 // See if we've sized it and saved that before
                 result = [PFCachedImage cachedImageWithPath: cacheName];
                 
@@ -275,6 +281,7 @@
         
         if( original == nil )
         {
+            NSLog( @"\tOriginal image not found." );
             [cachedImages setObject: [NSNull null] forKey: cacheName];
             return nil;
         }
