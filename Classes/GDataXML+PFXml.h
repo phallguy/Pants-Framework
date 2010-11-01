@@ -27,6 +27,7 @@
 -(NSDate *) isoDateValueOfAttributeNamed: (NSString *) name;
 -(UIColor *) colorValueOfAttributeNamed: (NSString *) name;
 -(BOOL) boolValueOfAttributeNamed: (NSString *) name;
+-(BOOL) boolValueOfAttributeNamed: (NSString *) name withDefault: (BOOL) defaultValue;
 
 -(NSString *) stringValueOfElementNamed: (NSString *) name;
 

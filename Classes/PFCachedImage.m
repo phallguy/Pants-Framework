@@ -7,7 +7,7 @@
 //
 
 #import "PFCachedImage.h"
-
+#import "PFImageCacheStaticTrimmer.h"
 
 @interface PFCachedImage ()
 
@@ -21,9 +21,11 @@
 
 -(void) dealloc 
 {
+    [[PFImageCacheStaticTrimmer sharedTrimmer] removeImage: self];
+    
     SafeRelease( path );
     SafeRelease( realImage );
-    
+            
     [super dealloc];
 }
 
@@ -52,6 +54,8 @@
     {
         path = [newPath copy];        
         timestamp = time( NULL );
+        
+        [[PFImageCacheStaticTrimmer sharedTrimmer] addImage: self];
     }
     
     return self;

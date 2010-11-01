@@ -21,6 +21,10 @@
 		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
+		DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C4784127B3F0200B4DBFB /* PFGradientView.h */; };
+		DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C4785127B3F0200B4DBFB /* PFGradientView.m */; };
+		DA6F1E15127B50CC00CED54D /* PFImageCacheStaticTrimmer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6F1E13127B50CC00CED54D /* PFImageCacheStaticTrimmer.h */; };
+		DA6F1E16127B50CC00CED54D /* PFImageCacheStaticTrimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6F1E14127B50CC00CED54D /* PFImageCacheStaticTrimmer.m */; };
 		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
 		DA731C851235E1A000BB0F2B /* PFPopupBorderWithShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */; };
 		DA7C88481235FD35004FD53B /* PFTouchDetectorControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */; };
@@ -80,6 +84,10 @@
 		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
+		DA6C4784127B3F0200B4DBFB /* PFGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGradientView.h; sourceTree = "<group>"; };
+		DA6C4785127B3F0200B4DBFB /* PFGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGradientView.m; sourceTree = "<group>"; };
+		DA6F1E13127B50CC00CED54D /* PFImageCacheStaticTrimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFImageCacheStaticTrimmer.h; path = Classes/PFImageCacheStaticTrimmer.h; sourceTree = "<group>"; };
+		DA6F1E14127B50CC00CED54D /* PFImageCacheStaticTrimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCacheStaticTrimmer.m; path = Classes/PFImageCacheStaticTrimmer.m; sourceTree = "<group>"; };
 		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
 		DA731C831235E1A000BB0F2B /* PFPopupBorderWithShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPopupBorderWithShadowView.m; sourceTree = "<group>"; };
 		DA7C88461235FD35004FD53B /* PFTouchDetectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTouchDetectorControl.h; sourceTree = "<group>"; };
@@ -171,16 +179,14 @@
 			children = (
 				DA0EC6B81269A2C1004D5924 /* CALayer+PFExtensions.h */,
 				DA0EC6B91269A2C1004D5924 /* CALayer+PFExtensions.m */,
-				DAB96A51125F04A6007F6AA5 /* UIColor+PFExtensions.h */,
-				DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */,
 				DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */,
 				DACE0739125E8F3B00173EF0 /* NSString+PFExtensions.m */,
-				DADB63D31249963400B681CC /* UIImage+Resize.h */,
-				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DADB63A41249790800B681CC /* PFCachedImage.h */,
 				DADB63A51249790800B681CC /* PFCachedImage.m */,
 				DA34530E124972100051A018 /* PFImageCache.h */,
 				DA34530F124972100051A018 /* PFImageCache.m */,
+				DA6F1E13127B50CC00CED54D /* PFImageCacheStaticTrimmer.h */,
+				DA6F1E14127B50CC00CED54D /* PFImageCacheStaticTrimmer.m */,
 				DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */,
 				DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */,
 				DAAC0C2F12445F7600ED8F47 /* GDataXMLNode.h */,
@@ -191,6 +197,10 @@
 				DAAB70BB123612BD007A7A17 /* PFLocationTools.m */,
 				DAAB70BC123612BD007A7A17 /* PFCommon.h */,
 				DAAB70BD123612BD007A7A17 /* PFCommon.m */,
+				DAB96A51125F04A6007F6AA5 /* UIColor+PFExtensions.h */,
+				DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */,
+				DADB63D31249963400B681CC /* UIImage+Resize.h */,
+				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DAFB36871235A90F0008E7DB /* Views */,
 			);
 			name = Classes;
@@ -209,6 +219,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA6C4784127B3F0200B4DBFB /* PFGradientView.h */,
+				DA6C4785127B3F0200B4DBFB /* PFGradientView.m */,
 				DA0A4DA11277F10D004C1F26 /* PFProgressView.h */,
 				DA0A4DA21277F10D004C1F26 /* PFProgressView.m */,
 				DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */,
@@ -278,6 +290,8 @@
 				DA8368E11269AFBF003D48A7 /* PFCalloutView.h in Headers */,
 				DAAB5F71126D04F700365DC2 /* PFCellContentView.h in Headers */,
 				DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */,
+				DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */,
+				DA6F1E15127B50CC00CED54D /* PFImageCacheStaticTrimmer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +371,8 @@
 				DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */,
 				DAAB5F72126D04F700365DC2 /* PFCellContentView.m in Sources */,
 				DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */,
+				DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */,
+				DA6F1E16127B50CC00CED54D /* PFImageCacheStaticTrimmer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

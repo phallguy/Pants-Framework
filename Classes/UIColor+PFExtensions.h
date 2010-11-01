@@ -12,6 +12,11 @@
 @interface UIColor (PFExtensions)
 
 +(UIColor *) random;
++(UIColor *) randomClampedTo: (NSInteger) groups;
+
 -(UIColor *) lighten: (CGFloat) amount;
+-(UIColor *) darken: (CGFloat) amount;
+
+-(BOOL) isSameAs: (UIColor *) clr;
 
 @end

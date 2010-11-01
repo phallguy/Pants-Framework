@@ -69,9 +69,14 @@
 
 -(BOOL) boolValueOfAttributeNamed: (NSString *) name
 {
+    return [self boolValueOfAttributeNamed: name withDefault: NO];
+}
+
+-(BOOL) boolValueOfAttributeNamed: (NSString *) name withDefault: (BOOL) defaultValue
+{
     NSString * val = [self stringValueOfElementNamed: name];
     if( ! val )
-        return NO;
+        return defaultValue;
     
     if( [val caseInsensitiveCompare: @"YES" ] == NSOrderedSame ||
            [val caseInsensitiveCompare: @"Y" ] == NSOrderedSame ||
@@ -185,24 +190,24 @@
     
     if( count == 1 )
     {
-        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
-                round( components[ 0 ] * 255 ), 
-                round( components[ 0 ] * 255 ), 
-                round( components[ 0 ] * 255 )];
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 0 ] * 255 )];
     }
     else if ( count == 3 || ( count == 4 && components[3] == 1 ) )
     {
-        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
-                round( components[ 0 ] * 255 ), 
-                round( components[ 1 ] * 255 ), 
-                round( components[ 2 ] * 255 )];    }
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 1 ] * 255 ), 
+                (int)round( components[ 2 ] * 255 )];    }
     else
     {
-        return [NSString stringWithFormat: @"#%.2x%.2x%.2x", 
-                round( components[ 0 ] * 255 ), 
-                round( components[ 1 ] * 255 ), 
-                round( components[ 2 ] * 255 ),
-                round( components[ 3 ] * 255 )
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 1 ] * 255 ), 
+                (int)round( components[ 2 ] * 255 ),
+                (int)round( components[ 3 ] * 255 )
                 ];
     }
     
@@ -226,12 +231,15 @@
     
     
     if( [value length] == 6 )
-        rgb |= 0xFF000000;
+    {
+        rgb <<= 8;
+        rgb |= 0xFF;
+    }
     
-    return [UIColor colorWithRed: ( rgb & 0xFF ) / 255.0 
-                           green: ( ( rgb >> 8 ) & 0xFF ) / 255.0 
-                            blue: ( ( rgb >> 16 ) & 0xFF ) / 255.0 
-                           alpha: ( ( rgb >> 24 ) & 0xFF ) / 255.0];
+    return [UIColor colorWithRed: ( ( rgb >> 24 ) & 0xFF ) / 255.0 
+                           green: ( ( rgb >> 16 ) & 0xFF ) / 255.0 
+                            blue: ( ( rgb >> 8 ) & 0xFF ) / 255.0 
+                           alpha: ( ( rgb ) & 0xFF ) / 255.0];
 }
 
 @end
