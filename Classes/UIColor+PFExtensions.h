@@ -20,4 +20,7 @@
 
 -(BOOL) isSameAs: (UIColor *) clr;
 
++(UIColor *) colorFromRgbHex: (NSString *) value;
+-(NSString *) rgbHexValue;
+
 @end

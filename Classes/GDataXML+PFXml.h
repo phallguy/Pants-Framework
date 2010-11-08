@@ -51,10 +51,3 @@
 +(NSDate *) dateFromIsoString: (NSString *) value;
 
 @end
-
-@interface UIColor (PFXml)
-
--(NSString *) rgbHexValue;
-+(UIColor *) colorFromRgbHex: (NSString *) value;
-
-@end

@@ -265,4 +265,65 @@ void ConvertHSLtoRGB( const CGFloat * components, CGFloat * rgb )
 }
 
 
+-(NSString *) rgbHexValue
+{
+    CGColorRef color = [self CGColor];
+    const CGFloat * components = CGColorGetComponents( color );
+    int count = CGColorGetNumberOfComponents( color );
+    
+    if( count == 1 )
+    {
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 0 ] * 255 )];
+    }
+    else if ( count == 3 || ( count == 4 && components[3] == 1 ) )
+    {
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 1 ] * 255 ), 
+                (int)round( components[ 2 ] * 255 )];    }
+    else
+    {
+        return [NSString stringWithFormat: @"#%.2X%.2X%.2X", 
+                (int)round( components[ 0 ] * 255 ), 
+                (int)round( components[ 1 ] * 255 ), 
+                (int)round( components[ 2 ] * 255 ),
+                (int)round( components[ 3 ] * 255 )
+                ];
+    }
+    
+    return @"#000000";
+}
+
++(UIColor *) colorFromRgbHex: (NSString *) value
+{
+    if( ! value )
+        return [UIColor blackColor];
+    
+    if( [value hasPrefix: @"#"] )
+        value = [value substringFromIndex: 1];
+    
+    NSScanner * scanner = [NSScanner scannerWithString: value];
+    scanner.caseSensitive = NO;
+    
+    uint rgb;
+    if( ! [scanner scanHexInt: &rgb] )
+        return [UIColor blackColor];
+    
+    
+    if( [value length] == 6 )
+    {
+        rgb <<= 8;
+        rgb |= 0xFF;
+    }
+    
+    return [UIColor colorWithRed: ( ( rgb >> 24 ) & 0xFF ) / 255.0 
+                           green: ( ( rgb >> 16 ) & 0xFF ) / 255.0 
+                            blue: ( ( rgb >> 8 ) & 0xFF ) / 255.0 
+                           alpha: ( ( rgb ) & 0xFF ) / 255.0];
+}
+
+
 @end
