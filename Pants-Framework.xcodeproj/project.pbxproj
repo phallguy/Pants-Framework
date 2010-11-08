@@ -23,6 +23,8 @@
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
 		DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C4784127B3F0200B4DBFB /* PFGradientView.h */; };
 		DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C4785127B3F0200B4DBFB /* PFGradientView.m */; };
+		DA6C82B212875E5900A0C325 /* PFTintedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C82B012875E5900A0C325 /* PFTintedButton.h */; };
+		DA6C82B312875E5900A0C325 /* PFTintedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C82B112875E5900A0C325 /* PFTintedButton.m */; };
 		DA6F1E15127B50CC00CED54D /* PFImageCacheStaticTrimmer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6F1E13127B50CC00CED54D /* PFImageCacheStaticTrimmer.h */; };
 		DA6F1E16127B50CC00CED54D /* PFImageCacheStaticTrimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6F1E14127B50CC00CED54D /* PFImageCacheStaticTrimmer.m */; };
 		DA731C841235E1A000BB0F2B /* PFPopupBorderWithShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */; };
@@ -86,6 +88,8 @@
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
 		DA6C4784127B3F0200B4DBFB /* PFGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGradientView.h; sourceTree = "<group>"; };
 		DA6C4785127B3F0200B4DBFB /* PFGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGradientView.m; sourceTree = "<group>"; };
+		DA6C82B012875E5900A0C325 /* PFTintedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTintedButton.h; sourceTree = "<group>"; };
+		DA6C82B112875E5900A0C325 /* PFTintedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTintedButton.m; sourceTree = "<group>"; };
 		DA6F1E13127B50CC00CED54D /* PFImageCacheStaticTrimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFImageCacheStaticTrimmer.h; path = Classes/PFImageCacheStaticTrimmer.h; sourceTree = "<group>"; };
 		DA6F1E14127B50CC00CED54D /* PFImageCacheStaticTrimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCacheStaticTrimmer.m; path = Classes/PFImageCacheStaticTrimmer.m; sourceTree = "<group>"; };
 		DA731C821235E1A000BB0F2B /* PFPopupBorderWithShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPopupBorderWithShadowView.h; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA6C82B012875E5900A0C325 /* PFTintedButton.h */,
+				DA6C82B112875E5900A0C325 /* PFTintedButton.m */,
 				DA6C4784127B3F0200B4DBFB /* PFGradientView.h */,
 				DA6C4785127B3F0200B4DBFB /* PFGradientView.m */,
 				DA0A4DA11277F10D004C1F26 /* PFProgressView.h */,
@@ -292,6 +298,7 @@
 				DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */,
 				DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */,
 				DA6F1E15127B50CC00CED54D /* PFImageCacheStaticTrimmer.h in Headers */,
+				DA6C82B212875E5900A0C325 /* PFTintedButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +380,7 @@
 				DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */,
 				DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */,
 				DA6F1E16127B50CC00CED54D /* PFImageCacheStaticTrimmer.m in Sources */,
+				DA6C82B312875E5900A0C325 /* PFTintedButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

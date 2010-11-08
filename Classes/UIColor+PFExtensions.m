@@ -222,5 +222,47 @@ void ConvertHSLtoRGB( const CGFloat * components, CGFloat * rgb )
     return [UIColor colorWithHue: hslComponents[0] saturation: hslComponents[1] brightness: hslComponents[2] alpha: CGColorGetAlpha( clr )];
 } 
 
+-(void) getHue: (CGFloat *) hue saturation: (CGFloat *) saturation lightness: (CGFloat *) lightness
+{
+    if( hue != NULL )
+        *hue = 0.0;
+    if( saturation != NULL )
+        *saturation = 0.0;
+    if( lightness != NULL )
+        *lightness = 0.0;
+    
+    
+    
+    CGColorRef clr = [self CGColor];
+    CGColorSpaceRef clrSpace = CGColorGetColorSpace( clr );
+    
+    const CGFloat * components;
+    
+    CGColorSpaceModel model = CGColorSpaceGetModel( clrSpace );
+    
+    if( model == kCGColorSpaceModelMonochrome )
+    {
+        if( lightness != NULL )
+            *lightness = components[0];
+        return;
+    }
+    
+    if( model != kCGColorSpaceModelRGB && model != kCGColorSpaceModelLab )
+        return;
+    
+    components = CGColorGetComponents( clr );
+    CGFloat hslComponents[3];
+    
+    if( model == kCGColorSpaceModelRGB )
+        ConvertRGBtoHSL( components, hslComponents );
+
+    if( hue != NULL )
+        *hue = hslComponents[0];
+    if( saturation != NULL )
+        *saturation = hslComponents[1];
+    if( lightness != NULL )
+        *lightness = hslComponents[2]; 
+}
+
 
 @end

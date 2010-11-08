@@ -9,11 +9,31 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum
+{
+    kPFCornerRadiusCornersTopLeft       = 1,
+    kPFCornerRadiusCornersTopRight      = 2,
+    kPFCornerRadiusCornersBottomLeft    = 4,
+    kPFCornerRadiusCornersBottomRight   = 8,
+    
+    kPFCornerRadiusCornersTop           = kPFCornerRadiusCornersTopLeft | kPFCornerRadiusCornersTopRight,
+    kPFCornerRadiusCornersBottom        = kPFCornerRadiusCornersBottomLeft | kPFCornerRadiusCornersBottomRight,
+    kPFCornerRadiusCornersLeft          = kPFCornerRadiusCornersBottomLeft | kPFCornerRadiusCornersTopLeft,
+    kPFCornerRadiusCornersRight         = kPFCornerRadiusCornersBottomRight | kPFCornerRadiusCornersTopRight,
+    
+    kPFCornerRadiusCornersAll           = kPFCornerRadiusCornersTopLeft | kPFCornerRadiusCornersTopRight |
+                                            kPFCornerRadiusCornersBottomLeft | kPFCornerRadiusCornersBottomRight,
+
+} PFCornerRadiusCorners;
+
+
 @interface PFDrawTools : NSObject {
 
 }
 
 +(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
++(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius andCorners: (PFCornerRadiusCorners) corners;
+
 +(CGRect) drawGlassInContext: (CGContextRef) g 
                    forRect: (CGRect) rect 
                      color: (UIColor *) color
@@ -21,5 +41,7 @@
                borderWidth: (CGFloat) borderWidth 
                shadowDepth: (CGFloat) shadowDepth;
 +(CGRect) calculateGlassRect: (CGRect) rect shadowDepth: (CGFloat) shadowDepth;
+
++(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors;
 
 @end

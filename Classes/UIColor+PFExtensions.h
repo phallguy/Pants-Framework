@@ -16,6 +16,7 @@
 
 -(UIColor *) lighten: (CGFloat) amount;
 -(UIColor *) darken: (CGFloat) amount;
+-(void) getHue: (CGFloat *) hue saturation: (CGFloat *) saturation lightness: (CGFloat *) lightness;
 
 -(BOOL) isSameAs: (UIColor *) clr;
 

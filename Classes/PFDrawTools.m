@@ -14,78 +14,96 @@
 
 +(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius;
 {
-	CGMutablePathRef path = CGPathCreateMutable();
-	
-	// top left inside arc
-	CGPathMoveToPoint( path, 
-					   nil, 
-					   CGRectGetMinX( rect ) + radius, 
-					   CGRectGetMinY( rect ) );
-	
-	// top border
-	CGPathAddLineToPoint( path, 
-						  nil, 
-						  CGRectGetMaxX( rect ) - radius, 
-						  CGRectGetMinY( rect ) );
-	
-	// top right arc
-	CGPathAddArc( path, 
-				  nil, 
-				  CGRectGetMaxX( rect ) - radius, 
-				  CGRectGetMinY( rect ) + radius, 
-				  radius, 
-				  -M_PI / 2, 
-				  0,
-  				  NO );
-	
-	// right border
-	CGPathAddLineToPoint( path, nil, CGRectGetMaxX( rect ), CGRectGetMaxY( rect ) - radius );
+	return [PFDrawTools createPathForRect: rect withCornerRadius: radius andCorners: kPFCornerRadiusCornersAll];
+}
 
++(CGMutablePathRef) createPathForRect: (CGRect) rect withCornerRadius: (CGFloat) radius andCorners: (PFCornerRadiusCorners) corners;
+{
+    CGMutablePathRef path = CGPathCreateMutable();
+	
+    if( corners & kPFCornerRadiusCornersTopLeft )
+    {
+        CGPathMoveToPoint( path, 
+                      nil, 
+                      CGRectGetMinX( rect ) + radius, 
+                      CGRectGetMinY( rect ) );
+    }
+    else
+    {
+        CGPathMoveToPoint( path, 
+                          nil, 
+                          CGRectGetMinX( rect ) , 
+                          CGRectGetMinY( rect ) );
+    }
+	
+	
+    // top right arc
+    if( corners & kPFCornerRadiusCornersTopRight )
+    {
+        CGPathAddArc( path, 
+                     nil, 
+                     CGRectGetMaxX( rect ) - radius, 
+                     CGRectGetMinY( rect ) + radius, 
+                     radius, 
+                     -M_PI / 2, 
+                     0,
+                     NO );
+    }
+    else
+    {
+        CGPathAddLineToPoint( path, NULL, CGRectGetMaxX( rect ), CGRectGetMinY( rect ) );
+    }
+	
 	// bottom right arc
-	CGPathAddArc( path, 
-				 nil, 
-				 CGRectGetMaxX( rect ) - radius, 
-				 CGRectGetMaxY( rect ) - radius, 
-				 radius, 
-				 0, 
-				 M_PI / 2,
-				 NO );
-	
-	
-	// bottom border
-	CGPathAddLineToPoint( path, nil, CGRectGetMinX( rect ) + radius, CGRectGetMaxY( rect ) );
-	
-	// bottom left arc
-	//CGPathAddLineToPoint( path, nil, CGRectGetMinX( rect ),  CGRectGetMaxY(rect ) - radius );
-	
-	CGPathAddArc( path, 
-				 nil, 
-				 CGRectGetMinX( rect ) + radius, 
-				 CGRectGetMaxY( rect ) - radius, 
-				 radius, 
-				 M_PI / 2, 
-				 M_PI,
-				 NO );
+    if( corners & kPFCornerRadiusCornersBottomRight )
+    {
+        CGPathAddArc( path, 
+                     nil, 
+                     CGRectGetMaxX( rect ) - radius, 
+                     CGRectGetMaxY( rect ) - radius, 
+                     radius, 
+                     0, 
+                     M_PI / 2,
+                     NO );
+    }
+    else
+    {
+        CGPathAddLineToPoint( path, NULL, CGRectGetMaxX( rect ), CGRectGetMaxY( rect ) );
+    }
 		
-	// left border
-	CGPathAddLineToPoint( path, nil, CGRectGetMinX( rect ), CGRectGetMinY( rect ) + radius );
-	
-	
-	// top right arc
-	
-	CGPathAddArc( path, 
-				 nil, 
-				 CGRectGetMinX( rect ) + radius, 
-				 CGRectGetMinY( rect ) + radius, 
-				 radius, 
-				 M_PI, 
-				 M_PI * 1.5,
-				 NO );
-	
+	// bottom left arc
+    if( corners & kPFCornerRadiusCornersBottomLeft )
+    {
+        CGPathAddArc( path, 
+                     nil, 
+                     CGRectGetMinX( rect ) + radius, 
+                     CGRectGetMaxY( rect ) - radius, 
+                     radius, 
+                     M_PI / 2, 
+                     M_PI,
+                     NO );
+    }
+    else
+    {
+        CGPathAddLineToPoint( path, NULL, CGRectGetMinX( rect ), CGRectGetMaxY( rect ) );
+    }
+    
+	// top left arc
+	if( corners & kPFCornerRadiusCornersTopLeft )
+    {
+        CGPathAddArc( path, 
+                     nil, 
+                     CGRectGetMinX( rect ) + radius, 
+                     CGRectGetMinY( rect ) + radius, 
+                     radius, 
+                     M_PI, 
+                     M_PI * 1.5,
+                     NO );
+	}
 	
 	CGPathCloseSubpath( path );
-	
-	return path;
+    
+    return path;
 }
 
 +(CGRect) calculateGlassRect: (CGRect) rect shadowDepth: (CGFloat) shadowDepth
@@ -138,6 +156,41 @@
 	CGPathRelease( innerPath );
     
     return r;
+}
+
+
++(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors
+{
+    CGContextAddPath( g, path );
+    CGContextSaveGState( g );
+    CGContextClip( g );
+    
+    CGColorRef colors[ uiColors.count ];
+    CGRect boundingBox = CGPathGetBoundingBox( path );
+    
+    for( int ix = 0; ix < uiColors.count; ix++ )
+    {
+        UIColor * clr = [uiColors objectAtIndex: ix];
+        colors[ ix ] = [clr CGColor];
+    }
+    
+	
+	CFArrayRef colorsRef = CFArrayCreate( NULL, (const void**)colors, uiColors.count, NULL );
+	
+	CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+	CGGradientRef gradientRef = CGGradientCreateWithColors( colorSpaceRef, colorsRef, NULL );
+    
+	CGContextDrawLinearGradient( g, 
+                                gradientRef, 
+                                CGPointMake( 0, CGRectGetMinY( boundingBox ) ), 
+                                CGPointMake( 0, CGRectGetMaxY( boundingBox ) ),
+                                kCGGradientDrawsBeforeStartLocation );
+    
+	CGColorSpaceRelease( colorSpaceRef );
+	CGGradientRelease( gradientRef );
+	CFRelease( colorsRef );
+    CGContextRestoreGState( g );
+    
 }
 
 @end
