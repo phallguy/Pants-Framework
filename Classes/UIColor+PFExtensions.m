@@ -131,6 +131,23 @@ void ConvertHSLtoRGB( const CGFloat * components, CGFloat * rgb )
     return [UIColor colorWithRed: components[0] green: components[1] blue: components[2] alpha: 1];
 }
 
++(NSArray *) colorArray: (NSInteger) groups
+{
+    NSMutableArray * array = [[[NSMutableArray alloc] initWithCapacity: groups * 9 ] autorelease];
+    
+    CGFloat part = 1.0 / ( groups - 1 );
+    
+    for( int r = 0; r < groups; r++ )
+    for( int g = 0; g < groups; g++ )
+    for( int b = 0; b < groups; b++ )
+    {
+        [array addObject: [UIColor colorWithRed: r * part green: g * part blue: b * part alpha: 1]];
+    }
+    
+    return array;
+}
+
+
 -(BOOL) isSameAs: (UIColor *) clr
 {
     if( clr == nil ) return  NO;

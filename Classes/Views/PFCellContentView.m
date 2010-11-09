@@ -12,7 +12,7 @@
 #define kPFCellContentInnerPadding 10.0
 
 @implementation PFCellContentView
-@synthesize textLabel, detailLabel, imageView, accessoryView;
+@synthesize textLabel, detailLabel, imageView, accessoryView, imageButtonOverlay;
 
 -(void) dealloc 
 {
@@ -20,6 +20,7 @@
     SafeRelease( detailLabel );
     SafeRelease( imageView );
     SafeRelease( accessoryView );
+    SafeRelease( imageButtonOverlay );
     
     [super dealloc];
 }
@@ -88,6 +89,17 @@
     }
     
     return imageView;
+}
+
+-(UIButton *) imageButtonOverlay
+{
+    if( imageButtonOverlay == nil )
+    {
+        imageButtonOverlay = [[UIButton buttonWithType: UIButtonTypeCustom] retain];
+        [self insertSubview: imageButtonOverlay aboveSubview: imageView];        
+    }
+    
+    return imageButtonOverlay;
 }
 
 -(UIView *) accessoryView
@@ -195,9 +207,13 @@
     
     if( imageView != nil && ! imageView.hidden )
     {
-        
         CGSize size = [imageView sizeThatFits: self.bounds.size];
         imageView.frame = CGRectMake( 0, 0, size.width, size.height );
+        
+        if( imageButtonOverlay != nil )
+        {
+            imageButtonOverlay.frame = CGRectMake( 0, 0, size.width, size.height );
+        }
 
         textRect.origin.x += CGRectGetWidth( imageView.bounds );
         textRect.size.width -= CGRectGetWidth( imageView.bounds );

@@ -12,8 +12,13 @@
 
 @implementation PFGradientView
 
+@synthesize startColor, endColor;
+
 -(void) dealloc 
 {
+    SafeRelease( startColor );
+    SafeRelease( endColor );
+    
     [super dealloc];
 }
 
@@ -47,6 +52,19 @@
 
 -(void) setStartColor: (UIColor *) newStartColor endColor: (UIColor *) newEndColor
 {
+    if( startColor != newStartColor )
+    {
+        [startColor release];
+        startColor = [newStartColor retain];
+    }
+    
+    if( endColor != newEndColor )
+    {
+        [endColor release];
+        endColor = [newEndColor retain];
+    }    
+    
+    
     NSArray * colors = [NSArray arrayWithObjects:
                         (id)[newStartColor CGColor],
                         (id)[newEndColor CGColor],

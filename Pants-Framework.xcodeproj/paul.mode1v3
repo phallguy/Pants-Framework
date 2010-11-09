@@ -333,14 +333,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1063, 502}}</string>
+								<string>{{0, 0}, {1063, 493}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1006 133 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>502pt</string>
+							<string>493pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -353,14 +353,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 507}, {1063, 363}}</string>
+								<string>{{0, 498}, {1063, 372}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1006 133 1380 911 0 0 2560 1578 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>363pt</string>
+							<string>372pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -379,9 +379,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DA01D5EF1267FF250029171F</string>
+				<string>DAAC08E11288F6BC003527DF</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DA01D5F01267FF250029171F</string>
+				<string>DAAC08E21288F6BC003527DF</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -601,7 +601,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DAFB366E1235A87A0008E7DB</string>
-				<string>DA01D5F11267FF250029171F</string>
+				<string>DAAC08DD1288F6B4003527DF</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -1334,7 +1334,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2AF069F1E9B00FABCE6</string>
-				<string>DA01D5F21267FF250029171F</string>
+				<string>DAAC08DE1288F6B4003527DF</string>
 				<string>1CA6456E063B45B4001379D8</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -1344,7 +1344,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C0AD2AF069F1E9B00FABCE6</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

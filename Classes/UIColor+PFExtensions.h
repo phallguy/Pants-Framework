@@ -13,6 +13,7 @@
 
 +(UIColor *) random;
 +(UIColor *) randomClampedTo: (NSInteger) groups;
++(NSArray *) colorArray: (NSInteger) groups;
 
 -(UIColor *) lighten: (CGFloat) amount;
 -(UIColor *) darken: (CGFloat) amount;

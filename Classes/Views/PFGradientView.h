@@ -11,9 +11,13 @@
 
 @interface PFGradientView : UIView 
 {
-
+@private
+    UIColor * startColor;
+    UIColor * endColor;
 }
 
+@property( nonatomic, readonly ) UIColor * startColor;
+@property( nonatomic, readonly ) UIColor * endColor;
 
 -(void) setStartColor: (UIColor *) newStartColor endColor: (UIColor *) newEndColor;
 -(void) setColor: (UIColor *) color;

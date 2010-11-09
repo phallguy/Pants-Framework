@@ -36,9 +36,6 @@ UIView * FindViewOfClass( UIView * root, const char * className )
 {
     if( ! root ) return nil;
     
-    NSLog( @"Evaluating view of type %s", object_getClassName( root ) );
-    
-    //    if( strncmp( object_getClassName( root ), className, strlen( className ) ) == 0 )
     if( strcmp( object_getClassName( root ), className ) == 0 )
         return root;
     
@@ -58,9 +55,9 @@ UIView * FindViewOfClass( UIView * root, const char * className )
     
     for( UIWindow * window in [windows reverseObjectEnumerator] )
     {
-        UIView * kb = FindViewOfClass( window, "UIKeyboard" );
+        UIView * kb = FindViewOfClass( window, "UIKeyboardImpl" );
         if( !kb )
-            kb = FindViewOfClass( window, "UIKeyboardImpl" );
+            kb = FindViewOfClass( window, "UIKeyboard" );
         if( kb )
             return kb;
     }
