@@ -31,7 +31,6 @@
 {
     cornerRadius = 6;
     
-    self.titleLabel.shadowColor = [[UIColor blackColor] colorWithAlphaComponent: .75];
     self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
     self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
     
@@ -203,7 +202,7 @@
     
     
     p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: 1] CGColor] );
+    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: .75] CGColor] );
     CGContextSetLineWidth( g, .5 );
     CGContextAddPath( g, p );
     CGContextStrokePath( g );
@@ -217,6 +216,9 @@
     stretchImage = [[img stretchableImageWithLeftCapWidth: CGRectGetWidth( rect ) / 2 topCapHeight: 0] retain];
     [self setBackgroundImage: stretchImage forState: UIControlStateNormal];
     UIGraphicsEndImageContext();
+
+    
+    self.titleLabel.shadowColor = [[UIColor blackColor] colorWithAlphaComponent: 1 - lightness];
 
 }
 

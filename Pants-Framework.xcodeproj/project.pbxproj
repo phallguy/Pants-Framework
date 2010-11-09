@@ -21,6 +21,8 @@
 		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
+		DA4518B81288C9B2004B3D87 /* PFDateTimeTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4518B61288C9B2004B3D87 /* PFDateTimeTextField.h */; };
+		DA4518B91288C9B2004B3D87 /* PFDateTimeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4518B71288C9B2004B3D87 /* PFDateTimeTextField.m */; };
 		DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C4784127B3F0200B4DBFB /* PFGradientView.h */; };
 		DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C4785127B3F0200B4DBFB /* PFGradientView.m */; };
 		DA6C82B212875E5900A0C325 /* PFTintedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C82B012875E5900A0C325 /* PFTintedButton.h */; };
@@ -52,6 +54,10 @@
 		DAB96A54125F04A6007F6AA5 /* UIColor+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */; };
 		DABFE264125EF3FB00F93C13 /* PFShapeView.h in Headers */ = {isa = PBXBuildFile; fileRef = DABFE262125EF3FB00F93C13 /* PFShapeView.h */; };
 		DABFE265125EF3FB00F93C13 /* PFShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DABFE263125EF3FB00F93C13 /* PFShapeView.m */; };
+		DACBA6611287BD2B00F57AD7 /* UIView+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DACBA65F1287BD2B00F57AD7 /* UIView+PFExtensions.h */; };
+		DACBA6621287BD2B00F57AD7 /* UIView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DACBA6601287BD2B00F57AD7 /* UIView+PFExtensions.m */; };
+		DACBA6651287C2AE00F57AD7 /* PFTapableScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = DACBA6631287C2AE00F57AD7 /* PFTapableScrollView.h */; };
+		DACBA6661287C2AE00F57AD7 /* PFTapableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DACBA6641287C2AE00F57AD7 /* PFTapableScrollView.m */; };
 		DACE0732125E8EFB00173EF0 /* PFSpringLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */; };
 		DACE0733125E8EFB00173EF0 /* PFSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */; };
 		DACE073A125E8F3B00173EF0 /* NSString+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */; };
@@ -86,6 +92,8 @@
 		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
+		DA4518B61288C9B2004B3D87 /* PFDateTimeTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFDateTimeTextField.h; sourceTree = "<group>"; };
+		DA4518B71288C9B2004B3D87 /* PFDateTimeTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFDateTimeTextField.m; sourceTree = "<group>"; };
 		DA6C4784127B3F0200B4DBFB /* PFGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGradientView.h; sourceTree = "<group>"; };
 		DA6C4785127B3F0200B4DBFB /* PFGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGradientView.m; sourceTree = "<group>"; };
 		DA6C82B012875E5900A0C325 /* PFTintedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTintedButton.h; sourceTree = "<group>"; };
@@ -117,6 +125,10 @@
 		DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PFExtensions.m"; path = "Classes/UIColor+PFExtensions.m"; sourceTree = "<group>"; };
 		DABFE262125EF3FB00F93C13 /* PFShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFShapeView.h; sourceTree = "<group>"; };
 		DABFE263125EF3FB00F93C13 /* PFShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFShapeView.m; sourceTree = "<group>"; };
+		DACBA65F1287BD2B00F57AD7 /* UIView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+PFExtensions.h"; path = "Classes/UIView+PFExtensions.h"; sourceTree = "<group>"; };
+		DACBA6601287BD2B00F57AD7 /* UIView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+PFExtensions.m"; path = "Classes/UIView+PFExtensions.m"; sourceTree = "<group>"; };
+		DACBA6631287C2AE00F57AD7 /* PFTapableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTapableScrollView.h; sourceTree = "<group>"; };
+		DACBA6641287C2AE00F57AD7 /* PFTapableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTapableScrollView.m; sourceTree = "<group>"; };
 		DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSpringLayout.h; sourceTree = "<group>"; };
 		DACE0731125E8EFB00173EF0 /* PFSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFSpringLayout.m; sourceTree = "<group>"; };
 		DACE0738125E8F3B00173EF0 /* NSString+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PFExtensions.h"; path = "Classes/NSString+PFExtensions.h"; sourceTree = "<group>"; };
@@ -205,6 +217,8 @@
 				DAB96A52125F04A6007F6AA5 /* UIColor+PFExtensions.m */,
 				DADB63D31249963400B681CC /* UIImage+Resize.h */,
 				DADB63D41249963400B681CC /* UIImage+Resize.m */,
+				DACBA65F1287BD2B00F57AD7 /* UIView+PFExtensions.h */,
+				DACBA6601287BD2B00F57AD7 /* UIView+PFExtensions.m */,
 				DAFB36871235A90F0008E7DB /* Views */,
 			);
 			name = Classes;
@@ -223,6 +237,10 @@
 		DAFB36871235A90F0008E7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA4518B61288C9B2004B3D87 /* PFDateTimeTextField.h */,
+				DA4518B71288C9B2004B3D87 /* PFDateTimeTextField.m */,
+				DACBA6631287C2AE00F57AD7 /* PFTapableScrollView.h */,
+				DACBA6641287C2AE00F57AD7 /* PFTapableScrollView.m */,
 				DA6C82B012875E5900A0C325 /* PFTintedButton.h */,
 				DA6C82B112875E5900A0C325 /* PFTintedButton.m */,
 				DA6C4784127B3F0200B4DBFB /* PFGradientView.h */,
@@ -299,6 +317,9 @@
 				DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */,
 				DA6F1E15127B50CC00CED54D /* PFImageCacheStaticTrimmer.h in Headers */,
 				DA6C82B212875E5900A0C325 /* PFTintedButton.h in Headers */,
+				DACBA6611287BD2B00F57AD7 /* UIView+PFExtensions.h in Headers */,
+				DACBA6651287C2AE00F57AD7 /* PFTapableScrollView.h in Headers */,
+				DA4518B81288C9B2004B3D87 /* PFDateTimeTextField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +402,9 @@
 				DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */,
 				DA6F1E16127B50CC00CED54D /* PFImageCacheStaticTrimmer.m in Sources */,
 				DA6C82B312875E5900A0C325 /* PFTintedButton.m in Sources */,
+				DACBA6621287BD2B00F57AD7 /* UIView+PFExtensions.m in Sources */,
+				DACBA6661287C2AE00F57AD7 /* PFTapableScrollView.m in Sources */,
+				DA4518B91288C9B2004B3D87 /* PFDateTimeTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
