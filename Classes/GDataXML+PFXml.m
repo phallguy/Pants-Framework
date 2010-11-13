@@ -75,7 +75,7 @@
 
 -(BOOL) boolValueOfAttributeNamed: (NSString *) name withDefault: (BOOL) defaultValue
 {
-    NSString * val = [self stringValueOfElementNamed: name];
+    NSString * val = [self stringValueOfAttributeNamed: name];
     if( ! val )
         return defaultValue;
     
