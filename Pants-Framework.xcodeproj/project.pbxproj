@@ -39,6 +39,17 @@
 		DA8368E21269AFBF003D48A7 /* PFCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */; };
 		DA8B950412545AF300EA75D1 /* PFPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8B950212545AF300EA75D1 /* PFPageControl.h */; };
 		DA8B950512545AF300EA75D1 /* PFPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8B950312545AF300EA75D1 /* PFPageControl.m */; };
+		DA976C9F1291E1DC0093BE6B /* FontLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C7D1291E1DC0093BE6B /* FontLabel.h */; };
+		DA976CA01291E1DC0093BE6B /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA976C7E1291E1DC0093BE6B /* FontLabel.m */; };
+		DA976CA11291E1DC0093BE6B /* FontLabelStringDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C7F1291E1DC0093BE6B /* FontLabelStringDrawing.h */; };
+		DA976CA21291E1DC0093BE6B /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = DA976C801291E1DC0093BE6B /* FontLabelStringDrawing.m */; };
+		DA976CA31291E1DC0093BE6B /* FontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C811291E1DC0093BE6B /* FontManager.h */; };
+		DA976CA41291E1DC0093BE6B /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA976C821291E1DC0093BE6B /* FontManager.m */; };
+		DA976CA51291E1DC0093BE6B /* ZAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C831291E1DC0093BE6B /* ZAttributedString.h */; };
+		DA976CA61291E1DC0093BE6B /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA976C841291E1DC0093BE6B /* ZAttributedString.m */; };
+		DA976CA71291E1DC0093BE6B /* ZAttributedStringPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C851291E1DC0093BE6B /* ZAttributedStringPrivate.h */; };
+		DA976CA81291E1DC0093BE6B /* ZFont.h in Headers */ = {isa = PBXBuildFile; fileRef = DA976C861291E1DC0093BE6B /* ZFont.h */; };
+		DA976CA91291E1DC0093BE6B /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = DA976C871291E1DC0093BE6B /* ZFont.m */; };
 		DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A89CF124B180D005E4323 /* PFGlassView.h */; };
 		DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A89D0124B180D005E4323 /* PFGlassView.m */; };
 		DA9A89E2124B19CE005E4323 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9A89E1124B19CE005E4323 /* UIKit.framework */; };
@@ -110,6 +121,17 @@
 		DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCalloutView.m; sourceTree = "<group>"; };
 		DA8B950212545AF300EA75D1 /* PFPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPageControl.h; sourceTree = "<group>"; };
 		DA8B950312545AF300EA75D1 /* PFPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPageControl.m; sourceTree = "<group>"; };
+		DA976C7D1291E1DC0093BE6B /* FontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabel.h; sourceTree = "<group>"; };
+		DA976C7E1291E1DC0093BE6B /* FontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabel.m; sourceTree = "<group>"; };
+		DA976C7F1291E1DC0093BE6B /* FontLabelStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabelStringDrawing.h; sourceTree = "<group>"; };
+		DA976C801291E1DC0093BE6B /* FontLabelStringDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabelStringDrawing.m; sourceTree = "<group>"; };
+		DA976C811291E1DC0093BE6B /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		DA976C821291E1DC0093BE6B /* FontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontManager.m; sourceTree = "<group>"; };
+		DA976C831291E1DC0093BE6B /* ZAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedString.h; sourceTree = "<group>"; };
+		DA976C841291E1DC0093BE6B /* ZAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAttributedString.m; sourceTree = "<group>"; };
+		DA976C851291E1DC0093BE6B /* ZAttributedStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedStringPrivate.h; sourceTree = "<group>"; };
+		DA976C861291E1DC0093BE6B /* ZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFont.h; sourceTree = "<group>"; };
+		DA976C871291E1DC0093BE6B /* ZFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFont.m; sourceTree = "<group>"; };
 		DA9A89CF124B180D005E4323 /* PFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassView.h; sourceTree = "<group>"; };
 		DA9A89D0124B180D005E4323 /* PFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassView.m; sourceTree = "<group>"; };
 		DA9A89E1124B19CE005E4323 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -173,6 +195,7 @@
 		0867D691FE84028FC02AAC07 /* Pants-Framework */ = {
 			isa = PBXGroup;
 			children = (
+				DA976C651291E1DC0093BE6B /* 3rd-Party */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -233,6 +256,33 @@
 				AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		DA976C651291E1DC0093BE6B /* 3rd-Party */ = {
+			isa = PBXGroup;
+			children = (
+				DA976C7C1291E1DC0093BE6B /* FontLabel */,
+			);
+			path = "3rd-Party";
+			sourceTree = "<group>";
+		};
+		DA976C7C1291E1DC0093BE6B /* FontLabel */ = {
+			isa = PBXGroup;
+			children = (
+				DA976C7D1291E1DC0093BE6B /* FontLabel.h */,
+				DA976C7E1291E1DC0093BE6B /* FontLabel.m */,
+				DA976C7F1291E1DC0093BE6B /* FontLabelStringDrawing.h */,
+				DA976C801291E1DC0093BE6B /* FontLabelStringDrawing.m */,
+				DA976C811291E1DC0093BE6B /* FontManager.h */,
+				DA976C821291E1DC0093BE6B /* FontManager.m */,
+				DA976C831291E1DC0093BE6B /* ZAttributedString.h */,
+				DA976C841291E1DC0093BE6B /* ZAttributedString.m */,
+				DA976C851291E1DC0093BE6B /* ZAttributedStringPrivate.h */,
+				DA976C861291E1DC0093BE6B /* ZFont.h */,
+				DA976C871291E1DC0093BE6B /* ZFont.m */,
+			);
+			name = FontLabel;
+			path = FontLabel/FontLabel/Classes/FontLabel;
 			sourceTree = "<group>";
 		};
 		DAD11B131289173B00B1BF7B /* Controllers */ = {
@@ -328,6 +378,12 @@
 				DACBA6611287BD2B00F57AD7 /* UIView+PFExtensions.h in Headers */,
 				DACBA6651287C2AE00F57AD7 /* PFTapableScrollView.h in Headers */,
 				DA4518B81288C9B2004B3D87 /* PFDateTimeTextField.h in Headers */,
+				DA976C9F1291E1DC0093BE6B /* FontLabel.h in Headers */,
+				DA976CA11291E1DC0093BE6B /* FontLabelStringDrawing.h in Headers */,
+				DA976CA31291E1DC0093BE6B /* FontManager.h in Headers */,
+				DA976CA51291E1DC0093BE6B /* ZAttributedString.h in Headers */,
+				DA976CA71291E1DC0093BE6B /* ZAttributedStringPrivate.h in Headers */,
+				DA976CA81291E1DC0093BE6B /* ZFont.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +469,11 @@
 				DACBA6621287BD2B00F57AD7 /* UIView+PFExtensions.m in Sources */,
 				DACBA6661287C2AE00F57AD7 /* PFTapableScrollView.m in Sources */,
 				DA4518B91288C9B2004B3D87 /* PFDateTimeTextField.m in Sources */,
+				DA976CA01291E1DC0093BE6B /* FontLabel.m in Sources */,
+				DA976CA21291E1DC0093BE6B /* FontLabelStringDrawing.m in Sources */,
+				DA976CA41291E1DC0093BE6B /* FontManager.m in Sources */,
+				DA976CA61291E1DC0093BE6B /* ZAttributedString.m in Sources */,
+				DA976CA91291E1DC0093BE6B /* ZFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +529,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -483,7 +544,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
