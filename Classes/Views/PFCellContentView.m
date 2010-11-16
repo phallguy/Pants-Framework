@@ -115,7 +115,11 @@
     return accessoryView;
 }
 
-
+-(void) setBounds: (CGRect) bounds
+{
+    [super setBounds: bounds];
+    [self setNeedsLayout];
+}
 
 
 #pragma mark -

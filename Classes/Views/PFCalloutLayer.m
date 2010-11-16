@@ -32,7 +32,10 @@
         baseColor = [[[UIColor blackColor] colorWithAlphaComponent: .75] retain];
         
         self.masksToBounds = NO;
-        self.needsDisplayOnBoundsChange = YES;
+        //self.needsDisplayOnBoundsChange = YES;
+        self.shouldRasterize = YES;
+        if( [self respondsToSelector: @selector(setRasterizationScale:)] )
+            self.rasterizationScale = [[UIScreen mainScreen] scale];
         [self setNeedsDisplay];
         
         if( [self respondsToSelector: @selector(setContentsScale:)] )
@@ -150,6 +153,14 @@
 
     self.pointerLocation = point;
     self.orientation = originalOrientation;
+}
+
+-(void) setBounds: (CGRect) bounds
+{
+    if( CGRectEqualToRect( bounds, self.bounds ) )
+        return;
+    
+    [super setBounds: bounds];
 }
 
 #pragma mark -
@@ -275,10 +286,20 @@
 }
 
 
+-(void) displayIfNeeded
+{
+    [super displayIfNeeded];
+}
 
+-(void) display
+{
+    [super display];
+}
 
 -(void) drawInContext: (CGContextRef) g
 {
+    NSLog( @"Drawing callout." );
+    
     
     CGMutablePathRef path;
     

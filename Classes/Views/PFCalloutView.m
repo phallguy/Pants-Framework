@@ -35,6 +35,7 @@
     {
         //self.backgroundColor = [[UIColor redColor] colorWithAlphaComponent: 0.5];
         
+        needsLayout = YES;
         calloutLayer = [[PFCalloutLayer alloc] init];
         [self.layer addSublayer: calloutLayer];
         [self setNeedsLayout];
@@ -82,6 +83,12 @@
     return nil;
 }
 
+-(UIColor *) backgroundColor { return calloutLayer.baseColor; }
+-(void) setBackgroundColor: (UIColor *) backgroundColor
+{
+    calloutLayer.baseColor = backgroundColor;
+}
+
 
 #pragma mark -
 #pragma mark Events
@@ -109,7 +116,7 @@
 
 -(void) updateCalloutLayerBounds
 {
-    CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+    CGRect bounds = CGRectMake( 0, 0, ceil( CGRectGetWidth( self.bounds ) ), ceil( CGRectGetHeight( self.bounds ) ) );
     
     [calloutLayer setBodyBounds: bounds];
 }
@@ -118,9 +125,19 @@
 {
     [super layoutSubviews];
     
-    CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
-    contentView.frame = CGRectInset( bounds, kPFCalloutContentInset, kPFCalloutContentInset );
-    [self updateCalloutLayerBounds];
+    if( needsLayout )
+    {
+        CGRect bounds = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+        contentView.frame = CGRectInset( bounds, kPFCalloutContentInset, kPFCalloutContentInset );
+        [self updateCalloutLayerBounds];
+        needsLayout = NO;
+    }
+}
+
+-(void) setNeedsLayout
+{
+    needsLayout = YES;
+    [super setNeedsLayout];
 }
 
 #pragma mark -

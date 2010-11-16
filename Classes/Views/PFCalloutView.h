@@ -23,6 +23,7 @@
     PFCellContentView * contentView;
     CGFloat clampHeight;
     const void * context;
+    BOOL needsLayout;
 }
 
 @property( nonatomic, assign ) BOOL closeOnTap;
