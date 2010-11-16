@@ -17,6 +17,10 @@
 
 -(UIColor *) lighten: (CGFloat) amount;
 -(UIColor *) darken: (CGFloat) amount;
+-(UIColor *) dodge: (UIColor *) top;
+-(UIColor *) burn: (UIColor *) top;
+
+
 -(void) getHue: (CGFloat *) hue saturation: (CGFloat *) saturation lightness: (CGFloat *) lightness;
 
 -(BOOL) isSameAs: (UIColor *) clr;

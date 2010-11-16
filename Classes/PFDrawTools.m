@@ -193,4 +193,31 @@
     
 }
 
++(void) fillRect: (CGRect) boundingBox inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors
+{
+    CGColorRef colors[ uiColors.count ];
+    
+    for( int ix = 0; ix < uiColors.count; ix++ )
+    {
+        UIColor * clr = [uiColors objectAtIndex: ix];
+        colors[ ix ] = [clr CGColor];
+    }
+	
+	CFArrayRef colorsRef = CFArrayCreate( NULL, (const void**)colors, uiColors.count, NULL );
+	
+	CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+	CGGradientRef gradientRef = CGGradientCreateWithColors( colorSpaceRef, colorsRef, NULL );
+    
+	CGContextDrawLinearGradient( g, 
+                                gradientRef, 
+                                CGPointMake( 0, CGRectGetMinY( boundingBox ) ), 
+                                CGPointMake( 0, CGRectGetMaxY( boundingBox ) ),
+                                kCGGradientDrawsBeforeStartLocation );
+    
+	CGColorSpaceRelease( colorSpaceRef );
+	CGGradientRelease( gradientRef );
+	CFRelease( colorsRef );
+    
+}
+
 @end

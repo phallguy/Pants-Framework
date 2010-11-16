@@ -26,7 +26,7 @@
     #elif __i386__ || __x86_x64__
         #define DebugBreak() if(AmIBeingDebugged()) {__asm__("int $3\n" : : );}
     #elif __arm__   
-#define DebugBreak() if( AmIBeingDebugged() ){ __asm__("mov r0, #20\nmov ip, r0\nsvc 128\nmov r1, #37\nmov ip, r1\nmov r1, #2\nmov r2, #1\n svc 128\n" \
+#define DebugBreak()// if( AmIBeingDebugged() ){ __asm__("mov r0, #20\nmov ip, r0\nsvc 128\nmov r1, #37\nmov ip, r1\nmov r1, #2\nmov r2, #1\n svc 128\n" \
 : : : "memory","ip","r0","r1","r2"); }
     #else
         #error Seriously what happened! A new CPU!

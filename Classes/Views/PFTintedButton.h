@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CALayer;
+
+typedef enum
+{
+    PFTintedButtonRenderTypeStandard,
+    PFTintedButtonRenderTypeCandy,
+} PFTintedButtonRenderType;
 
 
 @interface PFTintedButton : UIButton
@@ -14,12 +21,19 @@
 @private
     UIColor * tint;
     CGFloat cornerRadius;
+    PFTintedButtonRenderType renderType;
     
     UIImage * stretchImage;
+    CALayer * glowLayer;
+    
+    UILabel * subLabel;
 }
 
 @property( nonatomic, retain ) UIColor * tint;
 @property( nonatomic, assign ) CGFloat cornerRadius;
+@property( nonatomic, assign ) PFTintedButtonRenderType renderType;
+@property( nonatomic, readonly ) UILabel * subLabel;
+
 
 
 @end

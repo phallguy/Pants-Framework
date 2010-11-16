@@ -107,6 +107,32 @@ void ConvertHSLtoRGB( const CGFloat * components, CGFloat * rgb )
         rgb[ix] = MAX( 0, MIN( 1, rgb[ix] ) );
 }
 
+void GetRGBColors( UIColor * color, CGFloat * rgb )
+{
+    CGColorRef clr = [color CGColor];
+    CGColorSpaceRef clrSpace = CGColorGetColorSpace( clr );
+    
+    const CGFloat * components;
+    
+    CGColorSpaceModel model = CGColorSpaceGetModel( clrSpace );
+    
+    components = CGColorGetComponents( clr );
+    switch( model )
+    {
+        case kCGColorSpaceModelMonochrome:
+            rgb[0] = rgb[1] = rgb[2] = components[0];
+            break;
+        case kCGColorSpaceModelRGB:
+            for( int ix = 0; ix < 3; ix++ )
+                rgb[ix] = components[ix];
+            break;
+        case kCGColorSpaceModelLab:
+            ConvertHSLtoRGB( components, rgb );            
+            break;
+    }
+
+}
+
 
 +(UIColor *) random
 {
@@ -238,6 +264,44 @@ void ConvertHSLtoRGB( const CGFloat * components, CGFloat * rgb )
     
     return [UIColor colorWithHue: hslComponents[0] saturation: hslComponents[1] brightness: hslComponents[2] alpha: CGColorGetAlpha( clr )];
 } 
+
+#define DodgeComponent( c, t )  t >= 1.0 ? 1.0 : MIN( c / ( 1.0 - t ), 1.0 )
+
+-(UIColor *) dodge: (UIColor *) top
+{
+    CGColorRef clr = [self CGColor];
+    
+    CGFloat selfComponents[4];
+    CGFloat topComponents[4];
+    
+    GetRGBColors( self, selfComponents );
+    GetRGBColors( top, topComponents );
+    
+    return [UIColor colorWithRed: DodgeComponent( selfComponents[0], topComponents[0] ) 
+                           green: DodgeComponent( selfComponents[1], topComponents[1] )
+                            blue: DodgeComponent( selfComponents[2], topComponents[2] )
+                           alpha: CGColorGetAlpha( clr )];
+}
+
+#define BurnComponent( c, t )  t <= 0.0 ? 0.0 : MAX( 1.0 - ( ( ( 1.0 - c ) * 1.0 ) / t ), 0.0 )
+
+-(UIColor *) burn: (UIColor *) top
+{
+    CGColorRef clr = [self CGColor];
+    
+    CGFloat selfComponents[4];
+    CGFloat topComponents[4];
+    
+    GetRGBColors( self, selfComponents );
+    GetRGBColors( top, topComponents );
+    
+    return [UIColor colorWithRed: BurnComponent( selfComponents[0], topComponents[0] ) 
+                           green: BurnComponent( selfComponents[1], topComponents[1] )
+                            blue: BurnComponent( selfComponents[2], topComponents[2] )
+                           alpha: CGColorGetAlpha( clr )];
+}
+
+
 
 -(void) getHue: (CGFloat *) hue saturation: (CGFloat *) saturation lightness: (CGFloat *) lightness
 {
