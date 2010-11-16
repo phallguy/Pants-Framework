@@ -21,6 +21,7 @@
     
     
     PFCellContentView * contentView;
+    CGFloat clampHeight;
     const void * context;
 }
 

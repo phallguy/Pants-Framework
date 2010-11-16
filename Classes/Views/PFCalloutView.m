@@ -89,6 +89,7 @@
 -(CGSize) sizeThatFits: (CGSize) size
 {
     CGSize contentSize = size;
+    
     contentSize.width -= ( kPFCalloutContentInset * 2 ) + kPFCalloutShadowSize;
     contentSize.height -= ( kPFCalloutContentInset * 2 ) + kPFCalloutShadowSize;
     contentSize.height = MAX( kPFCalloutMinimumContentHeight, contentSize.height );
@@ -101,7 +102,7 @@
         fitsize.height = kPFCalloutMinimumContentHeight;
     
     fitsize.width =  MIN( size.width, ceil( fitsize.width + ( kPFCalloutContentInset * 2 ) ) );
-    fitsize.height = MIN( size.height, ceil( fitsize.height + ( kPFCalloutContentInset * 2 ) ) );
+    fitsize.height = MIN( MIN( size.height, ceil( fitsize.height + ( kPFCalloutContentInset * 2 ) ) ), clampHeight );;
     
     return fitsize;
 }
@@ -158,12 +159,17 @@
         parentView = self.superview;
     
     self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
+    clampHeight = MAX( ( point.y - offset.height ) - CGRectGetMinY( parentView.bounds ), 
+                             CGRectGetMaxY( parentView.bounds ) - ( point.y + offset.height ) ) - kPFCalloutPointerSize - 25;
+    
     [self sizeToFit];
     [self updateCalloutLayerBounds];
     
     // resolve auto orientation    
     if( orientation == PFCalloutOrientationAuto )
-        orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x - offset.width, point.y - offset.width, offset.width * 2, offset.height * 2 ) inParentOfSize: self.superview.bounds.size ];
+    {
+        orientation = [self resolveOrientationForTargetRect: CGRectMake( point.x - offset.width, point.y - offset.width, offset.width * 2, offset.height * 2 ) inParentOfSize: parentView.bounds.size ];
+    }
     
     
     CGPoint anchor;
