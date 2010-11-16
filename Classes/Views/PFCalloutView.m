@@ -93,11 +93,14 @@
     contentSize.height -= ( kPFCalloutContentInset * 2 ) + kPFCalloutShadowSize;
     contentSize.height = MAX( kPFCalloutMinimumContentHeight, contentSize.height );
     
+    CGSize originalSize = contentView.bounds.size;
     CGSize fitsize = [contentView sizeThatFits: contentSize];
+    if( fitsize.height == 0 )
+        fitsize.height = originalSize.height;
     if( fitsize.height < kPFCalloutMinimumContentHeight )
         fitsize.height = kPFCalloutMinimumContentHeight;
     
-    fitsize.width = MIN( size.width, ceil( fitsize.width + ( kPFCalloutContentInset * 2 ) ) );
+    fitsize.width =  MIN( size.width, ceil( fitsize.width + ( kPFCalloutContentInset * 2 ) ) );
     fitsize.height = MIN( size.height, ceil( fitsize.height + ( kPFCalloutContentInset * 2 ) ) );
     
     return fitsize;
@@ -175,11 +178,11 @@
         CGFloat parentWidth = CGRectGetWidth( parentView.bounds );
         // If point is in left 1/3 of parent view, anchor on left
         if( point.x <= parentWidth / 3 )
-            anchor.x = 0;
+            anchor.x = kPFCalloutShadowSize / 2 ;
         
         // If point is in right 1/3 of parent view, anchor on right
         else if( point.x >= parentWidth - ( parentWidth / 3 ) )
-            anchor.x = parentWidth - CGRectGetWidth( self.bounds ) - kPFCalloutShadowSize;
+            anchor.x = parentWidth - CGRectGetWidth( self.bounds ) - kPFCalloutShadowSize / 2;
         
         // If point is in center 1/3 of parent view, anchor on right
         else
@@ -188,18 +191,18 @@
         if( orientation == PFCalloutOrientationAbove )
         {
             anchor.y = point.y - CGRectGetHeight( self.bounds ) - kPFCalloutPointerSize - offset.height;
-            calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x, CGRectGetHeight( self.bounds ) );
+            calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x + kPFCalloutShadowSize / 2 , CGRectGetHeight( self.bounds ) );
         }
         else
         {
             anchor.y = point.y + kPFCalloutPointerSize + offset.height;
-            calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x, 0 );
+            calloutLayer.pointerLocation = CGPointMake( point.x - anchor.x + kPFCalloutShadowSize / 2 , 0 );
         }
 
         
         
         
-        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 + kPFCalloutShadowSize / 2 ), 
+        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 ), 
                                    ceil( anchor.y + CGRectGetHeight( self.bounds ) / 2 ) );
     }
     else
