@@ -216,6 +216,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAFB36871235A90F0008E7DB /* Views */,
 				DAD11B131289173B00B1BF7B /* Controllers */,
 				DA0EC6B81269A2C1004D5924 /* CALayer+PFExtensions.h */,
 				DA0EC6B91269A2C1004D5924 /* CALayer+PFExtensions.m */,
@@ -243,7 +244,6 @@
 				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DACBA65F1287BD2B00F57AD7 /* UIView+PFExtensions.h */,
 				DACBA6601287BD2B00F57AD7 /* UIView+PFExtensions.m */,
-				DAFB36871235A90F0008E7DB /* Views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

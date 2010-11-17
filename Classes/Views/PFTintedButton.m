@@ -33,8 +33,8 @@
 
 -(void) initCommon
 {
-    self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
     cornerRadius = 6;
+    self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
     
     self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
     [self setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
