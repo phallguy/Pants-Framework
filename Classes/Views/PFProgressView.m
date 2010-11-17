@@ -23,8 +23,11 @@
 
 -(void) initCommonViews
 {
-    UIImage * b = [[UIImage imageNamed: @"ProgressBase.png"] stretchableImageWithLeftCapWidth: 5 topCapHeight: 0];
-    UIImage * p = [[UIImage imageNamed: @"Progress.png"] stretchableImageWithLeftCapWidth: 5 topCapHeight: 0];
+    UIImage * base = [UIImage imageNamed: @"ProgressBase.png"];
+    UIImage * prog = [UIImage imageNamed: @"Progress.png"];
+    
+    UIImage * b = [base stretchableImageWithLeftCapWidth: 3 topCapHeight: 0];
+    UIImage * p = [prog stretchableImageWithLeftCapWidth: 3 topCapHeight: 0];
     
     [self setImageForBackground: b andProgress: p];
     

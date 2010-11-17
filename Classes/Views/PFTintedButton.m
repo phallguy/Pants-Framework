@@ -33,7 +33,8 @@
 
 -(void) initCommon
 {
-    [self setRenderType: PFTintedButtonRenderTypeStandard];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
+    cornerRadius = 6;
     
     self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
     [self setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
@@ -353,7 +354,7 @@
     [PFDrawTools fillRect: rect 
                 inContext: g
      withGradientUIColors: [NSArray arrayWithObjects: [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1],  
-                                                      [tint dodge: [UIColor colorWithWhite: .10 alpha: 1]], nil]];
+                                                      [tint dodge: [UIColor colorWithWhite: .02 alpha: 1]], nil]];
     
     
     // Save it, create strechable image and assign to layer contents
