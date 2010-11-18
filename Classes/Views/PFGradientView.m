@@ -76,7 +76,7 @@
 
 -(void) setColor: (UIColor *) color
 {
-    [self setStartColor: color endColor: [color darken: .25]];
+    [self setStartColor: color endColor: [color darken: .10]];
 }
 
 @end
