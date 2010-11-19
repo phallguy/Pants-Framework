@@ -48,7 +48,10 @@
     NSAssert( newPath != nil, @"Cached images require a path" );
 
     if( ! [[NSFileManager defaultManager] fileExistsAtPath: newPath ] )
+    {
+        [self release];
         return nil;
+    }
     
     if( self = [super init] )
     {

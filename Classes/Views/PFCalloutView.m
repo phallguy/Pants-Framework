@@ -22,7 +22,7 @@
 {
     SafeRelease( calloutLayer );
     SafeRelease( contentView );
-    
+    SafeRelease( slideView );
     
     [super dealloc];
 }
@@ -283,7 +283,6 @@
 -(void) springIn
 {
     [self.layer removeAllAnimations];
-    
     [self.layer popSpringWithMinimumScale: 0 maximumScale: 1.05 tension: .55 duration: .45];
     
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath: @"transform.translation"];
@@ -330,11 +329,95 @@
 -(void) tapped
 {
     if( closeOnTap )
-        [self springOutAndRemove: YES afterDelay: 0];
+    {
+        if( slideView )
+            [self slideOutAndRemove: YES afterDelay: 0];
+        else
+            [self springOutAndRemove: YES afterDelay: 0];
+    }
 }
 
 -(void) sendActionsForControlEvents: (UIControlEvents) events
 {
     [super sendActionsForControlEvents: events];
 }
+
+
+
+-(void) slideInFrom: (UIView *) view
+{
+    UIView * parentView = self.superview ? self.superview : view.superview;
+    
+    slideView = view;
+    
+    self.bounds = CGRectMake( 0, 0, CGRectGetWidth( parentView.bounds ), CGRectGetHeight( parentView.bounds ) );
+    clampHeight = CGRectGetHeight( parentView.bounds );
+    
+    [self sizeToFit];
+    [self updateCalloutLayerBounds];
+    CGRect frame = self.frame;
+    frame.size.width = CGRectGetWidth( parentView.frame );
+    
+    if( view.center.y >= parentView.center.y )
+    {
+        // Slide up
+        if( view == self.superview )
+            frame.origin.y = CGRectGetMaxY( view.frame );
+        else
+            frame.origin.y = view.frame.origin.y;
+        self.frame = frame;
+        
+        [UIView beginAnimations: nil context: NULL];
+        [UIView setAnimationDuration: 1];
+        
+        self.transform = CGAffineTransformMakeTranslation( 0, -CGRectGetHeight( frame ) );
+        
+        [UIView commitAnimations];
+    }
+    else
+    {
+        // Slide down
+    }
+}
+
+-(void) slideOutDelay: (id) remove
+{
+    [self slideOutAndRemove: remove != nil afterDelay: 0];
+}
+
+-(void) slideOutAnimationDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context
+{
+    [self removeFromSuperview];
+}
+
+-(void) slideOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget: self];
+    
+    if( delay )
+    {
+        [self performSelector: @selector(slideOutDelay:) withObject: remove ? @"" : nil afterDelay: delay];
+        return;
+    }
+
+    SafeRelease( slideView );
+    
+    
+    [UIView beginAnimations: nil context: NULL];
+    [UIView setAnimationDuration: .35];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    
+    if( remove )
+    {
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(slideOutAnimationDidStop:finished:context:)];
+    }
+
+    self.transform = CGAffineTransformIdentity;
+    
+    [UIView commitAnimations];
+}
+
+
+
 @end

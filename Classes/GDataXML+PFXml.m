@@ -33,7 +33,9 @@
 
 -(double) doubleValueOfAttributeNamed: (NSString *) name
 {
-    return [[self stringValueOfAttributeNamed: name] doubleValue];
+    NSString * str = [self stringValueOfAttributeNamed: name];
+    double value = [str doubleValue];
+    return value;
 }
 
 -(NSDate*) dateValueOfAttributeNamed: (NSString *) name

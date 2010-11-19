@@ -22,3 +22,16 @@
                  completionAction: (SEL) completionAction;
 
 @end
+
+@interface PFAnimationCompletionDelegateDispatch : NSObject
+{
+@private
+    SEL action;
+    id target;
+}
+
+-(id) initWithTarget: (id) target action: (SEL) action;
++(id) dispatchWithTarget: (id) target action: (SEL) action;
+
+
+@end

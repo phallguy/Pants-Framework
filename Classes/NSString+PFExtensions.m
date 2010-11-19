@@ -32,8 +32,11 @@
 {
 	CFUUIDRef puuid = CFUUIDCreate( nil );
 	CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
+    NSString * result = (NSString *)CFStringCreateCopy( NULL, uuidString);
 	CFRelease(puuid);
-	return [(NSString *)uuidString autorelease];
+    CFRelease(uuidString);
+    
+	return [result autorelease];
 }
 
 @end

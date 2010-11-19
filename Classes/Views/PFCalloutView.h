@@ -24,6 +24,8 @@
     CGFloat clampHeight;
     const void * context;
     BOOL needsLayout;
+    
+    UIView * slideView;
 }
 
 @property( nonatomic, assign ) BOOL closeOnTap;
@@ -39,5 +41,7 @@
 -(void) springIn;
 -(void) springOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay;
 
+-(void) slideInFrom: (UIView *) view;
+-(void) slideOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay;
 
 @end

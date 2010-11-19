@@ -17,13 +17,13 @@
     UILabel * detailLabel;
     UIImageView * imageView;
     UIButton * imageButtonOverlay;
-    UIView * accessoryView;
+    UIButton * accessoryView;
 }
 
 @property( nonatomic, readonly ) UILabel * textLabel;
 @property( nonatomic, readonly ) UILabel * detailLabel;
 @property( nonatomic, readonly ) UIImageView * imageView;
 @property( nonatomic, readonly ) UIButton * imageButtonOverlay;
-@property( nonatomic, readonly ) UIView * accessoryView;
+@property( nonatomic, retain ) UIButton * accessoryView;
 
 @end

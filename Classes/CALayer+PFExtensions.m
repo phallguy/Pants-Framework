@@ -12,16 +12,6 @@
 #define kBounceFirstPhaseFraction 0.15
 #define kMaxTension 0.9
 
-@interface PFAnimationCompletionDelegateDispatch : NSObject
-{
-@private
-    SEL action;
-    id target;
-}
-
--(id) initWithTarget: (id) target action: (SEL) action;
-+(id) dispatchWithTarget: (id) target action: (SEL) action;
-@end
 
 
 
@@ -163,6 +153,11 @@
 }
 
 -(void) animationDidStop: (CAAnimation *) theAnimation finished: (BOOL) flag
+{
+    [target performSelector: action];
+}
+
+-(void) animationDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context
 {
     [target performSelector: action];
 }

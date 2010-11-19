@@ -102,7 +102,7 @@
     return imageButtonOverlay;
 }
 
--(UIView *) accessoryView
+-(UIButton *) accessoryView
 {
     if( accessoryView == nil )
     {
@@ -113,6 +113,19 @@
     }
     
     return accessoryView;
+}
+
+-(void) setAccessoryView: (UIButton *) newAccessoryView
+{
+    if( accessoryView == newAccessoryView )
+        return;
+    
+    [accessoryView removeFromSuperview];
+    [accessoryView release];
+    accessoryView = [newAccessoryView retain];
+    
+    [self addSubview: accessoryView];
+    [self setNeedsLayout];
 }
 
 -(void) setBounds: (CGRect) bounds
