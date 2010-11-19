@@ -22,7 +22,7 @@
 {
     SafeRelease( calloutLayer );
     SafeRelease( contentView );
-    SafeRelease( slideView );
+    slideView = nil;
     
     [super dealloc];
 }
@@ -400,7 +400,7 @@
         return;
     }
 
-    SafeRelease( slideView );
+    slideView = nil;
     
     
     [UIView beginAnimations: nil context: NULL];
