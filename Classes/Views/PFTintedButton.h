@@ -27,6 +27,9 @@ typedef enum
     CALayer * glowLayer;
     
     UILabel * subLabel;
+    
+    BOOL customShadow;
+    BOOL customTitleColor;
 }
 
 @property( nonatomic, retain ) UIColor * tint;

@@ -20,7 +20,6 @@
 
 @implementation PFTintedButton
 
-
 -(void) dealloc 
 {
     SafeRelease( tint );
@@ -34,11 +33,6 @@
 -(void) initCommon
 {
     cornerRadius = 6;
-    self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
-    
-    self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
-    [self setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    
 }
 
 -(id) initWithFrame: (CGRect) frame 
@@ -140,13 +134,39 @@
     return subLabel;
 }
 
+
+-(void) setTitleColor: (UIColor *) color forState: (UIControlState) state
+{
+    if( state == UIControlStateNormal )
+        customTitleColor = YES;
+    
+    [super setTitleColor: color forState: state];
+}
+
+-(void) setTitleShadowColor: (UIColor *) color forState: (UIControlState) state
+{
+    if( state == UIControlStateNormal )
+        customShadow = YES;
+    
+    [super setTitleShadowColor: color forState: state];
+}
+
+
+
 #pragma mark -
 #pragma Drawing
 
 -(void) layoutSubviews
 {
     if( ! stretchImage )
+    {
         [self createBackgroundImage];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
+        if( CGSizeEqualToSize( self.titleLabel.shadowOffset, CGSizeMake( 0, 0 ) ) )
+            self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
+    }
+    
+    
     [super layoutSubviews];
     
     
@@ -288,7 +308,7 @@
     
     
     p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: .75] CGColor] );
+    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: .45] CGColor] );
     CGContextSetLineWidth( g, .5 );
     CGContextAddPath( g, p );
     CGContextStrokePath( g );
@@ -303,7 +323,11 @@
     [self setBackgroundImage: stretchImage forState: UIControlStateNormal];
     UIGraphicsEndImageContext();    
     
-    [self setTitleShadowColor:  [[UIColor blackColor] colorWithAlphaComponent: 1 - lightness] forState: UIControlStateNormal];
+    if( ! customShadow )
+    {
+        [super setTitleShadowColor:  [[UIColor blackColor] colorWithAlphaComponent: 1 - lightness] forState: UIControlStateNormal];
+        customShadow = NO;
+    }
 
 }
 
@@ -364,7 +388,11 @@
     [self setBackgroundImage: stretchImage forState: UIControlStateHighlighted];
     UIGraphicsEndImageContext();        
     
-    [self setTitleShadowColor: [tint darken: .25] forState: UIControlStateNormal];
+    if( ! customShadow )
+    {
+        [super setTitleShadowColor: [tint darken: .25] forState: UIControlStateNormal];
+        
+    }
     
     
     // Build glow layer
@@ -405,6 +433,11 @@
 
 -(void) createBackgroundImage
 {
+    if( ! customTitleColor )
+    {
+        [super setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        customTitleColor = NO;
+    }
     
     switch( renderType )
     {
