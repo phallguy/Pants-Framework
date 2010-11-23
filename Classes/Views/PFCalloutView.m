@@ -344,7 +344,7 @@
 
 
 
--(void) slideInFrom: (UIView *) view
+-(void) slideInFrom: (UIView *) view offset: (CGSize) offset top: (BOOL) top
 {
     UIView * parentView = self.superview ? self.superview : view.superview;
     
@@ -357,8 +357,9 @@
     [self updateCalloutLayerBounds];
     CGRect frame = self.frame;
     frame.size.width = CGRectGetWidth( parentView.frame );
+    frame.origin.x = 0;
     
-    if( view.center.y >= parentView.center.y )
+    if( ! top )
     {
         // Slide up
         if( view == self.superview )
@@ -370,13 +371,24 @@
         [UIView beginAnimations: nil context: NULL];
         [UIView setAnimationDuration: 1];
         
-        self.transform = CGAffineTransformMakeTranslation( 0, -CGRectGetHeight( frame ) );
+        self.transform = CGAffineTransformMakeTranslation( offset.width, -CGRectGetHeight( frame ) - offset.height );
         
         [UIView commitAnimations];
     }
     else
     {
-        // Slide down
+        if( view == self.superview )
+            frame.origin.y = CGRectGetMinY( view.frame ) - CGRectGetHeight( frame );
+        else
+            frame.origin.y = view.frame.origin.y - CGRectGetHeight( frame );
+        self.frame = frame;
+        
+        [UIView beginAnimations: nil context: NULL];
+        [UIView setAnimationDuration: 1];
+        
+        self.transform = CGAffineTransformMakeTranslation( offset.width, CGRectGetHeight( frame ) + offset.height );
+        
+        [UIView commitAnimations];
     }
 }
 
@@ -418,6 +430,27 @@
     [UIView commitAnimations];
 }
 
+-(void) slideInOnMainThread: (UIView *) view
+{
+    [self slideInFrom: view offset: CGSizeMake( 0, 20 ) top: YES];
+    [self slideOutAndRemove: YES afterDelay: 15];    
+}
 
++(void) showErrorInView: (UIView *) view title: (NSString *) title details: (NSString *) details image: (UIImage *) image
+{
+    PFCalloutView * callout = [[[PFCalloutView alloc] init] autorelease];
+    
+    callout.cellContentView.textLabel.text = title;
+    callout.cellContentView.detailLabel.text = details;
+    callout.closeOnTap = YES;
+    callout.backgroundColor = [UIColor colorWithRed: 0.10 green: 0 blue: 0 alpha: .85];
+    if( image )
+    {
+        callout.cellContentView.imageView.image = image;
+    }
+    
+    [view addSubview: callout];
+    [callout performSelectorOnMainThread: @selector(slideInOnMainThread:) withObject: view waitUntilDone: YES];
+}
 
 @end

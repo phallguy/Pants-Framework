@@ -53,7 +53,11 @@
                      stringByAppendingPathComponent: @"ImageCache" ] 
                      stringByAppendingPathComponent: [rootPath md5] ] retain];
         
-        CGFloat scale = [[UIScreen mainScreen] scale];
+		CGFloat scale = 1.0;
+		
+		UIScreen * mainScreen = [UIScreen mainScreen];
+		if( [mainScreen respondsToSelector: @selector(scale)] )
+			scale = [mainScreen scale];
 		
 		if( scale != 1.0f )
 			scaleFactor = [[NSString stringWithFormat: @"@%.0fx", scale] retain];
@@ -288,7 +292,7 @@
         
         CGFloat originalScale = 1.0;
         if( [original respondsToSelector: @selector(scale)] )
-            originalScale = original.scale;
+            originalScale = [original scale];
         
         
         if( original.size.width * originalScale == size.width && original.size.height * originalScale == size.height )

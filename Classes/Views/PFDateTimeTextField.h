@@ -14,6 +14,7 @@
 
 @private
     UIDatePicker * datePicker;
+    UIView * shade;
     NSDateFormatter * dateFormatter;
     BOOL keyboardVisible;
     

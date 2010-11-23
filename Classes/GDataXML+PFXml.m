@@ -110,6 +110,12 @@
     return [[self firstElementForName: name] stringValue];
 }
 
+-(NSString *) stringContentsOfElementNamed: (NSString *) name
+{
+    return [[self firstElementForName: name] XMLString];
+}
+
+
 -(CLLocationCoordinate2D) coordinateFromElement
 {
 
@@ -123,7 +129,10 @@
     GDataXMLElement * element = [self firstElementForName: name];
     
     if( element == nil )
-        return CLLocationCoordinate2DMake( 0, 0 );
+	{
+		CLLocationCoordinate2D coord = { 0, 0 };
+        return coord;
+	}
     
     CLLocationCoordinate2D coord = { [element doubleValueOfAttributeNamed: @"lat"], [element doubleValueOfAttributeNamed: @"long"] };
     

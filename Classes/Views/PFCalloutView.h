@@ -41,7 +41,9 @@
 -(void) springIn;
 -(void) springOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay;
 
--(void) slideInFrom: (UIView *) view;
+-(void) slideInFrom: (UIView *) view offset: (CGSize) offset top: (BOOL) top;
 -(void) slideOutAndRemove: (BOOL) remove afterDelay: (NSTimeInterval) delay;
+
++(void) showErrorInView: (UIView *) view title: (NSString *) title details: (NSString *) details image: (UIImage *) image;
 
 @end

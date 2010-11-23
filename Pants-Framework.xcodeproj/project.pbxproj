@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* Pants_Framework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */ = {isa = PBXBuildFile; fileRef = DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */; };
+		DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */; };
 		DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0A4DA11277F10D004C1F26 /* PFProgressView.h */; };
 		DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A4DA21277F10D004C1F26 /* PFProgressView.m */; };
 		DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0B435F124B1B180084D2E6 /* PFGlassControl.h */; };
@@ -53,6 +55,8 @@
 		DA9A89D1124B180D005E4323 /* PFGlassView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9A89CF124B180D005E4323 /* PFGlassView.h */; };
 		DA9A89D2124B180D005E4323 /* PFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A89D0124B180D005E4323 /* PFGlassView.m */; };
 		DA9A89E2124B19CE005E4323 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9A89E1124B19CE005E4323 /* UIKit.framework */; };
+		DAA0EBA21298D44E00674728 /* PFDisclosureIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA0EBA01298D44E00674728 /* PFDisclosureIndicatorView.h */; };
+		DAA0EBA31298D44E00674728 /* PFDisclosureIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA0EBA11298D44E00674728 /* PFDisclosureIndicatorView.m */; };
 		DAAB5F71126D04F700365DC2 /* PFCellContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */; };
 		DAAB5F72126D04F700365DC2 /* PFCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAB5F70126D04F700365DC2 /* PFCellContentView.m */; };
 		DAAB70BE123612BD007A7A17 /* PFLocationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAB70BA123612BD007A7A17 /* PFLocationTools.h */; };
@@ -77,6 +81,8 @@
 		DADB63A71249790800B681CC /* PFCachedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63A51249790800B681CC /* PFCachedImage.m */; };
 		DADB63D51249963400B681CC /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = DADB63D31249963400B681CC /* UIImage+Resize.h */; };
 		DADB63D61249963400B681CC /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = DADB63D41249963400B681CC /* UIImage+Resize.m */; };
+		DADE2DB4129B1FCC00486FD7 /* PFPromptDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = DADE2DB2129B1FCC00486FD7 /* PFPromptDispatcher.h */; };
+		DADE2DB5129B1FCC00486FD7 /* PFPromptDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DADE2DB3129B1FCC00486FD7 /* PFPromptDispatcher.m */; };
 		DAE3A5A71236B490009C125E /* PFDrawTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3A5A51236B490009C125E /* PFDrawTools.h */; };
 		DAE3A5A81236B490009C125E /* PFDrawTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3A5A61236B490009C125E /* PFDrawTools.m */; };
 		DAF4838E1242D1F000709C30 /* PFGlassButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF4838A1242D1F000709C30 /* PFGlassButton.h */; };
@@ -91,6 +97,8 @@
 		AA747D9E0F9514B9006C5449 /* Pants_Framework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pants_Framework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDispatchTargetAction.h; path = Classes/PFDispatchTargetAction.h; sourceTree = "<group>"; };
+		DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDispatchTargetAction.m; path = Classes/PFDispatchTargetAction.m; sourceTree = "<group>"; };
 		DA0A4DA11277F10D004C1F26 /* PFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProgressView.h; sourceTree = "<group>"; };
 		DA0A4DA21277F10D004C1F26 /* PFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFProgressView.m; sourceTree = "<group>"; };
 		DA0B435F124B1B180084D2E6 /* PFGlassControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassControl.h; sourceTree = "<group>"; };
@@ -135,6 +143,8 @@
 		DA9A89CF124B180D005E4323 /* PFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassView.h; sourceTree = "<group>"; };
 		DA9A89D0124B180D005E4323 /* PFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassView.m; sourceTree = "<group>"; };
 		DA9A89E1124B19CE005E4323 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DAA0EBA01298D44E00674728 /* PFDisclosureIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFDisclosureIndicatorView.h; sourceTree = "<group>"; };
+		DAA0EBA11298D44E00674728 /* PFDisclosureIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFDisclosureIndicatorView.m; sourceTree = "<group>"; };
 		DAAB5F6F126D04F700365DC2 /* PFCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCellContentView.h; sourceTree = "<group>"; };
 		DAAB5F70126D04F700365DC2 /* PFCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCellContentView.m; sourceTree = "<group>"; };
 		DAAB70BA123612BD007A7A17 /* PFLocationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLocationTools.h; path = Classes/PFLocationTools.h; sourceTree = "<group>"; };
@@ -159,8 +169,11 @@
 		DADB63A51249790800B681CC /* PFCachedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCachedImage.m; path = Classes/PFCachedImage.m; sourceTree = "<group>"; };
 		DADB63D31249963400B681CC /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
 		DADB63D41249963400B681CC /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize.m"; sourceTree = "<group>"; };
+		DADE2DB2129B1FCC00486FD7 /* PFPromptDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPromptDispatcher.h; path = Classes/PFPromptDispatcher.h; sourceTree = "<group>"; };
+		DADE2DB3129B1FCC00486FD7 /* PFPromptDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPromptDispatcher.m; path = Classes/PFPromptDispatcher.m; sourceTree = "<group>"; };
 		DAE3A5A51236B490009C125E /* PFDrawTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawTools.h; path = Classes/PFDrawTools.h; sourceTree = "<group>"; };
 		DAE3A5A61236B490009C125E /* PFDrawTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawTools.m; path = Classes/PFDrawTools.m; sourceTree = "<group>"; };
+		DAEFEFAC1297B1F200A66E05 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAF4838A1242D1F000709C30 /* PFGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassButton.h; sourceTree = "<group>"; };
 		DAF4838B1242D1F000709C30 /* PFGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGlassButton.m; sourceTree = "<group>"; };
 		DAF4838C1242D1F000709C30 /* PFLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLabel.h; sourceTree = "<group>"; };
@@ -195,6 +208,7 @@
 		0867D691FE84028FC02AAC07 /* Pants-Framework */ = {
 			isa = PBXGroup;
 			children = (
+				DAEFEFAC1297B1F200A66E05 /* CoreLocation.framework */,
 				DA976C651291E1DC0093BE6B /* 3rd-Party */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -244,6 +258,10 @@
 				DADB63D41249963400B681CC /* UIImage+Resize.m */,
 				DACBA65F1287BD2B00F57AD7 /* UIView+PFExtensions.h */,
 				DACBA6601287BD2B00F57AD7 /* UIView+PFExtensions.m */,
+				DADE2DB2129B1FCC00486FD7 /* PFPromptDispatcher.h */,
+				DADE2DB3129B1FCC00486FD7 /* PFPromptDispatcher.m */,
+				DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */,
+				DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -311,6 +329,8 @@
 				DA8368DC1269AFBF003D48A7 /* PFCalloutLayer.m */,
 				DA8368DD1269AFBF003D48A7 /* PFCalloutView.h */,
 				DA8368DE1269AFBF003D48A7 /* PFCalloutView.m */,
+				DAA0EBA01298D44E00674728 /* PFDisclosureIndicatorView.h */,
+				DAA0EBA11298D44E00674728 /* PFDisclosureIndicatorView.m */,
 				DABFE262125EF3FB00F93C13 /* PFShapeView.h */,
 				DABFE263125EF3FB00F93C13 /* PFShapeView.m */,
 				DACE0730125E8EFB00173EF0 /* PFSpringLayout.h */,
@@ -384,6 +404,9 @@
 				DA976CA51291E1DC0093BE6B /* ZAttributedString.h in Headers */,
 				DA976CA71291E1DC0093BE6B /* ZAttributedStringPrivate.h in Headers */,
 				DA976CA81291E1DC0093BE6B /* ZFont.h in Headers */,
+				DAA0EBA21298D44E00674728 /* PFDisclosureIndicatorView.h in Headers */,
+				DADE2DB4129B1FCC00486FD7 /* PFPromptDispatcher.h in Headers */,
+				DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +497,9 @@
 				DA976CA41291E1DC0093BE6B /* FontManager.m in Sources */,
 				DA976CA61291E1DC0093BE6B /* ZAttributedString.m in Sources */,
 				DA976CA91291E1DC0093BE6B /* ZFont.m in Sources */,
+				DAA0EBA31298D44E00674728 /* PFDisclosureIndicatorView.m in Sources */,
+				DADE2DB5129B1FCC00486FD7 /* PFPromptDispatcher.m in Sources */,
+				DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +556,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -544,7 +570,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};

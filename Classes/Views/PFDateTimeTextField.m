@@ -9,6 +9,7 @@
 #import "PFDateTimeTextField.h"
 #import "UIView+PFExtensions.h"
 #import "GDataXML+PFXml.h"
+#import "PFCalloutLayer.h"
 
 @implementation PFDateTimeTextField
 
@@ -19,7 +20,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     
     [datePicker removeFromSuperview];
+    [shade removeFromSuperview];
     
+    SafeRelease( shade );
     SafeRelease( datePicker );
     SafeRelease( dateFormatter );
     
@@ -30,6 +33,13 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(keyboardDidShow:) name: UIKeyboardWillShowNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(keyboardDidHide:) name: UIKeyboardDidHideNotification object: nil];
+
+    if( ! datePicker )
+    {
+        datePicker = [[UIDatePicker alloc] initWithFrame: CGRectMake( 0, 0, 320, 216)];
+        
+        [datePicker addTarget: self action: @selector(dateValueChanged:forEvent:) forControlEvents: UIControlEventValueChanged];
+    }
 
 }
 
@@ -59,17 +69,6 @@
     self.text = [self.dateFormatter stringFromDate: date];
 }
 
--(UIDatePicker *) datePicker
-{
-    if( ! datePicker )
-    {
-        datePicker = [[UIDatePicker alloc] init];
-        
-        [datePicker addTarget: self action: @selector(dateValueChanged:forEvent:) forControlEvents: UIControlEventValueChanged];
-    }
-    
-    return datePicker;
-}
 
 -(NSDateFormatter *) dateFormatter
 {
@@ -98,10 +97,10 @@
     return dateFormatter;
 }
 
--(UIDatePickerMode) datePickerMode { return self.datePicker.datePickerMode; }
+-(UIDatePickerMode) datePickerMode { return datePicker.datePickerMode; }
 -(void) setDatePickerMode: (UIDatePickerMode) datePickerMode
 {
-    self.datePicker.datePickerMode = datePickerMode;
+    datePicker.datePickerMode = datePickerMode;
     SafeRelease( dateFormatter );
 }
 
@@ -117,21 +116,41 @@
 
 -(void) showDatePicker
 {
-    // Make sure we've created the date picker
-    [self datePicker];
-    
+
     UIView * parent = [self keyboardSuperview];
     
+    if( ! shade && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        shade = [[UIView alloc] initWithFrame: CGRectMake( 0,  0, CGRectGetWidth( parent.frame ), CGRectGetHeight( parent.frame ) )];
+        shade.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent: .5];
+        
+        PFCalloutLayer * callout = [[PFCalloutLayer alloc] init];
+        CGRect bounds = CGRectMake( 15, 15, CGRectGetWidth( datePicker.frame ), CGRectGetHeight( datePicker.frame ) );
+        bounds = CGRectInset( bounds,  -15,  -15 );
+        callout.bounds = bounds;
+        callout.position = CGPointMake( CGRectGetMidX( shade.frame ), CGRectGetMidY( shade.frame ) );
+        [callout setNeedsDisplay];
+        
+        [shade.layer addSublayer: callout];
+    }                        
+    
+    
+    shade.frame = CGRectMake( 0, 0, CGRectGetWidth( parent.frame ), CGRectGetHeight( parent.frame ) );
+    [parent addSubview: shade];
     CGRect frame = [datePicker frame];
-    frame.origin = CGPointMake( 0, CGRectGetMaxY( parent.frame ) - CGRectGetHeight( frame ) );
+    //frame.size.height = 264;
+    frame.origin = CGPointMake( CGRectGetMidX( parent.frame ) - CGRectGetWidth( frame ) / 2, CGRectGetMidY( parent.frame ) - CGRectGetHeight( frame ) / 2 );
     
     datePicker.frame = frame;
     [parent addSubview: datePicker];
+    [parent bringSubviewToFront: shade];
     [parent bringSubviewToFront: datePicker];
+    
 }
 
 -(void) hideDatePicker
 {
+    [shade removeFromSuperview];
     [datePicker removeFromSuperview];
 }
 

@@ -30,7 +30,7 @@
 -(BOOL) boolValueOfAttributeNamed: (NSString *) name withDefault: (BOOL) defaultValue;
 
 -(NSString *) stringValueOfElementNamed: (NSString *) name;
-
+-(NSString *) stringContentsOfElementNamed: (NSString *) name;
 
 -(GDataXMLElement*) firstElementForName: (NSString *) name;
 -(CLLocationCoordinate2D) coordinateFromElementName: (NSString*) name;
