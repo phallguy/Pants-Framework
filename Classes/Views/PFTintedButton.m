@@ -11,10 +11,11 @@
 #import "UIColor+PFExtensions.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define glowRadius      60
+#define glowRadius      30
 
 @interface PFTintedButton()
 -(void) createBackgroundImage;
+-(void) createGlowLayer;
 @end
 
 
@@ -26,6 +27,9 @@
     SafeRelease( stretchImage );
     SafeRelease( subLabel );
     SafeRelease( glowLayer );
+
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(createGlowLayer) object: nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(renderGlowLayerOnMainThread) object: nil];
     
     [super dealloc];
 }
@@ -60,6 +64,9 @@
 
 -(void) setNeedsNewBackground
 {
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(createGlowLayer) object: nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(renderGlowLayerOnMainThread) object: nil];
+    
     SafeRelease( stretchImage );
     
     CGPathRef ref = self.layer.shadowPath;
@@ -201,6 +208,8 @@
         subLabel.shadowOffset = self.titleLabel.shadowOffset;
     }
     
+    if( self.state == UIControlStateHighlighted && ! glowLayer )
+        [self createGlowLayer];
     [glowLayer setHidden: self.state != UIControlStateHighlighted ];
 }
 
@@ -334,7 +343,6 @@
 -(void) createCandyBackgroundImage
 {
     CGRect rect = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
-    CGRect fullRect = rect;
     
     CGFloat radius = cornerRadius;
     CGContextRef g = [self createImageContext: rect];
@@ -393,27 +401,42 @@
         [super setTitleShadowColor: [tint darken: .25] forState: UIControlStateNormal];
         
     }
-    
-    
+}
+
+-(void) renderGlowLayerOnMainThread
+{
+    //[self performSelectorOnMainThread: @selector(createGlowLayer) withObject: nil waitUntilDone: NO];
+    [self createGlowLayer];
+}
+
+-(void) createGlowLayer
+{
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(createGlowLayer) object: nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(renderGlowLayerOnMainThread) object: nil];
+    CGRect rect = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+    CGRect baseRect = CGRectInset( rect, 2, 2 );
+    CGRect fullRect = rect;
+
     // Build glow layer
     rect = CGRectInset( fullRect, -glowRadius, -glowRadius );
     rect = CGRectOffset( rect, glowRadius, glowRadius );
-    g = [self createImageContext: rect];
-
+    CGContextRef g = [self createImageContext: rect];
+    
     CGContextAddRect( g,  rect );
     
     rect = CGRectOffset( baseRect, glowRadius, glowRadius );
-    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
+    CGPathRef p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
     CGContextAddPath( g, p );
     CGContextEOClip( g );
     CGPathRelease( p );
-
+    
     
     
     rect = CGRectInset( rect, -1, -1 );
     
     p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetShadowWithColor( g, CGSizeZero, glowRadius, [tint CGColor] );
+    CGContextSetShadowWithColor( g, CGSizeZero, glowRadius * 2, [tint CGColor] );
     CGContextSetFillColorWithColor( g, [tint CGColor] );
     CGContextAddPath( g,  p );
     CGContextFillPath( g );
@@ -421,15 +444,16 @@
     CGContextFillPath( g );
     CGPathRelease( p );
     
-    img = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
     glowLayer = [[CALayer alloc] init];
     glowLayer.frame = CGRectMake( 0, 0, img.size.width, img.size.height );
     glowLayer.position = CGPointMake( CGRectGetWidth( fullRect ) / 2, CGRectGetHeight( fullRect ) / 2 );
     glowLayer.contents = (id)[img CGImage];
     glowLayer.hidden = YES;
     [self.layer addSublayer: glowLayer];
+    
+    [pool release];
 }
-
 
 -(void) createBackgroundImage
 {
@@ -443,6 +467,7 @@
     {
         case PFTintedButtonRenderTypeCandy:
             [self createCandyBackgroundImage];
+            [self performSelector: @selector(renderGlowLayerOnMainThread) withObject: nil afterDelay: 2];
             break;
         default:
             [self createStandardBackgroundImage];
