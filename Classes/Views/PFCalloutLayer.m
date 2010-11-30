@@ -298,7 +298,7 @@
 
 -(void) drawInContext: (CGContextRef) g
 {
-    NSLog( @"Drawing callout." );
+    NSLog( @"Drawing callout in %@", NSStringFromCGRect( self.bounds ) );
     
     
     CGMutablePathRef path;

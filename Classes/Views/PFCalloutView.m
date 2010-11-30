@@ -223,14 +223,10 @@
         }
 
         
-        
-        
-        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 ), 
-                                   ceil( anchor.y + CGRectGetHeight( self.bounds ) / 2 ) );
     }
     else
     {
-        anchor.y = point.y;
+        anchor.y = point.y - CGRectGetHeight( self.bounds );
         if( orientation == PFCalloutOrientationLeft )
         {
             anchor.x = point.x - CGRectGetWidth( self.bounds ) - kPFCalloutPointerSize - offset.width;
@@ -243,8 +239,12 @@
             calloutLayer.pointerLocation = CGPointMake( 0, point.y - anchor.y + CGRectGetHeight( self.bounds ) / 2 );
         }
 
-        self.center = CGPointMake( ceil( anchor.x + CGRectGetWidth( self.bounds ) / 2 ), ceil( anchor.y ) );
     }
+    
+ 
+    CGRect rect = self.frame;
+    rect.origin = CGPointMake( ceil( anchor.x ), ceil( anchor.y ) );
+    self.frame = rect;    
     
 }
 
