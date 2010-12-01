@@ -208,9 +208,12 @@
         subLabel.shadowOffset = self.titleLabel.shadowOffset;
     }
     
-    if( self.state == UIControlStateHighlighted && ! glowLayer )
-        [self createGlowLayer];
-    [glowLayer setHidden: self.state != UIControlStateHighlighted ];
+    if( renderType == PFTintedButtonRenderTypeCandy )
+    {
+        if( self.state == UIControlStateHighlighted && ! glowLayer )
+            [self createGlowLayer];
+        [glowLayer setHidden: self.state != UIControlStateHighlighted ];
+    }
 }
 
 -(CGContextRef) createImageContext: (CGRect) rect
