@@ -18,6 +18,7 @@
 {
     SafeRelease( color );
     SafeRelease( highlightedColor );
+    SafeRelease( shadowColor );
     
     [super dealloc];
 }
@@ -69,6 +70,17 @@
     [self setNeedsDisplay];
 }
 
+-(UIColor *) shadowColor { return shadowColor; }
+-(void) setShadowColor: (UIColor *) newShadowColor
+{
+    if( newShadowColor == shadowColor )
+        return;
+    
+    [shadowColor release];
+    shadowColor = [newShadowColor retain];
+    [self setNeedsDisplay];
+}
+
 -(BOOL) isHighlited
 {
     id view = self.superview;
@@ -78,23 +90,32 @@
     return [view isHighlighted];
 }
 
+-(void) draw: (CGContextRef) g chevronAt: (CGPoint) point color: (UIColor *) chevronColor
+{
+    CGContextMoveToPoint( g, point.x - kSize, point.y - kSize );
+    CGContextAddLineToPoint( g, point.x, point.y );
+    CGContextAddLineToPoint( g, point.x - kSize, point.y + kSize );
+    CGContextSetStrokeColorWithColor( g, [chevronColor CGColor] );
+    
+    CGContextStrokePath(g);
+    
+}
+
 -(void) drawRect: (CGRect) rect
 {
-    CGFloat x = CGRectGetMidX( self.bounds ) + kSize / 2;
-    CGFloat y = CGRectGetMidY( self.bounds );
+    CGPoint point = CGPointMake( CGRectGetMidX( self.bounds ) + kSize / 2,
+                                 CGRectGetMidY( self.bounds ) );
     
     CGContextRef g = UIGraphicsGetCurrentContext();
 
-    CGContextMoveToPoint( g, x - kSize, y - kSize );
-    CGContextAddLineToPoint( g, x, y );
-    CGContextAddLineToPoint( g, x - kSize, y + kSize );
     CGContextSetLineCap( g, kCGLineCapSquare );
     CGContextSetLineJoin( g, kCGLineJoinMiter );
     CGContextSetLineWidth( g, kLineWidth );
 
-    CGContextSetStrokeColorWithColor( g, [self isHighlited] ? [self.highlightedColor CGColor] : [self.color CGColor] );
-
-    CGContextStrokePath(g);
+    if( shadowColor )
+        [self draw: g chevronAt: CGPointMake( point.x, point.y - 1) color: shadowColor];
+    
+    [self draw: g chevronAt: point color: [self isHighlited] ? self.highlightedColor : self.color];
 }
 
 @end

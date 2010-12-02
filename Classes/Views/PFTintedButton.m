@@ -53,7 +53,18 @@
 {
     if( self = [super initWithCoder: coder] ) 
     {
+        // this is such a hack but there's no other way to determine if the title label's settings
+        // have been modified in IB.
+        NSDictionary * dic = [coder decodeObjectForKey: @"UIButtonStatefulContent"];
+        NSObject * st = [dic objectForKey: [NSNumber numberWithInt: UIControlStateNormal]];
+        NSString * bc = [st description];
+        
+        customTitleColor = [bc rangeOfString: @"TitleColor = UIDeviceRGBColorSpace 0.196078 0.309804 0.521569 1"].location == NSNotFound;
+        customShadow = [bc rangeOfString: @"ShadowColor = UIDeviceRGBColorSpace 0.5 0.5 0.5 1"].location == NSNotFound;
+        
         [self initCommon];
+        
+        //[super setBackgroundColor: [[UIColor redColor] colorWithAlphaComponent: .5]];
     }
     
     return self;
@@ -243,9 +254,19 @@
     rect = CGRectInset( rect, .5, .5 );
     radius -= 1;
     
+    // Outer bezel
+    rect.size.height -= 1;
+    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius - .5];
+    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 0 alpha: .60] CGColor] );
+    CGContextSetLineWidth( g, .5 );
+    CGContextAddPath( g, p );
+    CGContextStrokePath( g );
+    CGPathRelease( p );
+
+    
     // Base Gradient
-    rect = CGRectInset( rect, .5, .5 );
-    rect.size.height -= .5;
+    rect = CGRectInset( fullRect, 1, 1 );
+    rect.size.height -= 1;
     p = [PFDrawTools createPathForRect: rect withCornerRadius: radius];
     
     [PFDrawTools fillPath: p 
@@ -284,49 +305,31 @@
     CGPathRelease( p );
     CGContextAddRect( g, fullRect );
     
-    CGColorRef highlight = [[[UIColor whiteColor] colorWithAlphaComponent: .5] CGColor];
+    CGColorRef highlight = [[[UIColor whiteColor] colorWithAlphaComponent: .35] CGColor];
     CGContextSetFillColorWithColor( g, highlight );
-    CGContextSetShadowWithColor( g, CGSizeMake( 0, .5 ), 0, highlight );
+    CGContextSetShadowWithColor( g, CGSizeMake( 0, 1 ), 0, highlight );
     CGContextEOFillPath( g );
     
     
     CGContextRestoreGState( g );
     
-    // Outer bezel
-    rect = CGRectInset( fullRect, .75, .75 );
-    rect.size.height -= .5;
-    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 0 alpha: .60] CGColor] );
-    CGContextSetLineWidth( g, .5 );
-    CGContextAddPath( g, p );
-    CGContextStrokePath( g );
-    CGPathRelease( p );
     
     // Outer emboss
-    rect = CGRectInset( fullRect, .25, .25 );
-    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 0 alpha: .15] CGColor] );
-    CGContextSetLineWidth( g, .5 );
-    CGContextAddPath( g, p );
-    CGContextStrokePath( g );
-    CGPathRelease( p );        
-    
-    
+    rect = fullRect;
     CGContextAddRect( g, fullRect );
-    p = [PFDrawTools createPathForRect: CGRectOffset( rect, 0, -1 ) withCornerRadius: cornerRadius];
+    p = [PFDrawTools createPathForRect: CGRectOffset( rect, 0, -1 ) withCornerRadius: cornerRadius andCorners: kPFCornerRadiusCornersBottom];
     CGContextAddPath( g, p );
     CGContextEOClip( g );
     CGPathRelease( p );
     
-    
-    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
-    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: .45] CGColor] );
-    CGContextSetLineWidth( g, .5 );
+    rect = CGRectOffset( rect, 0, -.5 );
+    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius ];
+    CGContextSetStrokeColorWithColor( g, [[UIColor colorWithWhite: 1 alpha: .40] CGColor] );
+    CGContextSetLineWidth( g, 1 );
     CGContextAddPath( g, p );
     CGContextStrokePath( g );
     CGPathRelease( p );        
-    
-    
+      
     
     
     // Save it, create strechable image and assign to layer contents

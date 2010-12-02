@@ -15,10 +15,12 @@
 @private
     UIColor * color;
     UIColor * highlightedColor;
+    UIColor * shadowColor;
 }
 
 @property( nonatomic, retain ) UIColor * color;
 @property( nonatomic, retain ) UIColor * highlightedColor;
+@property( nonatomic, retain ) UIColor * shadowColor;
 
 -(id) initWithFrame: (CGRect) frame color: (UIColor *) newColor highlightedColor: (UIColor *) newHighlightedColor;
 
