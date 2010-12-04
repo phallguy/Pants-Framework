@@ -158,8 +158,12 @@
     return r;
 }
 
-
 +(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors
+{
+    [PFDrawTools fillPath: path inContext: g withGradientUIColors: uiColors atLocations: nil];
+}
+
++(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors atLocations: (NSArray *) locations
 {
     CGContextAddPath( g, path );
     CGContextSaveGState( g );
@@ -173,12 +177,19 @@
         UIColor * clr = [uiColors objectAtIndex: ix];
         colors[ ix ] = [clr CGColor];
     }
-    
-	
+    	
 	CFArrayRef colorsRef = CFArrayCreate( NULL, (const void**)colors, uiColors.count, NULL );
+    CGFloat locationsRef[ locations.count ];
+    if( locations )
+    {
+        for( int ix = 0; ix < locations.count; ix++ )
+        {
+            locationsRef[ix] = [[locations objectAtIndex: ix] floatValue];
+        }
+    }
 	
 	CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-	CGGradientRef gradientRef = CGGradientCreateWithColors( colorSpaceRef, colorsRef, NULL );
+	CGGradientRef gradientRef = CGGradientCreateWithColors( colorSpaceRef, colorsRef, locations ? locationsRef : NULL );
     
 	CGContextDrawLinearGradient( g, 
                                 gradientRef, 

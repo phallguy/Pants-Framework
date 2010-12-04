@@ -80,15 +80,13 @@
     
     SafeRelease( stretchImage );
     
-    CGPathRef ref = self.layer.shadowPath;
     self.layer.shadowPath = nil;
-    CGPathRelease( ref );
     
     [glowLayer removeFromSuperlayer];
     SafeRelease( glowLayer );
 
     
-    [self setNeedsLayout];
+    [self setNeedsDisplay];
 }
 
 -(UIColor *) tint { return tint; }
@@ -116,11 +114,16 @@
     if( renderType == newRenderType )
         return;
 
+    renderType = newRenderType;
     switch( newRenderType )
     {
         case PFTintedButtonRenderTypeCandy:
             self.titleLabel.font = [UIFont boldSystemFontOfSize: 26];
             cornerRadius = 15;
+            break;
+        case PFTintedButtonRenderTypeOpal:
+            self.titleLabel.font = [UIFont boldSystemFontOfSize: 10];
+            cornerRadius = 12;
             break;
         case PFTintedButtonRenderTypeStandard:
             self.titleLabel.font = [UIFont boldSystemFontOfSize: 20];
@@ -129,7 +132,6 @@
     }
 
     
-    renderType = newRenderType;
     [self setNeedsNewBackground];
 }
 
@@ -174,8 +176,11 @@
 #pragma mark -
 #pragma Drawing
 
+
 -(void) layoutSubviews
 {
+    [super layoutSubviews];
+    
     if( ! stretchImage )
     {
         [self createBackgroundImage];
@@ -184,9 +189,12 @@
             self.titleLabel.shadowOffset = CGSizeMake( 0, -1 );
     }
     
-    
-    [super layoutSubviews];
-    
+    if( renderType == PFTintedButtonRenderTypeCandy )
+    {
+        if( self.state == UIControlStateHighlighted && ! glowLayer )
+            [self createGlowLayer];
+        [glowLayer setHidden: self.state != UIControlStateHighlighted ];
+    }
     
     if( subLabel && subLabel.text.length )
     {
@@ -217,13 +225,6 @@
         subLabel.textColor = [self titleColorForState: self.state];
         subLabel.shadowColor = [self titleShadowColorForState: self.state];
         subLabel.shadowOffset = self.titleLabel.shadowOffset;
-    }
-    
-    if( renderType == PFTintedButtonRenderTypeCandy )
-    {
-        if( self.state == UIControlStateHighlighted && ! glowLayer )
-            [self createGlowLayer];
-        [glowLayer setHidden: self.state != UIControlStateHighlighted ];
     }
 }
 
@@ -409,6 +410,88 @@
     }
 }
 
+-(void) createOpalBackgroundImage
+{
+    CGRect rect = CGRectMake( 0, 0, CGRectGetWidth( self.bounds ), CGRectGetHeight( self.bounds ) );
+    CGRect fullRect = rect;
+    
+    CGFloat radius = cornerRadius;
+    CGContextRef g = [self createImageContext: rect];
+    CGMutablePathRef p;
+
+    // Base gradient
+    rect = CGRectInset( rect, 0.5, 0.5 );
+    p = [PFDrawTools createPathForRect: rect withCornerRadius: radius];
+    [PFDrawTools fillPath: p
+                inContext: g
+     withGradientUIColors: [NSArray arrayWithObjects: 
+                            [tint dodge: [UIColor colorWithWhite: .65 alpha: 1]],
+                            tint,
+                            tint,
+                            [tint lighten: .2], 
+                            nil]
+              atLocations: [NSArray arrayWithObjects: 
+                            [NSNumber numberWithFloat: 0],
+                            [NSNumber numberWithFloat: .60],
+                            [NSNumber numberWithFloat: .75],
+                            [NSNumber numberWithFloat: 1],
+                            nil]];
+    
+    // Shadow
+    self.layer.shadowPath = p;
+    self.layer.shadowRadius = 1;
+    self.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.layer.shadowOffset = CGSizeMake( 0, 1 );
+    self.layer.shadowOpacity = 1;
+    
+    CGPathRelease( p );
+    
+
+    // Rim light
+    CGContextSaveGState( g );
+    rect = CGRectInset( fullRect, 1, 1 );
+    radius -= 1;
+    
+    p = [PFDrawTools createPathForRect: rect withCornerRadius: radius];
+    CGContextAddPath( g, p );
+    CGContextClip( g );        
+    CGPathRelease( p );
+    
+    p = [PFDrawTools createPathForRect: CGRectOffset( rect, 0, 1 ) withCornerRadius: radius];
+    CGContextAddPath( g, p );
+    CGPathRelease( p );
+    CGContextAddRect( g, fullRect );
+    
+    CGColorRef highlight = [[[UIColor whiteColor] colorWithAlphaComponent: .55] CGColor];
+    CGContextSetFillColorWithColor( g, highlight );
+    CGContextEOFillPath( g );
+    
+    
+    CGContextRestoreGState( g );
+    
+    // Outer trim
+    rect = CGRectInset( fullRect, 0.5, 0.5 );
+    p = [PFDrawTools createPathForRect: rect withCornerRadius: cornerRadius];
+    CGContextSetStrokeColorWithColor( g, [tint CGColor] );
+    CGContextSetLineWidth( g, 1 );
+    CGContextAddPath( g, p );
+    CGContextStrokePath( g );
+    
+    CGPathRelease( p );  
+    
+    
+    // Save it, create strechable image and assign to layer contents
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    stretchImage = [[img stretchableImageWithLeftCapWidth: CGRectGetWidth( rect ) / 2 topCapHeight: 0] retain];
+    [self setBackgroundImage: stretchImage forState: UIControlStateNormal];
+    UIGraphicsEndImageContext();        
+    
+    if( ! customShadow )
+    {
+        [super setTitleShadowColor: [tint darken: .25] forState: UIControlStateNormal];        
+    }    
+}
+
 -(void) renderGlowLayerOnMainThread
 {
     //[self performSelectorOnMainThread: @selector(createGlowLayer) withObject: nil waitUntilDone: NO];
@@ -474,6 +557,9 @@
         case PFTintedButtonRenderTypeCandy:
             [self createCandyBackgroundImage];
             [self performSelector: @selector(renderGlowLayerOnMainThread) withObject: nil afterDelay: 2];
+            break;
+        case PFTintedButtonRenderTypeOpal:
+            [self createOpalBackgroundImage];
             break;
         default:
             [self createStandardBackgroundImage];

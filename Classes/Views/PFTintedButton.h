@@ -13,6 +13,7 @@ typedef enum
 {
     PFTintedButtonRenderTypeStandard,
     PFTintedButtonRenderTypeCandy,
+    PFTintedButtonRenderTypeOpal,
 } PFTintedButtonRenderType;
 
 

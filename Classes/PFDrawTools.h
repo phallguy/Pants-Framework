@@ -43,6 +43,7 @@ typedef enum
 +(CGRect) calculateGlassRect: (CGRect) rect shadowDepth: (CGFloat) shadowDepth;
 
 +(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors;
++(void) fillPath: (CGPathRef) path inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors atLocations: (NSArray *) locations;
 +(void) fillRect: (CGRect) rect inContext: (CGContextRef) g withGradientUIColors: (NSArray *) uiColors;
 
 @end
