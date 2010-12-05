@@ -19,6 +19,8 @@
 		DA0EC6BB1269A2C1004D5924 /* CALayer+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0EC6B91269A2C1004D5924 /* CALayer+PFExtensions.m */; };
 		DA147A9912558315009F6E1C /* PFContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA147A9712558315009F6E1C /* PFContainerView.h */; };
 		DA147A9A12558315009F6E1C /* PFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA147A9812558315009F6E1C /* PFContainerView.m */; };
+		DA31B2B512AC470700BBBD5A /* PFVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = DA31B2B312AC470700BBBD5A /* PFVersion.h */; };
+		DA31B2B612AC470700BBBD5A /* PFVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = DA31B2B412AC470700BBBD5A /* PFVersion.m */; };
 		DA345310124972100051A018 /* PFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DA34530E124972100051A018 /* PFImageCache.h */; };
 		DA345311124972100051A018 /* PFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34530F124972100051A018 /* PFImageCache.m */; };
 		DA35873B12446F2700DCA7FB /* GDataXML+PFXml.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */; };
@@ -107,6 +109,8 @@
 		DA0EC6B91269A2C1004D5924 /* CALayer+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CALayer+PFExtensions.m"; path = "Classes/CALayer+PFExtensions.m"; sourceTree = "<group>"; };
 		DA147A9712558315009F6E1C /* PFContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFContainerView.h; sourceTree = "<group>"; };
 		DA147A9812558315009F6E1C /* PFContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFContainerView.m; sourceTree = "<group>"; };
+		DA31B2B312AC470700BBBD5A /* PFVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFVersion.h; path = Classes/PFVersion.h; sourceTree = "<group>"; };
+		DA31B2B412AC470700BBBD5A /* PFVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFVersion.m; path = Classes/PFVersion.m; sourceTree = "<group>"; };
 		DA34530E124972100051A018 /* PFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFImageCache.h; path = Classes/PFImageCache.h; sourceTree = "<group>"; };
 		DA34530F124972100051A018 /* PFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFImageCache.m; path = Classes/PFImageCache.m; sourceTree = "<group>"; };
 		DA35873912446F2700DCA7FB /* GDataXML+PFXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GDataXML+PFXml.h"; path = "Classes/GDataXML+PFXml.h"; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 				DADE2DB3129B1FCC00486FD7 /* PFPromptDispatcher.m */,
 				DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */,
 				DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */,
+				DA31B2B312AC470700BBBD5A /* PFVersion.h */,
+				DA31B2B412AC470700BBBD5A /* PFVersion.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				DAA0EBA21298D44E00674728 /* PFDisclosureIndicatorView.h in Headers */,
 				DADE2DB4129B1FCC00486FD7 /* PFPromptDispatcher.h in Headers */,
 				DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */,
+				DA31B2B512AC470700BBBD5A /* PFVersion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +507,7 @@
 				DAA0EBA31298D44E00674728 /* PFDisclosureIndicatorView.m in Sources */,
 				DADE2DB5129B1FCC00486FD7 /* PFPromptDispatcher.m in Sources */,
 				DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */,
+				DA31B2B612AC470700BBBD5A /* PFVersion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
