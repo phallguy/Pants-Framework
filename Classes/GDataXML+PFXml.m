@@ -38,10 +38,8 @@
     return value;
 }
 
--(NSDate*) dateValueOfAttributeNamed: (NSString *) name
+-(NSDate *) dateValueFromString: (NSString *) val
 {
-    NSString * val = [self stringValueOfAttributeNamed: name];
-    
     if( val == nil )
         return  nil;
     
@@ -52,6 +50,13 @@
     return date;
 }
 
+-(NSDate*) dateValueOfAttributeNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfAttributeNamed: name];
+    
+    return [self dateValueFromString: val];
+}
+
 -(NSDate *) isoDateValueOfAttributeNamed: (NSString *) name
 {
     NSString * val = [self stringValueOfAttributeNamed: name];
@@ -60,6 +65,24 @@
     
     return [NSDate dateFromIsoString: val];
 }
+
+-(NSDate*) dateValueOfElementNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfElementNamed: name];
+    
+    return [self dateValueFromString: val];
+}
+
+-(NSDate *) isoDateValueOfElementNamed: (NSString *) name
+{
+    NSString * val = [self stringValueOfElementNamed: name];
+    if( val == nil )
+        return nil;
+    
+    return [NSDate dateFromIsoString: val];
+}
+
+
 
 -(UIColor *) colorValueOfAttributeNamed: (NSString *) name
 {

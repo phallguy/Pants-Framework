@@ -31,6 +31,9 @@
 
 -(NSString *) stringValueOfElementNamed: (NSString *) name;
 -(NSString *) stringContentsOfElementNamed: (NSString *) name;
+-(NSDate *) dateValueOfElementNamed: (NSString *) name;
+-(NSDate *) isoDateValueOfElementNamed: (NSString *) name;
+
 
 -(GDataXMLElement*) firstElementForName: (NSString *) name;
 -(CLLocationCoordinate2D) coordinateFromElementName: (NSString*) name;
