@@ -110,6 +110,8 @@
 
 +(PFVersion *) versionFromString:(NSString *)version
 {
+    if( ! version )
+        return nil;
     return [[[PFVersion alloc] initWithString: version] autorelease];
 }
 
