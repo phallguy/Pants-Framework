@@ -11,6 +11,8 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */ = {isa = PBXBuildFile; fileRef = DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */; };
 		DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */; };
+		DA089A4412AF803800FB30B4 /* PFWorkingView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA089A4212AF803800FB30B4 /* PFWorkingView.h */; };
+		DA089A4512AF803800FB30B4 /* PFWorkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA089A4312AF803800FB30B4 /* PFWorkingView.m */; };
 		DA0A4DA31277F10D004C1F26 /* PFProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0A4DA11277F10D004C1F26 /* PFProgressView.h */; };
 		DA0A4DA41277F10D004C1F26 /* PFProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A4DA21277F10D004C1F26 /* PFProgressView.m */; };
 		DA0B4361124B1B180084D2E6 /* PFGlassControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0B435F124B1B180084D2E6 /* PFGlassControl.h */; };
@@ -101,6 +103,8 @@
 		D2AAC07E0554694100DB518D /* libPants_Framework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPants_Framework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA06A758129B254D0090D853 /* PFDispatchTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDispatchTargetAction.h; path = Classes/PFDispatchTargetAction.h; sourceTree = "<group>"; };
 		DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDispatchTargetAction.m; path = Classes/PFDispatchTargetAction.m; sourceTree = "<group>"; };
+		DA089A4212AF803800FB30B4 /* PFWorkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFWorkingView.h; sourceTree = "<group>"; };
+		DA089A4312AF803800FB30B4 /* PFWorkingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFWorkingView.m; sourceTree = "<group>"; };
 		DA0A4DA11277F10D004C1F26 /* PFProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProgressView.h; sourceTree = "<group>"; };
 		DA0A4DA21277F10D004C1F26 /* PFProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFProgressView.m; sourceTree = "<group>"; };
 		DA0B435F124B1B180084D2E6 /* PFGlassControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGlassControl.h; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 				DA7C88471235FD35004FD53B /* PFTouchDetectorControl.m */,
 				DAFB36881235A90F0008E7DB /* UIView+ShowThySelf.h */,
 				DAFB36891235A90F0008E7DB /* UIView+ShowThySelf.m */,
+				DA089A4212AF803800FB30B4 /* PFWorkingView.h */,
+				DA089A4312AF803800FB30B4 /* PFWorkingView.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -414,6 +420,7 @@
 				DADE2DB4129B1FCC00486FD7 /* PFPromptDispatcher.h in Headers */,
 				DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */,
 				DA31B2B512AC470700BBBD5A /* PFVersion.h in Headers */,
+				DA089A4412AF803800FB30B4 /* PFWorkingView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +515,7 @@
 				DADE2DB5129B1FCC00486FD7 /* PFPromptDispatcher.m in Sources */,
 				DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */,
 				DA31B2B612AC470700BBBD5A /* PFVersion.m in Sources */,
+				DA089A4512AF803800FB30B4 /* PFWorkingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
