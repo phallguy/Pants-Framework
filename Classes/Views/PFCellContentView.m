@@ -95,7 +95,10 @@
 {
     if( imageButtonOverlay == nil )
     {
+        [self imageView];
+        
         imageButtonOverlay = [[UIButton buttonWithType: UIButtonTypeCustom] retain];
+        imageButtonOverlay.frame = CGRectMake( 0, 0 , CGRectGetWidth( imageView.frame ), CGRectGetHeight( imageView.frame ) );
         [self insertSubview: imageButtonOverlay aboveSubview: imageView];        
     }
     
