@@ -29,6 +29,8 @@
 		DA35873C12446F2700DCA7FB /* GDataXML+PFXml.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */; };
 		DA4518B81288C9B2004B3D87 /* PFDateTimeTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4518B61288C9B2004B3D87 /* PFDateTimeTextField.h */; };
 		DA4518B91288C9B2004B3D87 /* PFDateTimeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4518B71288C9B2004B3D87 /* PFDateTimeTextField.m */; };
+		DA5CA43B12B2F275009057DB /* UIDevice+PFExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5CA43912B2F275009057DB /* UIDevice+PFExtensions.h */; };
+		DA5CA43C12B2F275009057DB /* UIDevice+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5CA43A12B2F275009057DB /* UIDevice+PFExtensions.m */; };
 		DA6C4787127B3F0200B4DBFB /* PFGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C4784127B3F0200B4DBFB /* PFGradientView.h */; };
 		DA6C4788127B3F0200B4DBFB /* PFGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C4785127B3F0200B4DBFB /* PFGradientView.m */; };
 		DA6C82B212875E5900A0C325 /* PFTintedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6C82B012875E5900A0C325 /* PFTintedButton.h */; };
@@ -121,6 +123,8 @@
 		DA35873A12446F2700DCA7FB /* GDataXML+PFXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GDataXML+PFXml.m"; path = "Classes/GDataXML+PFXml.m"; sourceTree = "<group>"; };
 		DA4518B61288C9B2004B3D87 /* PFDateTimeTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFDateTimeTextField.h; sourceTree = "<group>"; };
 		DA4518B71288C9B2004B3D87 /* PFDateTimeTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFDateTimeTextField.m; sourceTree = "<group>"; };
+		DA5CA43912B2F275009057DB /* UIDevice+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+PFExtensions.h"; path = "Classes/UIDevice+PFExtensions.h"; sourceTree = "<group>"; };
+		DA5CA43A12B2F275009057DB /* UIDevice+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+PFExtensions.m"; path = "Classes/UIDevice+PFExtensions.m"; sourceTree = "<group>"; };
 		DA6C4784127B3F0200B4DBFB /* PFGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGradientView.h; sourceTree = "<group>"; };
 		DA6C4785127B3F0200B4DBFB /* PFGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGradientView.m; sourceTree = "<group>"; };
 		DA6C82B012875E5900A0C325 /* PFTintedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTintedButton.h; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 				DA06A759129B254D0090D853 /* PFDispatchTargetAction.m */,
 				DA31B2B312AC470700BBBD5A /* PFVersion.h */,
 				DA31B2B412AC470700BBBD5A /* PFVersion.m */,
+				DA5CA43912B2F275009057DB /* UIDevice+PFExtensions.h */,
+				DA5CA43A12B2F275009057DB /* UIDevice+PFExtensions.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				DA06A75A129B254D0090D853 /* PFDispatchTargetAction.h in Headers */,
 				DA31B2B512AC470700BBBD5A /* PFVersion.h in Headers */,
 				DA089A4412AF803800FB30B4 /* PFWorkingView.h in Headers */,
+				DA5CA43B12B2F275009057DB /* UIDevice+PFExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +523,7 @@
 				DA06A75B129B254D0090D853 /* PFDispatchTargetAction.m in Sources */,
 				DA31B2B612AC470700BBBD5A /* PFVersion.m in Sources */,
 				DA089A4512AF803800FB30B4 /* PFWorkingView.m in Sources */,
+				DA5CA43C12B2F275009057DB /* UIDevice+PFExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
